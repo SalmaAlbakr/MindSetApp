@@ -78,7 +78,7 @@ class _TimerScreenState extends State<TimerScreen> {
         title: Row(
           children: [
             Image.asset(
-              "images/T-web.gif",
+              "assets/T-web.gif",
               height: 45,
               width: 45,
             ),

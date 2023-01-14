@@ -14,10 +14,10 @@ class ResultScreen extends StatefulWidget {
 }
 
 List<String> ChangeImageList = [
-  "images/By2o.gif",
-  "images/jhkj.gif",
-  "images/load-icon-gif-28.jpg",
-  "images/optical-matter-machine-nanoscale-machines-convert-light-into-work.gif",
+  "assets/By2o.gif",
+  "assets/jhkj.gif",
+  "assets/load-icon-gif-28.jpg",
+  "assets/optical-matter-machine-nanoscale-machines-convert-light-into-work.gif",
 ];
 
 class _ResultScreenState extends State<ResultScreen> {
@@ -31,7 +31,7 @@ class _ResultScreenState extends State<ResultScreen> {
         title: Row(
           children: [
             Image.asset(
-              "images/T-web.gif",
+              "assets/T-web.gif",
               height: 45,
               width: 45,
             ),

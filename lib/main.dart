@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:next_poject/toss/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(child: Container()),
-    );
-  }
+  runApp( MaterialApp(home: SplashScreen()));
 }

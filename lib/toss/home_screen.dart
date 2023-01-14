@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
         title: Row(
           children: [
             Image.asset(
-              "images/T-web.gif",
+              "assets/T-web.gif",
               height: 45,
               width: 45,
             ),
@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
                         fit: BoxFit.fill,
                         scale: 10,
                         image: AssetImage(
-                          "images/Butterfly-PNG-3.png",
+                          "assets/Butterfly-PNG-3.png",
                         ),
                       ),
                     ),
