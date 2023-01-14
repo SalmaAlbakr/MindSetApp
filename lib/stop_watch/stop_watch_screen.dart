@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,7 +19,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   bool isvisible = true;
   bool isnotvisible = false;
   bool startispressed = true;
@@ -28,24 +28,24 @@ class _HomeState extends State<Home> {
   var swatch = Stopwatch();
   final dur = const Duration(seconds: 1);
 
-  void startTimer()
-  {
+  void startTimer() {
     Timer(dur, keeprunning);
   }
 
-  void keeprunning()
-  {
-    if(swatch.isRunning){
+  void keeprunning() {
+    if (swatch.isRunning) {
       startTimer();
     }
     setState(() {
-      time = swatch.elapsed.inHours.toString().padLeft(2,'0') + ":" +(swatch.elapsed.inMinutes%60).toString().padLeft(2,'0') + ":" + (swatch.elapsed.inSeconds%60).toString().padLeft(2,'0');
+      time = swatch.elapsed.inHours.toString().padLeft(2, '0') +
+          ":" +
+          (swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
+          ":" +
+          (swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
     });
   }
 
-
-  void startwatch()
-  {
+  void startwatch() {
     setState(() {
       isvisible = !isvisible;
       isnotvisible = !isnotvisible;
@@ -56,8 +56,7 @@ class _HomeState extends State<Home> {
     startTimer();
   }
 
-  void stopwatch()
-  {
+  void stopwatch() {
     setState(() {
       stoptispressed = true;
       resettispressed = false;
@@ -67,8 +66,7 @@ class _HomeState extends State<Home> {
     swatch.stop();
   }
 
-  void resetwatch()
-  {
+  void resetwatch() {
     setState(() {
       startispressed = true;
       resettispressed = true;
@@ -76,6 +74,7 @@ class _HomeState extends State<Home> {
     swatch.reset();
     time = "00:00:00";
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,31 +82,36 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Container(
-              child: Image.asset("assets/bg.jpeg",
-                height: double.infinity,
-                fit: BoxFit.cover,
-              )
-          ),
+              child: Image.asset(
+            "assets/bg.jpeg",
+            height: double.infinity,
+            fit: BoxFit.cover,
+          )),
           Column(
             children: [
-              SizedBox(height: 100,),
+              SizedBox(
+                height: 100,
+              ),
               Container(
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height/2,
+                height: MediaQuery.of(context).size.height / 2,
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 50,right: 50,top: 50),
+                margin: EdgeInsets.only(left: 50, right: 50, top: 50),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.transparent,
-                    border: Border.all(width: 4,color: Colors.red.shade400,
-                    )
+                    border: Border.all(
+                      width: 4,
+                      color: Colors.red.shade400,
+                    )),
+                child: Text(
+                  time,
+                  style: TextStyle(fontSize: 50, color: Colors.red),
                 ),
-                child: Text(time,style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.red
-                ),),
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -117,22 +121,23 @@ class _HomeState extends State<Home> {
                     maintainState: true,
                     maintainAnimation: true,
                     child: InkWell(
-                      onTap: startispressed ? startwatch: null,
+                      onTap: startispressed ? startwatch : null,
                       child: Container(
-                        height:40,
+                        height: 40,
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Colors.red.shade400,
-                            border: Border.all(color: Colors.red.shade200)
-                        ),
-                        child: Text("Start",
+                            border: Border.all(color: Colors.red.shade200)),
+                        child: Text(
+                          "Start",
                           style: TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.italic,
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
-                          ),),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -144,40 +149,48 @@ class _HomeState extends State<Home> {
                     child: InkWell(
                       onTap: stoptispressed ? null : stopwatch,
                       child: Container(
-                        height:40,
+                        height: 40,
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
+                          color: Colors.red.shade400,
+                          border: Border.all(
                             color: Colors.red.shade400,
-                            border: Border.all(color: Colors.red.shade400)
+                          ),
                         ),
-                        child: Text("Stop",
+                        child: Text(
+                          "Stop",
                           style: TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.italic,
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
-                          ),),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                   InkWell(
                     onTap: resettispressed ? null : resetwatch,
                     child: Container(
-                      height:40,
+                      height: 40,
                       width: 80,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
+                        color: Colors.red.shade400,
+                        border: Border.all(
                           color: Colors.red.shade400,
-                          border: Border.all(color: Colors.red.shade400)
+                        ),
                       ),
-                      child: Text("Reset",
+                      child: Text(
+                        "Reset",
                         style: TextStyle(
                           color: Colors.white,
                           fontStyle: FontStyle.italic,
                           fontSize: 25,
                           fontWeight: FontWeight.w600,
-                        ),),
+                        ),
+                      ),
                     ),
                   ),
                 ],

@@ -30,6 +30,12 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   math_expressions: ^2.3.1
+  toast: ^0.3.0
+  fluttertoast: ^8.1.1
+  animation_wrappers: ^3.0.0
+  dart_random_choice: ^0.1.0-nullsafety.0
+  lottie: ^2.0.0
+  animated_text_kit: ^4.2.2
   flutter:
     sdk: flutter
 

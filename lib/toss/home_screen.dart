@@ -1,0 +1,179 @@
+import 'package:flutter/material.dart';
+import 'package:animation_wrappers/animation_wrappers.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:next_poject/toss/TimerScreen.dart';
+
+class MainScreen extends StatefulWidget {
+  List<String> inputList = [""];
+  int index = 0;
+  MainScreen({Key? key, required this.inputList, required this.index})
+      : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  TextEditingController controller = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[400],
+        title: Row(
+          children: [
+            Image.asset(
+              "images/T-web.gif",
+              height: 45,
+              width: 45,
+            ),
+            SizedBox(width: 10),
+            Text("Toss"),
+          ],
+        ),
+      ),
+      body: SafeArea(
+        child: Form(
+          key: formKey,
+          child: Container(
+            child: ListView(
+              children: [
+                SizedBox(height: 50),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Hello, Let's Get Started",
+                    style: TextStyle(color: Colors.deepPurple, fontSize: 25),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Container(
+                  height: 400,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        scale: 10,
+                        image: AssetImage(
+                          "images/Butterfly-PNG-3.png",
+                        ),
+                      ),
+                    ),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: widget.inputList.length,
+                      itemBuilder: (context, index) {
+                        return ScaleAnimation(
+                          child: Card(
+                            elevation: 5,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    widget.inputList[index],
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(
+                                        () {
+                                          widget.inputList.removeAt(index);
+                                        },
+                                      );
+                                    },
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.deepPurple,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                // SizedBox(height: 40),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      hintText: "Enter your Options here",
+                    ),
+                    controller: controller,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white)),
+                    onPressed: () {
+                      setState(
+                        () {
+                          widget.inputList.add(controller.text);
+                          controller.clear();
+                        },
+                      );
+                    },
+                    child: Text(
+                      "add",
+                      style: TextStyle(color: Colors.deepPurple),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          if (widget.inputList.isEmpty) {
+                            Fluttertoast.showToast(
+                                msg: "plz enter an options",
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIosWeb: 5,
+                                backgroundColor: Colors.grey,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerScreen(
+                                  index: widget.index,
+                                  inputList: widget.inputList,
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                      );
+                    },
+                    child: Text(
+                      "Random",
+                      style: TextStyle(color: Colors.deepPurple),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
