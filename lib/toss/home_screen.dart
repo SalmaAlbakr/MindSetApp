@@ -117,7 +117,7 @@ class _MainScreenState extends State<MainScreen> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.white)),
+                            MaterialStateProperty.all(Colors.white),),
                     onPressed: () {
                       setState(
                         () {

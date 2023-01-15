@@ -24,7 +24,7 @@ class MainPage extends StatelessWidget {
             height: 100,
             width: 60,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +41,7 @@ class MainPage extends StatelessWidget {
                         fontSize: 10, color: Colors.white),),
                   ],
                 ),
+                SizedBox(height: 20,),
                 Row(
                   children: [
                     Card(
@@ -48,7 +49,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("assets/Profile Picture.png"),
+                            child: Image.asset("assets/dollar.gif"),
                           ),
                           SizedBox(height: 10,),
                           Text("Calculator",style: TextStyle(
