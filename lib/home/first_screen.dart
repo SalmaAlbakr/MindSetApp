@@ -20,29 +20,29 @@ class MainPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 100,
-            width: 60,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Plz Select an App",style: TextStyle(
-                        fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),),
-                  ],
-                ),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("provide you with a collection  daily apps in one place   ",style: TextStyle(
-                        fontSize: 10, color: Colors.white),),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Plz Select an App",style: TextStyle(
+                      fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),),
+                ],
+              ),
+              SizedBox(height: 15,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("provide you with a collection  daily apps in one place   ",style: TextStyle(
+                      fontSize: 10, color: Colors.white),),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Container(
+                height: 200,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
                   children: [
                     Card(
                       child: Column(
@@ -59,9 +59,8 @@ class MainPage extends StatelessWidget {
                     )
                   ],
                 ),
-              ],
-            ),
-
+              ),
+            ],
           ),
         ),
       ),
