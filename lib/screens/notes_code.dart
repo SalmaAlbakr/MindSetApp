@@ -22,9 +22,9 @@ class NotesApp extends StatelessWidget {
                       hintText: "Add ",
                     ),
                   ),
-                )
+                );
               }
-          )
+          );
         },
       ),
     ));
