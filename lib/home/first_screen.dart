@@ -49,8 +49,8 @@ class MainPage extends StatelessWidget {
                       child: Column(
                         children: [
                           CircleAvatar(
+                            backgroundImage: AssetImage("assets/dollar.gif"),
                             radius: 30,
-                            child: Image.asset("assets/dollar.gif"),
                           ),
                           SizedBox(height: 20,),
                           Text("Calculator",style: TextStyle(
@@ -64,7 +64,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("assets/dollar.gif"),
+                            backgroundImage: AssetImage("assets/dollar.gif"),
                           ),
                           SizedBox(height: 20,),
                           Text("Notes",style: TextStyle(
@@ -78,7 +78,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("assets/img.png"),
+                            backgroundImage: AssetImage("assets/img.png"),
                           ),
                           SizedBox(height: 20,),
                           Text("Stop Watch",style: TextStyle(
@@ -92,7 +92,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("assets/dollar.gif"),
+                            backgroundImage: AssetImage("assets/dollar.gif"),
                           ),
                           SizedBox(height: 20,),
                           Text("Toss",style: TextStyle(
@@ -106,7 +106,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("assets/reminder.png"),
+                            backgroundImage: AssetImage("assets/reminder.png"),
                           ),
                           SizedBox(height: 20,),
                           Text("Reminder",style: TextStyle(
