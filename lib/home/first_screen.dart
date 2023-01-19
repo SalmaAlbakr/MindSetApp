@@ -40,7 +40,7 @@ class MainPage extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               Container(
-                height: 200,
+                height: 500,
                 child: GridView(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
                   children: [
@@ -78,7 +78,7 @@ class MainPage extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            child: Image.asset("Stop Watch"),
+                            child: Image.asset("assets/img.png"),
                           ),
                           SizedBox(height: 20,),
                           Text("Stop Watch",style: TextStyle(
