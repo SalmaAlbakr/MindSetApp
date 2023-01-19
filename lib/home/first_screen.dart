@@ -6,14 +6,14 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         elevation: 0.0,
         title: Text(
           "MindSet",
           style: TextStyle(
-              fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),
+              fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
       ),
