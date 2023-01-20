@@ -41,79 +41,94 @@ class MainPage extends StatelessWidget {
               SizedBox(height: 20,),
               Container(
                 height: 500,
-                child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Card(
-                      color: Colors.lightGreen,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage("assets/dollar.gif"),
-                            radius: 30,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Card(
+                          color: Colors.lightGreen,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                backgroundImage: AssetImage("assets/dollar.gif"),
+                                radius: 30,
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Calculator",style: TextStyle(
+                                  fontSize: 20, color: Colors.black))
+                            ],
                           ),
-                          SizedBox(height: 20,),
-                          Text("Calculator",style: TextStyle(
-                              fontSize: 20, color: Colors.black))
-                        ],
-                      ),
+                        ),
+                        Card(
+                          color: Colors.pinkAccent,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundImage: AssetImage("assets/dollar.gif"),
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Notes",style: TextStyle(
+                                  fontSize: 20, color: Colors.black))
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    Card(
-                      color: Colors.pinkAccent,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage("assets/dollar.gif"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Card(
+                          color: Colors.limeAccent,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundImage: AssetImage("assets/img.png"),
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Stop Watch",style: TextStyle(
+                                  fontSize: 20, color: Colors.black))
+                            ],
                           ),
-                          SizedBox(height: 20,),
-                          Text("Notes",style: TextStyle(
-                              fontSize: 20, color: Colors.black))
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Card(
-                      color: Colors.limeAccent,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage("assets/img.png"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Card(
+                          color: Colors.cyan,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundImage: AssetImage("assets/dollar.gif"),
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Toss",style: TextStyle(
+                                  fontSize: 20, color: Colors.black))
+                            ],
                           ),
-                          SizedBox(height: 20,),
-                          Text("Stop Watch",style: TextStyle(
-                              fontSize: 20, color: Colors.black))
-                        ],
-                      ),
+                        ),
+                        Card(
+                          color: Colors.deepPurpleAccent,
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundImage: AssetImage("assets/reminder.png"),
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Reminder",style: TextStyle(
+                                  fontSize: 20, color: Colors.black))
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    Card(
-                      color: Colors.cyan,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage("assets/dollar.gif"),
-                          ),
-                          SizedBox(height: 20,),
-                          Text("Toss",style: TextStyle(
-                              fontSize: 20, color: Colors.black))
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: Colors.deepPurpleAccent,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage("assets/reminder.png"),
-                          ),
-                          SizedBox(height: 20,),
-                          Text("Reminder",style: TextStyle(
-                              fontSize: 20, color: Colors.black))
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),
