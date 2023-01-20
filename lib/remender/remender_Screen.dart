@@ -4,14 +4,14 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
-class SendNot extends StatefulWidget {
-  const SendNot({Key? key}) : super(key: key);
+class Reminder extends StatefulWidget {
+  const Reminder({Key? key}) : super(key: key);
 
   @override
-  State<SendNot> createState() => _SendNotState();
+  State<Reminder> createState() => _ReminderState();
 }
 
-class _SendNotState extends State<SendNot> {
+class _ReminderState extends State<Reminder> {
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
 

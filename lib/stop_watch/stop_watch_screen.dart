@@ -7,18 +7,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: StopWatch(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class Home extends StatefulWidget {
+class StopWatch extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _StopWatchState createState() => _StopWatchState();
 }
 
-class _HomeState extends State<Home> {
+class _StopWatchState extends State<StopWatch> {
   bool isvisible = true;
   bool isnotvisible = false;
   bool startispressed = true;

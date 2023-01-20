@@ -111,7 +111,7 @@ class _ResultScreenState extends State<ResultScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MainScreen(
+                            builder: (context) => Toss(
                               inputList: widget.inputList,
                               index: widget.index,
                             ),

@@ -3,17 +3,17 @@ import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:next_poject/toss/TimerScreen.dart';
 
-class MainScreen extends StatefulWidget {
+class Toss extends StatefulWidget {
   List<String> inputList = [""];
   int index = 0;
-  MainScreen({Key? key, required this.inputList, required this.index})
+  Toss({Key? key, required this.inputList, required this.index})
       : super(key: key);
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<Toss> createState() => _TossState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _TossState extends State<Toss> {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
