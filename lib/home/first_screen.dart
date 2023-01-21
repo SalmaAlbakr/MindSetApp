@@ -37,14 +37,10 @@ class MainPage extends StatelessWidget {
               ),
               SizedBox(height: 15,),
               Container(
-                width: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("provide you with a collection  daily apps in one place   ",style: TextStyle(
-                        fontSize: 20, color: Colors.blueAccent),),
-                  ],
-                ),
+                height: 100,
+                width: 200,
+                child: Text("provide you with a collection  daily apps in one place ",maxLines: 20,overflow: TextOverflow.ellipsis,style: TextStyle(
+                    fontSize: 20, color: Colors.blueAccent),),
               ),
               SizedBox(height: 20,),
               Container(
