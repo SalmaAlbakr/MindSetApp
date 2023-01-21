@@ -72,7 +72,7 @@ class _StopWatchState extends State<StopWatch> {
         children: [
           Container(
               child: Image.asset(
-            "assets/bg.jpeg",
+            "assets/stop.jpg",
             height: double.infinity,
             fit: BoxFit.cover,
           )),
