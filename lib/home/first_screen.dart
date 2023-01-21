@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/note/note_screen.dart';
-import 'package:next_poject/remender/remender_Screen.dart';
+import 'package:next_poject/reminder/remender_Screen.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
 import 'package:next_poject/toss/home_screen.dart';
 

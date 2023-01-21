@@ -11,18 +11,20 @@ class _NotesState extends State<Notes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEFC5C5),
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Color(0xffF05151),
+        backgroundColor: Colors.yellow,
         elevation: 0.0,
         title: Text(
-          "My ToDo",
+          "Notes",
           style: TextStyle(
-              fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
-        centerTitle: true,
+       // centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
+
+        backgroundColor: Colors.black,
         onPressed: () {
           showDialog(
             context: context,
@@ -57,8 +59,9 @@ class _NotesState extends State<Notes> {
           );
         },
         child: Icon(
-          Icons.add,
-          color: Colors.white,
+          size: 40,
+          Icons.note_alt_outlined,
+          color: Colors.yellow,
         ),
       ),
       body: Padding(

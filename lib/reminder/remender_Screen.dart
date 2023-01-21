@@ -79,10 +79,17 @@ class _ReminderState extends State<Reminder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        title: Text("Reminder"),
+      ),
       body: Center(
         child: Container(
+
           width: MediaQuery.of(context).size.width * 0.8,
           child: Column(
+
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
@@ -91,7 +98,7 @@ class _ReminderState extends State<Reminder> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
-                  label: Text("Notification Title"),
+                  label: Text("Notification Title",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                 ),
               ),
               const SizedBox(
@@ -108,6 +115,13 @@ class _ReminderState extends State<Reminder> {
               const SizedBox(
                   height: 16),
               DateTimePicker(
+                decoration: InputDecoration(
+                  labelText: "Date",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                ),
+                calendarTitle: "Date",
                 firstDate: DateTime.now(),
                 lastDate: DateTime(2095),
                 controller: _date,
@@ -183,9 +197,10 @@ class _ReminderState extends State<Reminder> {
               const SizedBox(
                 height: 24.0,
               ),
+              SizedBox(height: 100,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 55),
+                    minimumSize: Size(double.infinity, 55),backgroundColor: Colors.orange
                   ),
                   onPressed: showNotification,
                   child: Text("Show Notification")),
