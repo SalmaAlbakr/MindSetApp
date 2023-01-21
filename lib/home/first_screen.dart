@@ -59,7 +59,7 @@ class MainPage extends StatelessWidget {
                             child: Column(
                               children: [
                                 CircleAvatar(
-                                  backgroundImage: AssetImage("assets/dollar.gif"),
+                                  backgroundImage: AssetImage("assets/calclogo.jpg"),
                                   radius: 30,
                                 ),
                                 SizedBox(height: 20,),
@@ -77,7 +77,7 @@ class MainPage extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: AssetImage("assets/dollar.gif"),
+                                  backgroundImage: AssetImage("assets/noteslogo.jpg"),
                                 ),
                                 SizedBox(height: 20,),
                                 Text("Notes",style: TextStyle(
@@ -121,7 +121,7 @@ class MainPage extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: AssetImage("assets/dollar.gif"),
+                                  backgroundImage: AssetImage("assets/toss22.PNG"),
                                 ),
                                 SizedBox(height: 20,),
                                 Text("Toss",style: TextStyle(
@@ -138,7 +138,7 @@ class MainPage extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: AssetImage("assets/reminder.png"),
+                                  backgroundImage: AssetImage("assets/rem22.PNG"),
                                 ),
                                 SizedBox(height: 20,),
                                 Text("Reminder",style: TextStyle(
