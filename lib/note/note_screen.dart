@@ -50,7 +50,7 @@ class _NotesState extends State<Notes> {
                       Navigator.of(context).pop();
                     },
                     child: Text(
-                      "Add ",
+                      "Done ",
                     ),
                   )
                 ],

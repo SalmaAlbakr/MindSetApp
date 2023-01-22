@@ -67,6 +67,9 @@ class _StopWatchState extends State<StopWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Stop Watch"),
+      ),
       //backgroundColor: Colors.black,
       body: Stack(
         children: [
@@ -91,11 +94,11 @@ class _StopWatchState extends State<StopWatch> {
                     color: Colors.transparent,
                     border: Border.all(
                       width: 4,
-                      color: Colors.red.shade400,
+                      color: Colors.white,
                     )),
                 child: Text(
                   time,
-                  style: TextStyle(fontSize: 50, color: Colors.red),
+                  style: TextStyle(fontSize: 50, color: Colors.white),
                 ),
               ),
               SizedBox(
@@ -116,8 +119,8 @@ class _StopWatchState extends State<StopWatch> {
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.red.shade400,
-                            border: Border.all(color: Colors.red.shade200)),
+                            color: Colors.cyanAccent,
+                            border: Border.all(color: Colors.blueAccent)),
                         child: Text(
                           "Start",
                           style: TextStyle(
@@ -142,9 +145,9 @@ class _StopWatchState extends State<StopWatch> {
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.red.shade400,
+                          color: Colors.cyan,
                           border: Border.all(
-                            color: Colors.red.shade400,
+                            color: Colors.blue,
                           ),
                         ),
                         child: Text(
@@ -166,9 +169,9 @@ class _StopWatchState extends State<StopWatch> {
                       width: 80,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Colors.red.shade400,
+                        color: Colors.cyan,
                         border: Border.all(
-                          color: Colors.red.shade400,
+                          color: Colors.blue,
                         ),
                       ),
                       child: Text(

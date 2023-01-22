@@ -109,7 +109,7 @@ class _ReminderState extends State<Reminder> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
-                  label: Text("Notification Description"),
+                  label: Text("Notification Description",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                 ),
               ),
               const SizedBox(
@@ -121,7 +121,7 @@ class _ReminderState extends State<Reminder> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                 ),
-                calendarTitle: "Date",
+                calendarTitle: "Date",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
                 firstDate: DateTime.now(),
                 lastDate: DateTime(2095),
                 controller: _date,
@@ -192,19 +192,19 @@ class _ReminderState extends State<Reminder> {
                         });
                       },
                     ),
-                    label: Text("Time")),
+                    label: Text("Time",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
               ),
               const SizedBox(
                 height: 24.0,
               ),
-              SizedBox(height: 100,),
+              SizedBox(height: 180,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 55),backgroundColor: Colors.orange
                   ),
                   onPressed: showNotification,
-                  child: Text("Show Notification")),
-            ],
+                  child: Text("Show Notification",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+              ) ],
           ),
         ),
       ),

@@ -52,7 +52,8 @@ class MainPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context) => CalculatorScreen() ));},
+                          onTap: (){Navigator
+                              .push(context,MaterialPageRoute(builder:(context) => CalculatorScreen() ));},
                           child: Card(
                             color: Colors.lightGreen,
                             child: Column(
@@ -70,18 +71,24 @@ class MainPage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context) => Notes() ));},
-                          child: Card(
-                            color: Colors.pinkAccent,
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage: AssetImage("assets/noteslogo.jpg"),
-                                ),
-                                SizedBox(height: 20,),
-                                Text("Notes",style: TextStyle(
-                                    fontSize: 20, color: Colors.black))
-                              ],
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            margin:EdgeInsets.all(5),
+                            child: Card(
+                              shadowColor: Colors.cyan,
+                              color: Colors.pinkAccent,
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 30,
+                                    backgroundImage: AssetImage("assets/noteslogo.jpg"),
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Text("Notes",style: TextStyle(
+                                      fontSize: 20, color: Colors.black))
+                                ],
+                              ),
                             ),
                           ),
                         ),
