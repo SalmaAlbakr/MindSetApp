@@ -27,7 +27,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
     var box = Hive.box<NoteModels>('keepNote');
 
     var noteModel = NoteModels(
-      title : event.title,
+      //<title : event.title,
       body : event.body,
       color: state.color,
       isComplete: event.isComplete,
@@ -66,7 +66,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
     var box = Hive.box<NoteModels>('keepNote');
 
     var noteModel = NoteModels(
-      title : event.title,
+      //title : event.title,
       body : event.body,
       color: state.color,
       isComplete: event.isComplete,

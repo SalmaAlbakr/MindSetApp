@@ -57,6 +57,9 @@ class _HomePageState extends State<HomePage> {
     final box = Hive.box<NoteModels>('keepNote');
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xffab7ec1),
+      ),
       backgroundColor: Color(0xffF2F3F7),
       body: SafeArea(
         child: CustomScrollView(
@@ -192,13 +195,13 @@ class _ListNotes extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       itemCount: box.values.length,
       itemBuilder: (_, i){
-    
+
         NoteModels note = box.getAt(i)!;
     
         return GestureDetector(
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ShowNotePage(note: note, index: i ))),
           child: Dismissible(
-            key: Key(note.title!),
+            key: Key(note.body!),
             background: Container(),
             direction: DismissDirection.endToStart,
             secondaryBackground: Container(
@@ -224,13 +227,13 @@ class _ListNotes extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextFrave(text: note.title.toString(), fontWeight: FontWeight.w600 ),
-                      TextFrave(text: note.category!, fontSize: 16, color: Colors.blueGrey ),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     TextFrave(text: note.title.toString(), fontWeight: FontWeight.w600 ),
+                  //     TextFrave(text: note.category!, fontSize: 16, color: Colors.blueGrey ),
+                  //   ],
+                  // ),
                   SizedBox(height: 10.0),
                   Wrap(
                     children: [
@@ -292,7 +295,7 @@ class _GridViewNote extends StatelessWidget {
         return GestureDetector(
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ShowNotePage(note: note, index: i ))),
           child: Dismissible(
-            key: Key(note.title!),
+            key: Key(note.body!),
             direction: DismissDirection.endToStart,
             background: Container(),
             secondaryBackground: Container(
@@ -316,9 +319,6 @@ class _GridViewNote extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
-                    child: TextFrave(text: note.title.toString(), fontWeight: FontWeight.bold)
-                  ),
                   SizedBox(height: 10.0),
                   Expanded(
                     child: Container(
@@ -333,11 +333,11 @@ class _GridViewNote extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextFrave(text: timeago.format(note.created!), fontSize: 16, color: Colors.grey ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Icon(Icons.circle, color: Color(note.color!), size: 15)
-                      ),
+                      //TextFrave(text: timeago.format(note.created!), fontSize: 16, color: Colors.grey ),
+                      // Align(
+                      //   alignment: Alignment.centerRight,
+                      //   child: Icon(Icons.circle, color: Color(note.color!), size: 15)
+                      // ),
                     ],
                   )
                 ],

@@ -10,6 +10,7 @@ class TextWriteNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 700,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0)
@@ -17,7 +18,7 @@ class TextWriteNote extends StatelessWidget {
       child: TextField(
         controller: controller,
         style: GoogleFonts.getFont('Inter'),
-        maxLines: 10,
+        maxLines: null,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Write a note...',

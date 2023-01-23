@@ -28,7 +28,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
   @override
   void initState() {
 
-    _titleController = TextEditingController(text: widget.note.title);
+   // _titleController = TextEditingController(text: widget.note.title);
     _noteController = TextEditingController(text: widget.note.body);
 
     BlocProvider.of<NotesBloc>(context).add(SelectedColorEvent(widget.note.color!));
@@ -61,7 +61,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
       appBar: AppBar(
         backgroundColor: Color(0xffF2F3F7),
         elevation: 0,
-        title: TextFrave(text: widget.note.title!, fontWeight: FontWeight.w500, fontSize: 17 ),
+        title: TextFrave( fontWeight: FontWeight.w500, fontSize: 17, text: '', ),
         centerTitle: true,
         leading: InkWell(
           onTap: () => Navigator.pop(context),
@@ -102,13 +102,13 @@ class _ShowNotePageState extends State<ShowNotePage> {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                TextTitle(controller: _titleController,),
+               // TextTitle(controller: _titleController,),
                 SizedBox(height: 20.0),
                 TextWriteNote(controller: _noteController),
-                SizedBox(height: 20.0),
-                _Category(),
+               // SizedBox(height: 20.0),
+               // _Category(),
                 SizedBox(height: 30.0),
-                SelectedColors(),
+               // SelectedColors(),
               ],
             ),
           ),

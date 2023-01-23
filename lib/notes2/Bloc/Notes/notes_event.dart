@@ -4,7 +4,7 @@ part of 'notes_bloc.dart';
 abstract class NotesEvent {}
 
 class AddNoteFrave extends NotesEvent {
-  final String title;
+ // final String title;
   final String body;
   final DateTime created;
   final int color;
@@ -12,7 +12,7 @@ class AddNoteFrave extends NotesEvent {
   final bool isComplete;
 
   AddNoteFrave({
-    required this.title, 
+   // required this.title,
     required this.body, 
     required this.created, 
     required this.color,

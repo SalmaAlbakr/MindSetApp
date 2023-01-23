@@ -5,8 +5,8 @@ part 'NoteModels.g.dart';
 @HiveType(typeId: 1)
 class NoteModels {
 
-  @HiveField(0)
-  String? title;
+  // @HiveField(0)
+  // String? title;
 
   @HiveField(1)
   String? body;
@@ -23,6 +23,6 @@ class NoteModels {
   @HiveField(5)
   DateTime? created;
 
-  NoteModels({ this.title, this.body, this.isComplete, this.color, this.category, this.created });
+  NoteModels({ this.body, this.isComplete, this.color, this.category, this.created });
 
 }

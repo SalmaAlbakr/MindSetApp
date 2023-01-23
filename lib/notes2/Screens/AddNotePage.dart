@@ -66,10 +66,10 @@ class _AddNotePageState extends State<AddNotePage> {
           InkWell(
             onTap: () {
 
-              if(_titleController.text.trim().isNotEmpty && _noteController.text.trim().isNotEmpty){
+              if( _noteController.text.trim().isNotEmpty){
 
                 noteBloc.add( AddNoteFrave(
-                  title: _titleController.text, 
+                 // title: _titleController.text,
                   body: _noteController.text, 
                   created: DateTime.now(), 
                   color: noteBloc.state.color, 
@@ -98,13 +98,13 @@ class _AddNotePageState extends State<AddNotePage> {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                TextTitle(controller: _titleController,),
-                SizedBox(height: 20.0),
+                //TextTitle(controller: _titleController,),
+                //SizedBox(height: 20.0),
                 TextWriteNote(controller: _noteController),
-                SizedBox(height: 20.0),
-                _Category(),
-                SizedBox(height: 30.0),
-                SelectedColors(),
+                //SizedBox(height: 20.0),
+                //_Category(),
+                //SizedBox(height: 30.0),
+                //SelectedColors(),
               ],
             ),
           ),
