@@ -7,12 +7,11 @@ import 'package:next_poject/notes2/Widgets/TextFrave.dart';
 void showDialogBottomFrave(ctx){
 
   final noteBloc = BlocProvider.of<NotesBloc>(ctx);
-
   showModalBottomSheet(
     context: ctx,
-    barrierColor: Colors.black26, 
+    barrierColor: Colors.black26,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))),
-    builder: (context) 
+    builder: (context)
       => Container(
         height: 300,
         width: double.infinity,

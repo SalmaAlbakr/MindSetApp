@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        title: Text("Notes"),
         backgroundColor: Color(0xffab7ec1),
       ),
       backgroundColor: Color(0xffF2F3F7),

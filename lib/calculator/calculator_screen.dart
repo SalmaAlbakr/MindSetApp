@@ -104,10 +104,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           textColor: Colors.white,
                           backgroundColor: Colors.redAccent,
                           numberOfButton: "C"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.white24,
-                          numberOfButton: ""),
+                      // ButtonWidget(
+                      //     textColor: Colors.white,
+                      //     backgroundColor: Colors.black,
+                      //     numberOfButton: ""),
                       ButtonWidget(
                           textColor: Colors.white,
                           backgroundColor: Colors.grey,
