@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GeneralBloc()),
       ],
       child: MaterialApp(
+        theme: ThemeData.dark(),
         title: 'Keep Note - Fraved',
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),

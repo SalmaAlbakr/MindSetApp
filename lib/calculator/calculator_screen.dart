@@ -46,6 +46,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
     setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +131,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           numberOfButton: "9"),
                       ButtonWidget(
                           textColor: Colors.white,
-                           backgroundColor: Colors.grey,
+                          backgroundColor: Colors.grey,
                           numberOfButton: "X"),
                     ],
                   ),
