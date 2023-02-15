@@ -15,7 +15,7 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(NoteModelsAdapter());
-  //await Hive.openBox<NoteModels>('keepNote');
+  await Hive.openBox<NoteModels>('keepNote');
 
   runApp(MyApp());
 }
