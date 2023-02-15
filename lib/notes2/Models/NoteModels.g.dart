@@ -1,15 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'NoteModels.dart';
-
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
-
 class NoteModelsAdapter extends TypeAdapter<NoteModels> {
   @override
   final int typeId = 1;
-
   @override
   NoteModels read(BinaryReader reader) {
     final numOfFields = reader.readByte();
@@ -25,7 +22,6 @@ class NoteModelsAdapter extends TypeAdapter<NoteModels> {
       created: fields[5] as DateTime?,
     );
   }
-
   @override
   void write(BinaryWriter writer, NoteModels obj) {
     writer

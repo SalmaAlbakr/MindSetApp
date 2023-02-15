@@ -23,9 +23,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
   }
 
   Future<void> _addNewNote(AddNoteFrave event, Emitter<NotesState> emit) async {
-
     var box = Hive.box<NoteModels>('keepNote');
-
     var noteModel = NoteModels(
       //<title : event.title,
       body : event.body,
@@ -45,7 +43,6 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
     emit(state.copyWith(color: event.color));
 
   }
-
 
   Future<void> _selectedCategory(SelectedCategoryEvent event, Emitter<NotesState> emit) async {
 

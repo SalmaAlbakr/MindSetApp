@@ -81,8 +81,7 @@ class _HomePageState extends State<HomePage> {
                     child: AnimatedOpacity(
                       duration: const Duration(milliseconds: 100),
                         opacity: !state.isScrollAppBar ? 1 : 0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextFrave(
                             text: 'All notes', 

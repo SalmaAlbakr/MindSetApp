@@ -79,17 +79,15 @@ class _ReminderState extends State<Reminder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Color(0xffab7ec1),
         title: Text("Reminder"),
       ),
       body: Center(
         child: Container(
-
           width: MediaQuery.of(context).size.width * 0.8,
           child: Column(
-
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
@@ -157,7 +155,7 @@ class _ReminderState extends State<Reminder> {
               //       label: Text("Date")),
               // ),
               const SizedBox(
-                height: 16.0,
+               height: 16.0,
               ),
               TextField(
                 controller: _time,
@@ -200,7 +198,7 @@ class _ReminderState extends State<Reminder> {
               SizedBox(height: 180,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 55),backgroundColor: Colors.orange
+                    minimumSize: Size(double.infinity, 55),backgroundColor: Color(0xffab7ec1)
                   ),
                   onPressed: showNotification,
                   child: Text("Show Notification",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),

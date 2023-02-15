@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/home/first_screen.dart';
+import 'package:next_poject/home/splash_screen.dart';
 import 'package:next_poject/notes2/Bloc/Notes/notes_bloc.dart';
 import 'package:next_poject/notes2/Bloc/general/general_bloc.dart';
 import 'package:next_poject/notes2/Models/NoteModels.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Keep Note - Fraved',
         debugShowCheckedModeBanner: false,
-        home: MainPage(),
+        home: SplashScreen(),
       ),
     );
   }
