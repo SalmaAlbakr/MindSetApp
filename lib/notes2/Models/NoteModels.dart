@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'NoteModels.g.dart';
+//part 'NoteModels.g.dart';
 
 @HiveType(typeId: 1)
 class NoteModels {
