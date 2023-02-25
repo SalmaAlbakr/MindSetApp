@@ -59,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditData(index: index, name: helper.name,),),);
                     },
                     child: Container(
+                      width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         border: Border.all()

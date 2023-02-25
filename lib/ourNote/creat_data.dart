@@ -37,7 +37,7 @@ class _CreateDataState extends State<CreateData> {
               ),
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: "name",
+                labelText: "title",
                 border: OutlineInputBorder(),
               ),
             ),
