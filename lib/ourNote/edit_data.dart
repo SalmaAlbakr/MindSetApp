@@ -25,13 +25,12 @@ class _EditDataState extends State<EditData> {
     super.initState();
   }
 
-  // @override
-  // void dispose() {
-  //   _nameController.dispose();
-  //   _ageController.dispose();
-  //   _phoneController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _ageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
