@@ -87,9 +87,11 @@ class _ReminderState extends State<Reminder> {
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: ListView(
+           // mainAxisSize: MainAxisSize.min,
             children: [
+              const SizedBox(
+                  height: 16),
               TextField(
                 controller: _title,
                 decoration: InputDecoration(
@@ -176,7 +178,7 @@ class _ReminderState extends State<Reminder> {
                         }
 
                         _time.text =
-                        "${slectedTime.hour}:${slectedTime.minute}:${slectedTime.period.toString()}";
+                        "${slectedTime.hour}:${slectedTime.minute}.${slectedTime.period.name}";
 
                         DateTime newDT = DateTime(
                           dateTime.year,
