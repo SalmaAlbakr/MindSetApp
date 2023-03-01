@@ -14,12 +14,12 @@ class _CreateDataState extends State<CreateData> {
 
   final TextEditingController _ageController = TextEditingController();
 
-  // @override
-  // void dispose() {
-  //   _nameController.dispose();
-  //   _ageController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _ageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
