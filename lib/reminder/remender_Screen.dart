@@ -12,6 +12,7 @@ class Reminder extends StatefulWidget {
 }
 
 class _ReminderState extends State<Reminder> {
+  List titleList = [];
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
 
@@ -74,6 +75,15 @@ class _ReminderState extends State<Reminder> {
         UILocalNotificationDateInterpretation.wallClockTime,
         androidAllowWhileIdle: true,
         payload: 'Ths s the data');
+
+       /// test to add notification
+    setState(() {
+      titleList.add(scheduledAt);
+    });
+    _title.clear();
+    _desc.clear();
+    _desc.clear();
+    _time.clear();
   }
 
   @override
@@ -170,22 +180,22 @@ class _ReminderState extends State<Reminder> {
                         Icons.timer_outlined,
                       ),
                       onTap: () async {
-                        final TimeOfDay? slectedTime = await showTimePicker(
+                        final TimeOfDay? selectTime = await showTimePicker(
                             context: context, initialTime: TimeOfDay.now());
 
-                        if (slectedTime == null) {
+                        if (selectTime == null) {
                           return;
                         }
 
                         _time.text =
-                        "${slectedTime.hour}:${slectedTime.minute}.${slectedTime.period.name}";
+                        "${selectTime.hour}:${selectTime.minute}.${selectTime.period.name}";
 
                         DateTime newDT = DateTime(
                           dateTime.year,
                           dateTime.month,
                           dateTime.day,
-                          slectedTime.hour,
-                          slectedTime.minute,
+                          selectTime.hour,
+                          selectTime.minute,
                         );
                         setState(() {
                           dateTime = newDT;
@@ -194,10 +204,27 @@ class _ReminderState extends State<Reminder> {
                     ),
                     label: Text("Time",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
               ),
-              const SizedBox(
-                height: 24.0,
+              Container(
+                height: 150,
+                child: ListView.builder(
+                  itemCount: titleList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      child: Column(
+                        children: [
+                          Text(
+                            _title.text[index]
+                          ),
+                          Text(dateTime.toString())
+                        ],
+                      ),
+
+
+                    );
+
+                  },
+                ),
               ),
-              SizedBox(height: 180,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 55),backgroundColor: Color(0xffab7ec1)
