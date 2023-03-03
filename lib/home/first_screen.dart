@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
-import 'package:next_poject/notes2/Screens/HomePage.dart';
 import 'package:next_poject/ourNote/home_screen.dart';
 import 'package:next_poject/reminder/remender_Screen.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
