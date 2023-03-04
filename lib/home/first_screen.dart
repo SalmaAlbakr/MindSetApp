@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/ourNote/home_screen.dart';
 import 'package:next_poject/reminder/remender_Screen.dart';
@@ -83,7 +84,8 @@ class MainPage extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
+                          onTap: () async {
+                            await Hive.openBox("boxName");
                             Navigator.push(
                               context,
                               MaterialPageRoute(

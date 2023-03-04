@@ -1,224 +1,189 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:next_poject/calculator/button.dart';
 
 class CalculatorScreen extends StatefulWidget {
-  const CalculatorScreen({Key? key}) : super(key: key);
-
   @override
-  State<CalculatorScreen> createState() => _CalculatorScreenState();
+  _CalculatorScreenState createState() => _CalculatorScreenState();
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  //double firstNum = 0.0;
-  //double secondNum = 0.0;
-  var input = "";
-  var output = "";
-  var hideInput = false;
-  //var operation = "";
+  var userInput = '';
+  var answer = '';
 
-  action(value) {
-    if (value == "AC") {
-      input = "";
-      output = "";
-    } else if (value == "C") {
-      if (input.isNotEmpty) {
-        input = input.substring(0, input.length - 1);
-      }
-    } else if (value == "=") {
-      if (input.isNotEmpty) {
-        var userInput = input;
-        userInput = input.replaceAll("X", "*");
-        Parser p = Parser();
-        Expression expression = p.parse(userInput);
-        ContextModel cm = ContextModel();
-        var finalValue = expression.evaluate(EvaluationType.REAL, cm);
-        output = finalValue.toString();
-        if (output.endsWith(".0")) {
-          output = output.substring(0, output.length - 2);
-        }
-        input = output;
-
-        hideInput = true;
-      }
-    } else {
-      input = input + value;
-      hideInput = false;
-    }
-    setState(() {});
-  }
+// Array of button
+  final List<String> buttons = [
+    'C',
+    '+/-',
+    '%',
+    'DEL',
+    '7',
+    '8',
+    '9',
+    '/',
+    '4',
+    '5',
+    '6',
+    'x',
+    '1',
+    '2',
+    '3',
+    '-',
+    '0',
+    '.',
+    '=',
+    '+',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Calculator"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(5),
-              width: MediaQuery.of(context).size.width,
+      appBar: new AppBar(
+        title: new Text("Calculator"),
+      ), //AppBar
+      backgroundColor: Colors.white38,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      hideInput ? "" : input,
-                      style: TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      output,
-                      style: TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                ],
-              ),
-              height: 250,
-            ),
-            Container(
-              height: 430,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.orangeAccent,
-                          numberOfButton: "AC"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.redAccent,
-                          numberOfButton: "C"),
-                      // ButtonWidget(
-                      //     textColor: Colors.white,
-                      //     backgroundColor: Colors.black,
-                      //     numberOfButton: ""),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          numberOfButton: "/"),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "7"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "8"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "9"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          numberOfButton: "X"),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "4"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "5"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "6"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          numberOfButton: "-"),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "1"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "2"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "3"),
-                      ButtonWidget(
-                        textColor: Colors.white,
-                        backgroundColor: Colors.grey,
-                        numberOfButton: "+",
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        userInput,
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          numberOfButton: "%"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          numberOfButton: "0"),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          numberOfButton: "."),
-                      ButtonWidget(
-                          textColor: Colors.white,
-                          backgroundColor: Colors.orangeAccent,
-                          numberOfButton: "="),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(15),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        answer,
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ]),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              child: GridView.builder(
+                  itemCount: buttons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4),
+                  itemBuilder: (BuildContext context, int index) {
+                    // Clear Button
+                    if (index == 0) {
+                      return MyButton(
+                        buttontapped: () {
+                          setState(() {
+                            userInput = '';
+                            answer = '0';
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: Colors.blue[50],
+                        textColor: Colors.black,
+                      );
+                    }
+
+                    // +/- button
+                    else if (index == 1) {
+                      return MyButton(
+                        buttonText: buttons[index],
+                        color: Colors.blue[50],
+                        textColor: Colors.black,
+                      );
+                    }
+                    // % Button
+                    else if (index == 2) {
+                      return MyButton(
+                        buttontapped: () {
+                          setState(() {
+                            userInput += buttons[index];
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: Colors.blue[50],
+                        textColor: Colors.black,
+                      );
+                    }
+                    // Delete Button
+                    else if (index == 3) {
+                      return MyButton(
+                        buttontapped: () {
+                          setState(() {
+                            userInput =
+                                userInput.substring(0, userInput.length - 1);
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: Colors.blue[50],
+                        textColor: Colors.black,
+                      );
+                    }
+                    // Equal_to Button
+                    else if (index == 18) {
+                      return MyButton(
+                        buttontapped: () {
+                          setState(() {
+                            equalPressed();
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: Colors.orange[700],
+                        textColor: Colors.white,
+                      );
+                    }
+
+                    // other buttons
+                    else {
+                      return MyButton(
+                        buttontapped: () {
+                          setState(() {
+                            userInput += buttons[index];
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: isOperator(buttons[index])
+                            ? Colors.blueAccent
+                            : Colors.white,
+                        textColor: isOperator(buttons[index])
+                            ? Colors.white
+                            : Colors.black,
+                      );
+                    }
+                  }), // GridView.builder
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget ButtonWidget({numberOfButton, backgroundColor, textColor}) {
-    return GestureDetector(
-      onTap: () => action(numberOfButton),
-      child: CircleAvatar(
-        backgroundColor: backgroundColor,
-        radius: 40,
-        child: Text(
-          numberOfButton!,
-          style: TextStyle(color: textColor, fontSize: 35),
-        ),
-      ),
-    );
+  bool isOperator(String x) {
+    if (x == '/' || x == 'x' || x == '-' || x == '+' || x == '=') {
+      return true;
+    }
+    return false;
+  }
+
+// function to calculate the input operation
+  void equalPressed() {
+    String finaluserinput = userInput;
+    finaluserinput = userInput.replaceAll('x', '*');
+
+    Parser p = Parser();
+    Expression exp = p.parse(finaluserinput);
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
+    answer = eval.toString();
   }
 }

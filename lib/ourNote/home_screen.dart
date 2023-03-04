@@ -14,7 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
+
+
   void dispose() {
     Hive.box("boxName").close();
     super.dispose();

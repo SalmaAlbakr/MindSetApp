@@ -40,7 +40,6 @@ class _TossState extends State<Toss> {
           child: Container(
             child: ListView(
               children: [
-                SizedBox(height: 50),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

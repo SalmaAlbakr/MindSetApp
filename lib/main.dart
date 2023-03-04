@@ -10,7 +10,6 @@ void main() async {
   final directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   Hive.registerAdapter(ModelClassAdapter());
-  await Hive.openBox("boxName");
   runApp(MyApp());
 }
 
