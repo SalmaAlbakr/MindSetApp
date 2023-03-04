@@ -18,10 +18,10 @@ class _StopWatchState extends State<StopWatch> {
   final dur = const Duration(seconds: 1);
 
   void startTimer() {
-    Timer(dur, keeprunning);
+    Timer(dur, keepRunning);
   }
 
-  void keeprunning() {
+  void keepRunning() {
     if (swatch.isRunning) {
       startTimer();
     }
