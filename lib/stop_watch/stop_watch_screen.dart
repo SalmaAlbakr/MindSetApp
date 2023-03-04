@@ -8,11 +8,11 @@ class StopWatch extends StatefulWidget {
 }
 
 class _StopWatchState extends State<StopWatch> {
-  bool isvisible = true;
-  bool isnotvisible = false;
-  bool startispressed = true;
-  bool stoptispressed = true;
-  bool resettispressed = true;
+  bool isVisible = true;
+  bool isNotVisible = false;
+  bool startIsPressed = true;
+  bool stopIsPressed = true;
+  bool resetIsPressed = true;
   String time = "00:00:00";
   var swatch = Stopwatch();
   final dur = const Duration(seconds: 1);
@@ -36,10 +36,10 @@ class _StopWatchState extends State<StopWatch> {
 
   void startwatch() {
     setState(() {
-      isvisible = !isvisible;
-      isnotvisible = !isnotvisible;
-      stoptispressed = false;
-      startispressed = false;
+      isVisible = !isVisible;
+      isNotVisible = !isNotVisible;
+      stopIsPressed = false;
+      startIsPressed = false;
     });
     swatch.start();
     startTimer();
@@ -47,18 +47,18 @@ class _StopWatchState extends State<StopWatch> {
 
   void stopwatch() {
     setState(() {
-      stoptispressed = true;
-      resettispressed = false;
-      isvisible = !isvisible;
-      isnotvisible = !isnotvisible;
+      stopIsPressed = true;
+      resetIsPressed = false;
+      isVisible = !isVisible;
+      isNotVisible = !isNotVisible;
     });
     swatch.stop();
   }
 
   void resetwatch() {
     setState(() {
-      startispressed = true;
-      resettispressed = true;
+      startIsPressed = true;
+      resetIsPressed = true;
     });
     swatch.reset();
     time = "00:00:00";
@@ -108,12 +108,12 @@ class _StopWatchState extends State<StopWatch> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Visibility(
-                    visible: isvisible,
+                    visible: isVisible,
                     maintainSize: true,
                     maintainState: true,
                     maintainAnimation: true,
                     child: InkWell(
-                      onTap: startispressed ? startwatch : null,
+                      onTap: startIsPressed ? startwatch : null,
                       child: Container(
                         height: 40,
                         width: 80,
@@ -134,12 +134,12 @@ class _StopWatchState extends State<StopWatch> {
                     ),
                   ),
                   Visibility(
-                    visible: isnotvisible,
+                    visible: isNotVisible,
                     maintainSize: true,
                     maintainState: true,
                     maintainAnimation: true,
                     child: InkWell(
-                      onTap: stoptispressed ? null : stopwatch,
+                      onTap: stopIsPressed ? null : stopwatch,
                       child: Container(
                         height: 40,
                         width: 80,
@@ -163,7 +163,7 @@ class _StopWatchState extends State<StopWatch> {
                     ),
                   ),
                   InkWell(
-                    onTap: resettispressed ? null : resetwatch,
+                    onTap: resetIsPressed ? null : resetwatch,
                     child: Container(
                       height: 40,
                       width: 80,
