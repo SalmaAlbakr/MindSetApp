@@ -13,9 +13,9 @@ class Reminder extends StatefulWidget {
 
 class _ReminderState extends State<Reminder> {
   List titleList = [];
+  int id = 0;
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
-
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
 
@@ -63,14 +63,11 @@ class _ReminderState extends State<Reminder> {
       linux: null,
     );
 
-    // flutterLocalNotificationsPlugin.show(
-    //     01, _title.text, _desc.text, notificationDetails);
-
     tz.initializeTimeZones();
     final tz.TZDateTime scheduledAt = tz.TZDateTime.from(dateTime, tz.local);
 
-    flutterLocalNotificationsPlugin.zonedSchedule(
-        01, _title.text, _desc.text, scheduledAt, notificationDetails,
+    final myNotification = flutterLocalNotificationsPlugin.zonedSchedule(
+        id, _title.text, _desc.text, scheduledAt, notificationDetails,
         uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.wallClockTime,
         androidAllowWhileIdle: true,
@@ -78,12 +75,10 @@ class _ReminderState extends State<Reminder> {
 
        /// test to add notification
     setState(() {
-      titleList.add(scheduledAt);
+      titleList.add(_title.text);
+      id++;
+      print("my id notification is:  $id");
     });
-    _title.clear();
-    _desc.clear();
-    _desc.clear();
-    _time.clear();
   }
 
   @override
@@ -210,14 +205,7 @@ class _ReminderState extends State<Reminder> {
                   itemCount: titleList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      child: Column(
-                        children: [
-                          Text(
-                            _title.text[index]
-                          ),
-                          Text(dateTime.toString())
-                        ],
-                      ),
+                      child: Text(titleList[index].toString())
 
 
                     );
