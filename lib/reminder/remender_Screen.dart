@@ -12,7 +12,7 @@ class Reminder extends StatefulWidget {
 }
 
 class _ReminderState extends State<Reminder> {
-  List titleList = [];
+  List<List> titleList = [];
   int id = 0;
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
@@ -20,7 +20,6 @@ class _ReminderState extends State<Reminder> {
   final TextEditingController _time = TextEditingController();
 
   DateTime dateTime = DateTime.now();
-
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
 
@@ -42,9 +41,11 @@ class _ReminderState extends State<Reminder> {
       initializationSettings,
       // onSelectNotification: (dataYouNeedToUseWhenNotificationIsClicked) {},
     );
+
   }
 
   showNotification() {
+    List detelsList = [_title.text , _desc.text , _date.text , _time.text ];
     if (_title.text.isEmpty || _desc.text.isEmpty) {
       return;
     }
@@ -75,7 +76,7 @@ class _ReminderState extends State<Reminder> {
 
        /// test to add notification
     setState(() {
-      titleList.add(_title.text);
+      titleList.add(detelsList);
       id++;
       print("my id notification is:  $id");
     });
@@ -131,36 +132,6 @@ class _ReminderState extends State<Reminder> {
                 lastDate: DateTime(2095),
                 controller: _date,
               ),
-              // TextField(
-              //   controller: _date,
-              //   decoration: InputDecoration(
-              //       border: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(12.0),
-              //       ),
-              //       suffixIcon: InkWell(
-              //         child: Icon(Icons.date_range),
-              //         onTap: () async {
-              //           final DateTime? newlySelectedDate =
-              //           await showDatePicker(
-              //             context: context,
-              //             initialDate: dateTime,
-              //             firstDate: DateTime.now(),
-              //             lastDate: DateTime(2095),
-              //           );
-              //
-              //           if (newlySelectedDate == null) {
-              //             return;
-              //           }
-              //
-              //           setState(() {
-              //             dateTime = newlySelectedDate;
-              //             // _date.text =
-              //             //     "${dateTime.year}/${dateTime.month}/${dateTime.day}";
-              //           });
-              //         },
-              //       ),
-              //       label: Text("Date")),
-              // ),
               const SizedBox(
                height: 16.0,
               ),
@@ -200,16 +171,31 @@ class _ReminderState extends State<Reminder> {
                     label: Text("Time",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
               ),
               Container(
-                height: 150,
+                height: 300,
                 child: ListView.builder(
                   itemCount: titleList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      child: Text(titleList[index].toString())
+                      decoration:  BoxDecoration(
+                        border: Border.all()
+                      ),
+                      child: Column(
+                        children: [
+                          Text(titleList[index][0].toString()),
+                          Text(titleList[index][1].toString()),
+                          Text(titleList[index][2].toString()),
+                          Text(titleList[index][3].toString()),
+                          ElevatedButton(onPressed: () {
+                            setState(()  {
+                              titleList.removeAt(index);
+                               flutterLocalNotificationsPlugin.cancel(index);
 
+                            });
+                          }, child: Text("Delete"))
+                        ],
+                      ),
 
                     );
-
                   },
                 ),
               ),
