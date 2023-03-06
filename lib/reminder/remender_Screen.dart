@@ -67,7 +67,7 @@ class _ReminderState extends State<Reminder> {
     tz.initializeTimeZones();
     final tz.TZDateTime scheduledAt = tz.TZDateTime.from(dateTime, tz.local);
 
-    final myNotification = flutterLocalNotificationsPlugin.zonedSchedule(
+    flutterLocalNotificationsPlugin.zonedSchedule(
         id, _title.text, _desc.text, scheduledAt, notificationDetails,
         uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.wallClockTime,
