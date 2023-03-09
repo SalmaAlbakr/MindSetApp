@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:next_poject/ourNote/home_screen.dart';
 import 'package:next_poject/ourNote/model_class.dart';
 
 class EditData extends StatefulWidget {
@@ -76,6 +77,7 @@ class _EditDataState extends State<EditData> {
                       );
                   Hive.box("boxName").putAt(widget.index, value);
                   print("done data");
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 child: Text("Done"))
           ],

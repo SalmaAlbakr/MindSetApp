@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:next_poject/ourNote/home_screen.dart';
 import 'package:next_poject/ourNote/model_class.dart';
 
 class CreateData extends StatefulWidget {
@@ -67,6 +68,7 @@ class _CreateDataState extends State<CreateData> {
                     name: _nameController.text,
                     age: _ageController.text);
                 Hive.box("boxName").add(value);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
               },
               child: Text("create"),
             ),

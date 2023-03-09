@@ -211,4 +211,52 @@ class _ReminderState extends State<Reminder> {
       ),
     );
   }
+  //reminder notification window>>
+
+  // Container(
+  //     child:
+  //   Column(
+  //     children: [
+  //       Row(
+  //         children: [
+  //           Text("$variable of notofication title"),
+  //         ],
+  //       ),
+  //
+  //    Row(
+  //      children: [
+  //        ElevatedButton(onPressed: (){}, child: Text("ok")),
+  //        SizedBox(height: 20),
+  //        ElevatedButton(onPressed: (){rememberMeButton}, child: Text("Set Again")),
+  //      ],
+  //    )
+  // ],
+  //     ),
+  //
+  //
+  //     ),
+
+//set again window
+
+// Container(
+//     child:
+//   Column(
+//     children: [
+//       Row(
+//         children: [
+//           Text("use the same date "),
+//         ],
+//       ),
+//
+//    Row(
+//      children: [
+//        ElevatedButton(onPressed: (){}, child: Text("ok")),
+//        SizedBox(height: 20),
+//        ElevatedButton(onPressed: (){calender or create button}, child: Text("Modify")),
+//      ],
+//    )
+// ],
+//     ),
+
+
 }
