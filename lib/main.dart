@@ -6,6 +6,7 @@ import 'package:next_poject/home/first_screen.dart';
 import 'package:next_poject/home/splash_screen.dart';
 import 'package:next_poject/ourNote/model_class.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 void main() async {
 
@@ -14,6 +15,21 @@ void main() async {
   //
   // Hive.registerAdapter(NoteModelsAdapter());
   // await Hive.openBox<NoteModels>('keepNote');
+
+  AwesomeNotifications().initialize(
+      "", [
+    NotificationChannel(
+        channelKey: 'reminder key',
+        channelName: 'reminder name',
+        channelDescription: 'description'),
+  ],
+    // channelGroups: [
+    //   NotificationChannelGroup(channelGroupKey: "channelGroupKey", channelGroupName: "channelGroupName"),
+    //   // NotificationChannelGroup(
+    //   //     channelGroupkey: 'basic_channel_group',
+    //   //     channelGroupName: 'Basic group'),
+    // ],
+  );
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
@@ -26,6 +42,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //AwesomeNotifications().setListeners(onActionReceivedMethod: )
     return MaterialApp(home: SplashScreen());
   }
 }

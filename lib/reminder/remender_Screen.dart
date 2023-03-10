@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 class Reminder extends StatefulWidget {
   const Reminder({Key? key}) : super(key: key);
@@ -20,70 +21,77 @@ class _ReminderState extends State<Reminder> {
   final TextEditingController _time = TextEditingController();
 
   DateTime dateTime = DateTime.now();
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+  // final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  // FlutterLocalNotificationsPlugin();
 
   @override
-  void initState() {
-    super.initState();
-    const AndroidInitializationSettings androidInitializationSettings =
-    AndroidInitializationSettings("@mipmap/ic_launcher");
+  // void initState() {
+  //   super.initState();
+  //   const AndroidInitializationSettings androidInitializationSettings =
+  //   AndroidInitializationSettings("@mipmap/ic_launcher");
+  //
+  //
+  //   const InitializationSettings initializationSettings =
+  //   InitializationSettings(
+  //     android: androidInitializationSettings,
+  //     macOS: null,
+  //     linux: null,
+  //   );
+  //
+  //   flutterLocalNotificationsPlugin.initialize(
+  //     initializationSettings,
+  //    onDidReceiveNotificationResponse: (NotificationResponse) async {
+  //       //NotificationResponse.payload;
+  //      await Navigator.push(context, MaterialPageRoute(builder:(context) => Reminder()));
+  //    }
+  //    // onSelectNotification: (dataYouNeedToUseWhenNotificationIsClicked) {},
+  //   );
+  //
+  // }
+
+  // showNotification() {
+  //
+  //   if (_title.text.isEmpty || _desc.text.isEmpty) {
+  //     return;
+  //   }
+  //
+  //   const AndroidNotificationDetails androidNotificationDetails =
+  //   AndroidNotificationDetails(
+  //     "ScheduleNotification001",
+  //     "Notify Me",
+  //     importance: Importance.high,
+  //   );
+  //
+  //
+  //   const NotificationDetails notificationDetails = NotificationDetails(
+  //     android: androidNotificationDetails,
+  //     macOS: null,
+  //     linux: null,
+  //   );
+  //
+  //   tz.initializeTimeZones();
+  //   final tz.TZDateTime scheduledAt = tz.TZDateTime.from(dateTime, tz.local);
+  //
+  //   flutterLocalNotificationsPlugin.zonedSchedule(
+  //       id, _title.text, _desc.text, scheduledAt, notificationDetails,
+  //       uiLocalNotificationDateInterpretation:
+  //       UILocalNotificationDateInterpretation.wallClockTime,
+  //       androidAllowWhileIdle: true,
+  //       payload: 'Ths s the data');
+  //
+  //      /// test to add notification
+  //   setState(() {
+  //     titleList.add(detelsList);
+  //     id++;
+  //     print("my id notification is:  $id");
+  //   });
+  // }
 
 
-    const InitializationSettings initializationSettings =
-    InitializationSettings(
-      android: androidInitializationSettings,
-      macOS: null,
-      linux: null,
-    );
-
-    flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-      // onSelectNotification: (dataYouNeedToUseWhenNotificationIsClicked) {},
-    );
-
-  }
-
-  showNotification() {
-    List detelsList = [_title.text , _desc.text , _date.text , _time.text ];
-    if (_title.text.isEmpty || _desc.text.isEmpty) {
-      return;
-    }
-
-    const AndroidNotificationDetails androidNotificationDetails =
-    AndroidNotificationDetails(
-      "ScheduleNotification001",
-      "Notify Me",
-      importance: Importance.high,
-    );
-
-
-    const NotificationDetails notificationDetails = NotificationDetails(
-      android: androidNotificationDetails,
-      macOS: null,
-      linux: null,
-    );
-
-    tz.initializeTimeZones();
-    final tz.TZDateTime scheduledAt = tz.TZDateTime.from(dateTime, tz.local);
-
-    flutterLocalNotificationsPlugin.zonedSchedule(
-        id, _title.text, _desc.text, scheduledAt, notificationDetails,
-        uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.wallClockTime,
-        androidAllowWhileIdle: true,
-        payload: 'Ths s the data');
-
-       /// test to add notification
-    setState(() {
-      titleList.add(detelsList);
-      id++;
-      print("my id notification is:  $id");
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -188,7 +196,8 @@ class _ReminderState extends State<Reminder> {
                           ElevatedButton(onPressed: () {
                             setState(()  {
                               titleList.removeAt(index);
-                               flutterLocalNotificationsPlugin.cancel(index);
+                              id = index;
+                              AwesomeNotifications().cancel(id);
 
                             });
                           }, child: Text("Delete"))
@@ -203,7 +212,28 @@ class _ReminderState extends State<Reminder> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 55),backgroundColor: Color(0xffab7ec1)
                   ),
-                  onPressed: showNotification,
+                  onPressed: (){
+                    List detelsList = [_title.text , _desc.text , _date.text , _time.text ];
+                    AwesomeNotifications().createNotification(
+                        content: NotificationContent(id: id, channelKey: 'reminder key',
+                        title: _title.text,
+                          body: _desc.text
+                        ),
+                     schedule: NotificationCalendar.fromDate(date: dateTime),
+                      actionButtons: [
+                        NotificationActionButton(key: "key", label: "label" ,
+                        actionType: ActionType.Default,
+                        ),
+                       // NotificationActionButton(key: "1", label: "label"),
+
+                      ]
+                    );
+                    setState(() {
+                      titleList.add(detelsList);
+                      id++;
+                    });
+                  },
+                  //showNotification,
                   child: Text("Show Notification",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
               ) ],
           ),
