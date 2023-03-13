@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/home/first_screen.dart';
 import 'package:next_poject/home/splash_screen.dart';
 import 'package:next_poject/ourNote/model_class.dart';
+import 'package:next_poject/reminder/notification_controller.dart';
+import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
@@ -30,42 +33,36 @@ void main() async {
     //   //     channelGroupName: 'Basic group'),
     // ],
   );
+
+
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   Hive.registerAdapter(ModelClassAdapter());
+  Hive.registerAdapter(ReminderModelClassAdapter());
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class MyApp extends StatefulWidget {
+   MyApp({Key? key}) : super(key: key);
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   @override
-  Widget build(BuildContext context) {
-    //AwesomeNotifications().setListeners(onActionReceivedMethod: )
-    return MaterialApp(home: SplashScreen());
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
+class _MyAppState extends State<MyApp> {
+  // @override
+  // void initState() {
+  //   AwesomeNotifications().setListeners(
+  //       onActionReceivedMethod: NotificationController.onActionReceivedMethod);
+  //   super.initState();
+  // }
+  @override
+  Widget build(BuildContext context) {
 
-// class MyApp extends StatelessWidget {
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.dark ));
-//
-//     return MultiBlocProvider(
-//       providers: [
-//         BlocProvider(create: (context) => NotesBloc()),
-//         BlocProvider(create: (context) => GeneralBloc()),
-//       ],
-//       child: MaterialApp(
-//         theme: ThemeData.dark(),
-//         title: 'Keep Note - Fraved',
-//         debugShowCheckedModeBanner: false,
-//         home: SplashScreen(),
-//       ),
-//     );
-//   }
-// }
+    return MaterialApp(
+        navigatorKey: MyApp.navigatorKey,
+        home: SplashScreen(
+    ));
+  }
+}
