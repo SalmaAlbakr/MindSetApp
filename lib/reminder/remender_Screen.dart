@@ -9,6 +9,7 @@ import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:uuid/uuid.dart';
 
 class Reminder extends StatefulWidget {
   const Reminder({Key? key}) : super(key: key);
@@ -20,11 +21,13 @@ class Reminder extends StatefulWidget {
 class _ReminderState extends State<Reminder> {
 
  // List<List> titleList = [];
-  int id = 0;
+ // int id = 0;
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
+
+   int _myID = UniqueKey().hashCode;
 
   DateTime dateTime = DateTime.now();
   // final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -106,8 +109,6 @@ void dispose() {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -229,12 +230,17 @@ void dispose() {
                                         helper.date
                                           //titleList[index][3].toString()
                                       ),
-                                      ElevatedButton(onPressed: () {
+                                      Text(
+                                        helper.id.toString()
+                                          //titleList[index][3].toString()
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
                                         hiveBox.deleteAt(index);
                                         setState(()  {
                                           //titleList.removeAt(index);
-                                          id = index;
-                                          AwesomeNotifications().cancel(id);
+                                         // id = index;
+                                          AwesomeNotifications().cancel(index);
 
                                         });
                                       }, child: Text("Delete"))
@@ -256,13 +262,13 @@ void dispose() {
                                   disc: _desc.text,
                                   date: _date.text,
                                   time: _time.text,
-                                  id: id);
+                                  id: _myID);
                               Hive.box("reminderBox").add(value);
 
                              // List detelsList = [_title.text , _desc.text , _date.text , _time.text ];
                               AwesomeNotifications().createNotification(
                                   content: NotificationContent(
-                                      id: id,
+                                      id: _myID,
                                       channelKey: 'reminder key',
                                       title: _title.text,
                                       body: _desc.text,
@@ -276,10 +282,10 @@ void dispose() {
                                     ),
                                   ]
                               );
-                              setState(() {
-                               // titleList.add(detelsList);
-                                id++;
-                              });
+                              // setState(() {
+                              //  // titleList.add(detelsList);
+                              //  _id++;
+                              // });
                             },
                             //showNotification,
                             child: Text("Show Notification",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),

@@ -16,3 +16,8 @@ class NotificationController{
   }
 
 }
+
+// // to generate unic id by code
+// int createUniqueId() {
+//   return DateTime.now().millisecondsSinceEpoch.remainder(100000);
+// }
