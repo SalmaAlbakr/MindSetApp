@@ -6,7 +6,6 @@ import 'package:next_poject/home/first_screen.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:next_poject/main.dart';
 import 'package:next_poject/reminder/notification_controller.dart';
-import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
