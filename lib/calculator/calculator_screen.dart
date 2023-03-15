@@ -14,8 +14,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 // Array of button
   final List<String> buttons = [
     'C',
-    '+/-',
-    '%',
+    '√',
+    '^',
     'DEL',
     '7',
     '8',
@@ -177,11 +177,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
 // function to calculate the input operation
   void equalPressed() {
-    String finaluserinput = userInput;
-    finaluserinput = userInput.replaceAll('x', '*');
+    String finalUserInput = userInput;
+
+    finalUserInput = userInput.replaceAll('x', '*').replaceAll('√', 'sqrt');
 
     Parser p = Parser();
-    Expression exp = p.parse(finaluserinput);
+    Expression exp = p.parse(finalUserInput);
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     answer = eval.toString();
