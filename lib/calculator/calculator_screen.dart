@@ -10,7 +10,7 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   var userInput = '';
   var answer = '';
-
+final iconB = Icon(Icons.ac_unit_sharp).toString();
 // Array of button
   final List<String> buttons = [
     'C',
@@ -186,5 +186,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     answer = eval.toString();
+    if (answer.endsWith('.0')) {
+      answer = answer.substring(0, answer.length - 2);
+    }
   }
 }
