@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
         navigatorKey: MyApp.navigatorKey,
-        home: SplashScreen(
+        home: CalculatorScreen(
     ));
   }
 }

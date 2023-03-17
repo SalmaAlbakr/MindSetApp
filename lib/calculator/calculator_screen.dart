@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:next_poject/calculator/button.dart';
@@ -41,7 +43,7 @@ final iconB = Icons.ac_unit_sharp.toString();
       appBar: new AppBar(
         title: new Text("Calculator"),
       ), //AppBar
-      backgroundColor: Colors.white38,
+      backgroundColor: Color(0xFF4d424c),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -89,8 +91,8 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Colors.blue[50],
-                        textColor: Colors.black,
+                        color: Color(0xFFd90bd8),
+                        textColor: Colors.white,
                       );
                     }
 
@@ -98,7 +100,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                     else if (index == 1) {
                       return MyButton(
                         buttonText: buttons[index],
-                        color: Colors.blue[50],
+                        color: Color(0xFFd90bd8),
                         textColor: Colors.black,
                       );
                     }
@@ -111,8 +113,8 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Colors.blue[50],
-                        textColor: Colors.black,
+                        color: Color(0xFFd90bd8),
+                        textColor: Colors.white,
                       );
                     }
                     // Delete Button
@@ -125,7 +127,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Colors.blue[50],
+                        color: Color(0xFFd90bd8),
                         textColor: Colors.black,
                       );
                     }
@@ -138,7 +140,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Colors.orange[700],
+                        color: Color(0xFFd90bd8),
                         textColor: Colors.white,
                       );
                     }
@@ -153,7 +155,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                         },
                         buttonText: buttons[index],
                         color: isOperator(buttons[index])
-                            ? Colors.blueAccent
+                            ? Color(0xFFd90bd8)
                             : Colors.white,
                         textColor: isOperator(buttons[index])
                             ? Colors.white
