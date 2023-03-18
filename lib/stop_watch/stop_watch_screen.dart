@@ -16,6 +16,7 @@ class _StopWatchState extends State<StopWatch> {
   String time = "00:00:00";
   var swatch = Stopwatch();
   final dur = const Duration(seconds: 1);
+  String StartButton = "Start";
 
   void startTimer() {
     Timer(dur, keepRunning);
@@ -53,6 +54,7 @@ class _StopWatchState extends State<StopWatch> {
       isNotVisible = !isNotVisible;
     });
     swatch.stop();
+    StartButton = "Restart" ;
   }
 
   void resetWatch() {
@@ -62,6 +64,7 @@ class _StopWatchState extends State<StopWatch> {
     });
     swatch.reset();
     time = "00:00:00";
+    StartButton = "Start" ;
   }
 
   @override
@@ -113,7 +116,7 @@ class _StopWatchState extends State<StopWatch> {
                     maintainState: true,
                     maintainAnimation: true,
                     child: InkWell(
-                      onTap: startIsPressed ? startWatch : null,
+                      onTap: startWatch,
                       child: Container(
                         height: 40,
                         width: 80,
@@ -122,7 +125,7 @@ class _StopWatchState extends State<StopWatch> {
                             color: Colors.cyanAccent,
                             border: Border.all(color: Colors.blueAccent)),
                         child: Text(
-                          "Start",
+                          StartButton,
                           style: TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.italic,
@@ -139,7 +142,7 @@ class _StopWatchState extends State<StopWatch> {
                     maintainState: true,
                     maintainAnimation: true,
                     child: InkWell(
-                      onTap: stopIsPressed ? null : stopwatch,
+                      onTap: stopwatch,
                       child: Container(
                         height: 40,
                         width: 80,
@@ -163,7 +166,7 @@ class _StopWatchState extends State<StopWatch> {
                     ),
                   ),
                   InkWell(
-                    onTap: resetIsPressed ? null : resetWatch,
+                    onTap: resetWatch,
                     child: Container(
                       height: 40,
                       width: 80,
