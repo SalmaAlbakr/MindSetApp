@@ -135,7 +135,7 @@ void dispose() {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
-                              label: Text("Notification Title",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                              label: Text("Title",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                             ),
                           ),
                           const SizedBox(
@@ -146,7 +146,7 @@ void dispose() {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
-                              label: Text("Notification Description",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                              label: Text("Notes",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                             ),
                           ),
                           const SizedBox(

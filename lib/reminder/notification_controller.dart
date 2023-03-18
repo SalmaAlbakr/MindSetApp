@@ -8,8 +8,9 @@ class NotificationController{
   static Future <void> onActionReceivedMethod(ReceivedAction receivedAction) async {
     // Your code goes here
 
+
     print("we find the cooooooood");
-     // Get.to(CalculatorScreen());
+
     MyApp.navigatorKey.currentState?.push(MaterialPageRoute(builder: (_) => CalculatorScreen()));
 
   }
