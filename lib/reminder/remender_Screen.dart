@@ -4,6 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/main.dart';
+import 'package:next_poject/reminder/my_notificationes_list.dart';
 import 'package:next_poject/reminder/notification_controller.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -289,7 +290,11 @@ void dispose() {
                             },
                             //showNotification,
                             child: Text("Show Notification",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
-                          ) ],
+                          ),
+                        ElevatedButton(onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (_) => MyList()));
+                        }, child: Text("notification list"))
+                        ],
                       ),
                     ),
                   );

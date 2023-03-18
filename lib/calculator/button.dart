@@ -7,15 +7,15 @@ class MyButton extends StatelessWidget {
   final color;
   final textColor;
   final String buttonText;
-  final buttontapped;
+  final buttonTapped;
 
 //Constructor
-  MyButton({this.color, this.textColor, required this.buttonText, this.buttontapped});
+  MyButton({this.color, this.textColor, required this.buttonText, this.buttonTapped});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: buttontapped,
+      onTap: buttonTapped,
       child: Padding(
         padding: const EdgeInsets.all(0.2),
         child: ClipRRect(

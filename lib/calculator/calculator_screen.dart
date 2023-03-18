@@ -22,29 +22,27 @@ final iconB = Icons.ac_unit_sharp.toString();
     '7',
     '8',
     '9',
-    '/',
+    '+',
     '4',
     '5',
     '6',
-    'x',
+    '-',
     '1',
     '2',
     '3',
-    '-',
+    'x',
     '0',
     '.',
     '=',
-    '+',
+    '/',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Calculator"),
-      ), //AppBar
-      backgroundColor: Color(0xFF4d424c),
+      backgroundColor: Color(0xFF040626),
       body: Column(
+
         children: <Widget>[
           Expanded(
             child: Container(
@@ -52,7 +50,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(50),
                       alignment: Alignment.centerRight,
                       child: Text(
                         userInput,
@@ -84,15 +82,15 @@ final iconB = Icons.ac_unit_sharp.toString();
                     // Clear Button
                     if (index == 0) {
                       return MyButton(
-                        buttontapped: () {
+                        buttonTapped: () {
                           setState(() {
                             userInput = '';
                             answer = '0';
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFFd90bd8),
-                        textColor: Colors.white,
+                        color: Color(0xFF070b33),
+                        textColor: Color(0xFF9d0faa),
                       );
                     }
 
@@ -100,47 +98,47 @@ final iconB = Icons.ac_unit_sharp.toString();
                     else if (index == 1) {
                       return MyButton(
                         buttonText: buttons[index],
-                        color: Color(0xFFd90bd8),
-                        textColor: Colors.black,
+                        color: Color(0xFF070b33),
+                        textColor: Color(0xFF9d0faa),
                       );
                     }
                     // % Button
                     else if (index == 2) {
                       return MyButton(
-                        buttontapped: () {
+                        buttonTapped: () {
                           setState(() {
                             userInput += buttons[index];
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFFd90bd8),
-                        textColor: Colors.white,
+                        color: Color(0xFF070b33),
+                        textColor: Color(0xFF9d0faa),
                       );
                     }
                     // Delete Button
                     else if (index == 3) {
                       return MyButton(
-                        buttontapped: () {
+                        buttonTapped: () {
                           setState(() {
                             userInput =
                                 userInput.substring(0, userInput.length - 1);
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFFd90bd8),
-                        textColor: Colors.black,
+                        color: Color(0xFF9d0faa),
+                        textColor: Colors.white,
                       );
                     }
                     // Equal_to Button
                     else if (index == 18) {
                       return MyButton(
-                        buttontapped: () {
+                        buttonTapped: () {
                           setState(() {
                             equalPressed();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFFd90bd8),
+                        color: Color(0xFF070b33),
                         textColor: Colors.white,
                       );
                     }
@@ -148,18 +146,18 @@ final iconB = Icons.ac_unit_sharp.toString();
                     // other buttons
                     else {
                       return MyButton(
-                        buttontapped: () {
+                        buttonTapped: () {
                           setState(() {
                             userInput += buttons[index];
                           });
                         },
                         buttonText: buttons[index],
                         color: isOperator(buttons[index])
-                            ? Color(0xFFd90bd8)
-                            : Colors.white,
+                            ? Color(0xFF9d0faa)
+                            : Color(0xFF070b33),
                         textColor: isOperator(buttons[index])
                             ? Colors.white
-                            : Colors.black,
+                            : Colors.white,
                       );
                     }
                   }), // GridView.builder
