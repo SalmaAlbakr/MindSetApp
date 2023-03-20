@@ -5,6 +5,7 @@ import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/ourNote/home_screen.dart';
 import 'package:next_poject/reminder/notification_controller.dart';
 import 'package:next_poject/reminder/remender_Screen.dart';
+import 'package:next_poject/reminder/repeat_or_rememberme_button.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
 import 'package:next_poject/templets/widgets.dart';
 import 'package:next_poject/toss/home_screen.dart';
@@ -161,7 +162,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Reminder(),
+                                builder: (context) => ReminderFirstPage(),
                               ),
                             );
                           },
