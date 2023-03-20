@@ -104,7 +104,7 @@ class _SplashScreenState extends State<SplashScreen>
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (BuildContext context) {
-            return Toss(inputList: [], index: 0,);
+            return Toss(inputList: [], index: 0, selectedImage: '',);
           },
         ),
       );

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:animation_wrappers/animation_wrappers.dart';
-import 'package:animation_wrappers/animations/scale_animation.dart';
+//import 'package:animation_wrappers/animations/scale_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:next_poject/toss/result_screen.dart';
 

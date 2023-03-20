@@ -145,7 +145,7 @@ class _MainPageState extends State<MainPage> {
                               MaterialPageRoute(
                                 builder: (context) => Toss(
                                   inputList: [],
-                                  index: 0,
+                                  index: 0, selectedImage: '',
                                 ),
                               ),
                             );

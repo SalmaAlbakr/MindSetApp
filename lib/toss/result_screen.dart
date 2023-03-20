@@ -113,7 +113,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           MaterialPageRoute(
                             builder: (context) => Toss(
                               inputList: widget.inputList,
-                              index: widget.index,
+                              index: widget.index, selectedImage: '',
                             ),
                           ),
                         );
