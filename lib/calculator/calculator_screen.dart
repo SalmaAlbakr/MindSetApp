@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
-import 'package:next_poject/calculator/button.dart';
+import 'package:next_poject/calculator/calculator_button.dart';
 
 class CalculatorScreen extends StatefulWidget {
   @override
@@ -13,7 +11,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   var userInput = '';
   var answer = '';
 final iconB = Icons.ac_unit_sharp.toString();
-// Array of button
+
   final List<String> buttons = [
     'C',
     '√',
@@ -42,13 +40,12 @@ final iconB = Icons.ac_unit_sharp.toString();
     return Scaffold(
       backgroundColor: Color(0xFF040626),
       body: Column(
-
-        children: <Widget>[
+        children: [
           Expanded(
             child: Container(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
+                  children:[
                     Container(
                       padding: EdgeInsets.all(50),
                       alignment: Alignment.centerRight,
@@ -79,7 +76,9 @@ final iconB = Icons.ac_unit_sharp.toString();
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4),
                   itemBuilder: (BuildContext context, int index) {
-                    // Clear Button
+
+
+                    // C Button
                     if (index == 0) {
                       return MyButton(
                         buttonTapped: () {
@@ -89,20 +88,20 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFF070b33),
+                        backgroundColor: Color(0xFF070b33),
                         textColor: Color(0xFF9d0faa),
                       );
                     }
 
-                    // +/- button
+                    // √ button
                     else if (index == 1) {
                       return MyButton(
                         buttonText: buttons[index],
-                        color: Color(0xFF070b33),
+                        backgroundColor: Color(0xFF070b33),
                         textColor: Color(0xFF9d0faa),
                       );
                     }
-                    // % Button
+                    // ^ Button
                     else if (index == 2) {
                       return MyButton(
                         buttonTapped: () {
@@ -111,11 +110,11 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFF070b33),
+                        backgroundColor: Color(0xFF070b33),
                         textColor: Color(0xFF9d0faa),
                       );
                     }
-                    // Delete Button
+                    // Del Button
                     else if (index == 3) {
                       return MyButton(
                         buttonTapped: () {
@@ -125,11 +124,12 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFF9d0faa),
+                        backgroundColor: Color(0xFF9d0faa),
                         textColor: Colors.white,
                       );
                     }
-                    // Equal_to Button
+
+                    // = Button
                     else if (index == 18) {
                       return MyButton(
                         buttonTapped: () {
@@ -138,7 +138,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: Color(0xFF070b33),
+                        backgroundColor: Color(0xFF070b33),
                         textColor: Colors.white,
                       );
                     }
@@ -152,7 +152,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                           });
                         },
                         buttonText: buttons[index],
-                        color: isOperator(buttons[index])
+                        backgroundColor: isOperator(buttons[index])
                             ? Color(0xFF9d0faa)
                             : Color(0xFF070b33),
                         textColor: isOperator(buttons[index])
@@ -175,7 +175,7 @@ final iconB = Icons.ac_unit_sharp.toString();
     return false;
   }
 
-// function to calculate the input operation
+
   void equalPressed() {
     String finalUserInput = userInput;
 
