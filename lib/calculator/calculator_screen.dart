@@ -43,15 +43,16 @@ final iconB = Icons.ac_unit_sharp.toString();
         children: [
           Expanded(
             child: Container(
+              height: MediaQuery.of(context).size.height * 0.1,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children:[
                     Container(
-                      padding: EdgeInsets.all(50),
+                      padding: EdgeInsets.all(40),
                       alignment: Alignment.centerRight,
                       child: Text(
                         userInput,
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
                     Container(
@@ -64,7 +65,7 @@ final iconB = Icons.ac_unit_sharp.toString();
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
-                    )
+                    ),
                   ]),
             ),
           ),
