@@ -13,7 +13,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 5),
     vsync: this,
@@ -25,90 +24,138 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-
   Widget latterT = Text("");
   Widget latterO = Text("");
   Widget latterS = Text("");
-  Widget lastS   = Text("");
+  Widget lastS = Text("");
 
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 1), () {
-      setState(() {
-        latterT = ScaleAnimation(
-          duration: Duration(seconds: 1),
-          child: Text(
-            "T",
-            style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold,color: Colors.white),
-          ),
-        );
-      });
-    });
-    Timer(const Duration(seconds: 1), () {
-      setState(() {
-        latterO = ScaleAnimation(
-          duration: Duration(seconds: 1),
-          child: Text(
-            "O",
-            style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold,color: Colors.white),
-          ),
-        );
-      });
-    });
-    Timer(const Duration(seconds: 1), () {
-      setState(() {
-        latterS = ScaleAnimation(
-          duration: Duration(seconds: 1),
-          child: AnimatedBuilder(
-            animation: _controller,
-            child: Text("\$" , style:TextStyle(fontSize: 100, fontWeight: FontWeight.bold,color: Colors.white) ),
-            builder: (BuildContext context, Widget? child) {
-              return Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(
-                    _controller.value * (-math.pi),
-                  ),
-                child: child,
-              );
-            },
-          ),
-        );
-      });
-    });
-    Timer(const Duration(seconds: 3), () {
-      setState(() {
-        lastS = ScaleAnimation(
-          duration: Duration(seconds: 1),
-          child: AnimatedBuilder(
-            animation: _controller,
-            child: Text("\$" , style:TextStyle(fontSize: 100, fontWeight: FontWeight.bold,color: Colors.white) ),
-            builder: (BuildContext context, Widget? child) {
-              return Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(
-                    _controller.value * (-math.pi),
-                  ),
-                child: child,
-              );
-            },
-          ),
-        );
-      });
-    });
-    Timer(Duration(seconds: 5) , () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (BuildContext context) {
-            return Toss(inputList: [], index: 0, selectedImage: '',);
+    Timer(
+      const Duration(seconds: 1),
+      () {
+        setState(
+          () {
+            latterT = ScaleAnimation(
+              duration: Duration(seconds: 1),
+              child: Text(
+                "T",
+                style: TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            );
           },
-        ),
-      );
-    },);
+        );
+      },
+    );
+    Timer(
+      const Duration(seconds: 1),
+      () {
+        setState(
+          () {
+            latterO = ScaleAnimation(
+              duration: Duration(seconds: 1),
+              child: Text(
+                "O",
+                style: TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+    Timer(
+      const Duration(seconds: 1),
+      () {
+        setState(
+          () {
+            latterS = ScaleAnimation(
+              duration: Duration(seconds: 1),
+              child: AnimatedBuilder(
+                animation: _controller,
+                child: Text(
+                  "\$",
+                  style: TextStyle(
+                    fontSize: 100,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                builder: (BuildContext context, Widget? child) {
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.001)
+                      ..rotateY(
+                        _controller.value * (-math.pi),
+                      ),
+                    child: child,
+                  );
+                },
+              ),
+            );
+          },
+        );
+      },
+    );
+    Timer(
+      const Duration(seconds: 3),
+      () {
+        setState(
+          () {
+            lastS = ScaleAnimation(
+              duration: Duration(seconds: 1),
+              child: AnimatedBuilder(
+                animation: _controller,
+                child: Text(
+                  "\$",
+                  style: TextStyle(
+                    fontSize: 100,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                builder: (BuildContext context, Widget? child) {
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.001)
+                      ..rotateY(
+                        _controller.value * (-math.pi),
+                      ),
+                    child: child,
+                  );
+                },
+              ),
+            );
+          },
+        );
+      },
+    );
+    Timer(
+      Duration(seconds: 5),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (BuildContext context) {
+              return Toss(
+                inputList: [],
+                index: 0,
+                selectedImage: '',
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -116,18 +163,15 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       backgroundColor: Colors.deepPurple[400],
       body: SafeArea(
-
         child: Center(
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 latterT,
                 latterO,
                 latterS,
                 lastS,
-
               ],
             ),
           ),

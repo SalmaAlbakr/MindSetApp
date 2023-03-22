@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'dart:html';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-
 part 'stopwach_state.dart';
 
 class StopwachCubit extends Cubit<StopwachState> {
@@ -27,40 +24,58 @@ class StopwachCubit extends Cubit<StopwachState> {
     if (swatch.isRunning) {
       startTimer();
     }
-      time = swatch.elapsed.inHours.toString().padLeft(2, '0') +
-          ":" +
-          (swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
-          ":" +
-          (swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
+    time = swatch.elapsed.inHours.toString().padLeft(2, '0') +
+        ":" +
+        (swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
+        ":" +
+        (swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
   }
 
   void startWatch() {
-      isVisible = !isVisible;
-      isNotVisible = !isNotVisible;
-      stopIsPressed = false;
-      startIsPressed = false;
+    isVisible = !isVisible;
+    isNotVisible = !isNotVisible;
+    stopIsPressed = false;
+    startIsPressed = false;
     swatch.start();
-      startTimer();
-    emit(StartWatchState(isVisible, isNotVisible, stopIsPressed, startIsPressed));
+    startTimer();
+    emit(
+      StartWatchState(
+        isVisible,
+        isNotVisible,
+        stopIsPressed,
+        startIsPressed,
+      ),
+    );
   }
 
   void stopwatch() {
-      stopIsPressed = true;
-      resetIsPressed = false;
-      isVisible = !isVisible;
-      isNotVisible = !isNotVisible;
+    stopIsPressed = true;
+    resetIsPressed = false;
+    isVisible = !isVisible;
+    isNotVisible = !isNotVisible;
     swatch.stop();
-    StartButton = "Restart" ;
-    emit(StartWatchState(isVisible, isNotVisible, stopIsPressed, startIsPressed));
+    StartButton = "Restart";
+    emit(
+      StartWatchState(
+        isVisible,
+        isNotVisible,
+        stopIsPressed,
+        startIsPressed,
+      ),
+    );
   }
 
   void resetWatch() {
-      startIsPressed = true;
-      resetIsPressed = true;
+    startIsPressed = true;
+    resetIsPressed = true;
     swatch.reset();
     time = "00:00:00";
-    StartButton = "Start" ;
-    emit(ResetWatchState(resetIsPressed, startIsPressed));
+    StartButton = "Start";
+    emit(
+      ResetWatchState(
+        resetIsPressed,
+        startIsPressed,
+      ),
+    );
   }
-
 }

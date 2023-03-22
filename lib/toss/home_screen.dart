@@ -7,9 +7,13 @@ import 'package:next_poject/toss/backgoundImage.dart';
 class Toss extends StatefulWidget {
   List<String> inputList = [""];
   int index = 0;
-  String selectedImage =  "assets/Butterfly-PNG-3.png";
-  Toss({Key? key, required this.inputList, required this.index, required this.selectedImage})
-      : super(key: key);
+  String selectedImage = "assets/Butterfly-PNG-3.png";
+  Toss({
+    Key? key,
+    required this.inputList,
+    required this.index,
+    required this.selectedImage,
+  }) : super(key: key);
 
   @override
   State<Toss> createState() => _TossState();
@@ -18,8 +22,6 @@ class Toss extends StatefulWidget {
 class _TossState extends State<Toss> {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
- // String image = "assets/Butterfly-PNG-3.png";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +34,21 @@ class _TossState extends State<Toss> {
               height: 45,
               width: 45,
             ),
-            SizedBox(width: 10),
-            Text("Toss"),
-            ElevatedButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => BackgroundImage()));
-            }, child: Text("change Background"))
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              "Toss",
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => BackgroundImage(),
+                    ),
+                  );
+                },
+                child: Text("change Background"))
           ],
         ),
       ),
@@ -50,7 +62,10 @@ class _TossState extends State<Toss> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "Hello, Let's Get Started",
-                    style: TextStyle(color: Colors.deepPurple, fontSize: 25),
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontSize: 25,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5),
@@ -63,7 +78,6 @@ class _TossState extends State<Toss> {
                         scale: 10,
                         image: AssetImage(
                           widget.selectedImage,
-                          //"assets/Butterfly-PNG-3.png",
                         ),
                       ),
                     ),
@@ -82,7 +96,9 @@ class _TossState extends State<Toss> {
                                 children: [
                                   Text(
                                     widget.inputList[index],
-                                    style: TextStyle(fontSize: 15),
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                    ),
                                   ),
                                   IconButton(
                                     onPressed: () {
@@ -106,8 +122,6 @@ class _TossState extends State<Toss> {
                     ),
                   ),
                 ),
-                // SizedBox(height: 40),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
@@ -122,8 +136,10 @@ class _TossState extends State<Toss> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),),
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.white,
+                      ),
+                    ),
                     onPressed: () {
                       setState(
                         () {
@@ -134,7 +150,9 @@ class _TossState extends State<Toss> {
                     },
                     child: Text(
                       "add",
-                      style: TextStyle(color: Colors.deepPurple),
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                      ),
                     ),
                   ),
                 ),
@@ -142,19 +160,22 @@ class _TossState extends State<Toss> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.white,
+                      ),
                     ),
                     onPressed: () {
                       setState(
                         () {
                           if (widget.inputList.isEmpty) {
                             Fluttertoast.showToast(
-                                msg: "plz enter an options",
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 5,
-                                backgroundColor: Colors.grey,
-                                textColor: Colors.white,
-                                fontSize: 16.0);
+                              msg: "plz enter an options",
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 5,
+                              backgroundColor: Colors.grey,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
                           } else {
                             Navigator.pushReplacement(
                               context,
@@ -171,7 +192,9 @@ class _TossState extends State<Toss> {
                     },
                     child: Text(
                       "Random",
-                      style: TextStyle(color: Colors.deepPurple),
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                      ),
                     ),
                   ),
                 ),

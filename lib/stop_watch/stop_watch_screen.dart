@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-
 class StopWatch extends StatefulWidget {
   @override
   _StopWatchState createState() => _StopWatchState();
@@ -54,7 +53,7 @@ class _StopWatchState extends State<StopWatch> {
       isNotVisible = !isNotVisible;
     });
     swatch.stop();
-    StartButton = "Restart" ;
+    StartButton = "Restart";
   }
 
   void resetWatch() {
@@ -64,24 +63,26 @@ class _StopWatchState extends State<StopWatch> {
     });
     swatch.reset();
     time = "00:00:00";
-    StartButton = "Start" ;
+    StartButton = "Start";
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Stop Watch"),
+        title: Text(
+          "Stop Watch",
+        ),
       ),
-      //backgroundColor: Colors.black,
       body: Stack(
         children: [
           Container(
-              child: Image.asset(
-            "assets/stop.jpg",
-            height: double.infinity,
-            fit: BoxFit.cover,
-          )),
+            child: Image.asset(
+              "assets/stop.jpg",
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
           Column(
             children: [
               SizedBox(
@@ -93,15 +94,19 @@ class _StopWatchState extends State<StopWatch> {
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(left: 50, right: 50, top: 50),
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.transparent,
-                    border: Border.all(
-                      width: 4,
-                      color: Colors.white,
-                    )),
+                  shape: BoxShape.circle,
+                  color: Colors.transparent,
+                  border: Border.all(
+                    width: 4,
+                    color: Colors.white,
+                  ),
+                ),
                 child: Text(
                   time,
-                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(
@@ -122,8 +127,11 @@ class _StopWatchState extends State<StopWatch> {
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.cyanAccent,
-                            border: Border.all(color: Colors.blueAccent)),
+                          color: Colors.cyanAccent,
+                          border: Border.all(
+                            color: Colors.blueAccent,
+                          ),
+                        ),
                         child: Text(
                           StartButton,
                           style: TextStyle(

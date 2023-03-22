@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:animation_wrappers/animation_wrappers.dart';
-//import 'package:animation_wrappers/animations/scale_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:next_poject/toss/result_screen.dart';
 
@@ -16,43 +15,59 @@ class TimerScreen extends StatefulWidget {
 
 class _TimerScreenState extends State<TimerScreen> {
   Widget time = ScaleAnimation(
-      duration: Duration(seconds: 1),
-      child: Text(
-        "3",
-        style: TextStyle(
-            fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white),
-      ));
+    duration: Duration(seconds: 1),
+    child: Text(
+      "3",
+      style: TextStyle(
+        fontSize: 100,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    ),
+  );
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
-      setState(() {
-        time = FadedScaleAnimation(
-          scaleDuration: Duration(seconds: 1),
-          child: Text(
-            "2",
-            style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-          ),
+    Timer(
+      const Duration(seconds: 2),
+      () {
+        setState(
+          () {
+            time = FadedScaleAnimation(
+              scaleDuration: Duration(seconds: 1),
+              child: Text(
+                "2",
+                style: TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
         );
-      });
-    });
-    Timer(const Duration(seconds: 3), () {
-      setState(() {
-        time = ScaleAnimation(
-          duration: Duration(seconds: 1),
-          child: Text(
-            "1",
-            style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-          ),
+      },
+    );
+    Timer(
+      const Duration(seconds: 3),
+      () {
+        setState(
+          () {
+            time = ScaleAnimation(
+              duration: Duration(seconds: 1),
+              child: Text(
+                "1",
+                style: TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
         );
-      });
-    });
+      },
+    );
     Timer(
       Duration(seconds: 5),
       () {
@@ -82,8 +97,12 @@ class _TimerScreenState extends State<TimerScreen> {
               height: 45,
               width: 45,
             ),
-            SizedBox(width: 10),
-            Text("Toss"),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              "Toss",
+            ),
           ],
         ),
       ),

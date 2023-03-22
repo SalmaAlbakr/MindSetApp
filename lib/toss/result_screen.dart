@@ -35,8 +35,12 @@ class _ResultScreenState extends State<ResultScreen> {
               height: 45,
               width: 45,
             ),
-            SizedBox(width: 10),
-            Text("Toss"),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              "Toss",
+            ),
           ],
         ),
       ),
@@ -57,9 +61,10 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: Text(
                   "Your Result is :",
                   style: TextStyle(
-                      color: Colors.deepPurple[800],
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30),
+                    color: Colors.deepPurple[800],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
                 ),
               ),
               ScaleAnimation(
@@ -71,8 +76,10 @@ class _ResultScreenState extends State<ResultScreen> {
                       backgroundColor: Colors.white,
                       child: Text(
                         randomChoice(widget.inputList),
-                        style:
-                            TextStyle(color: Colors.deepPurple, fontSize: 25),
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 25,
+                        ),
                       ),
                     ),
                   ],
@@ -96,15 +103,17 @@ class _ResultScreenState extends State<ResultScreen> {
                       },
                       child: Text(
                         "Another choice",
-                        style:
-                            TextStyle(color: Colors.deepPurple, fontSize: 20),
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                    //SizedBox(width: 25,),
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
                       ),
                       onPressed: () {
                         widget.inputList.clear();
@@ -113,15 +122,18 @@ class _ResultScreenState extends State<ResultScreen> {
                           MaterialPageRoute(
                             builder: (context) => Toss(
                               inputList: widget.inputList,
-                              index: widget.index, selectedImage: '',
+                              index: widget.index,
+                              selectedImage: '',
                             ),
                           ),
                         );
                       },
                       child: Text(
                         "Try Again",
-                        style:
-                            TextStyle(color: Colors.deepPurple, fontSize: 20),
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ],
