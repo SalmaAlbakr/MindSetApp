@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:next_poject/ourNote/home_screen.dart';
-import 'package:next_poject/ourNote/model_class.dart';
+import 'package:next_poject/note_app/model_class.dart';
+import 'package:next_poject/note_app/note_first_screen.dart';
+
 
 class EditData extends StatefulWidget {
   int index;
   String name;
-  EditData({required this.name,required this.index, Key? key}) : super(key: key);
+  EditData({required this.name, required this.index, Key? key})
+      : super(key: key);
 
   @override
   State<EditData> createState() => _EditDataState();
@@ -16,7 +18,6 @@ class _EditDataState extends State<EditData> {
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _ageController = TextEditingController();
-
 
   @override
   void initState() {
@@ -32,6 +33,7 @@ class _EditDataState extends State<EditData> {
     _ageController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +45,12 @@ class _EditDataState extends State<EditData> {
         child: ListView(
           children: [
             TextFormField(
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold),
               controller: _nameController,
               decoration: InputDecoration(
-                  labelText: "title", border: OutlineInputBorder()),
+                labelText: "title",
+                border: OutlineInputBorder(),
+              ),
             ),
             const SizedBox(
               height: 15,
@@ -62,24 +64,30 @@ class _EditDataState extends State<EditData> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 decoration: InputDecoration(
-                    labelText: "note", border: OutlineInputBorder()),
+                  labelText: "note",
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
             const SizedBox(
               height: 15,
             ),
-
             ElevatedButton(
-                onPressed: () {
-                  final value = ModelClass(
-                      name: _nameController.text,
-                      age: _ageController.text,
-                      );
-                  Hive.box("boxName").putAt(widget.index, value);
-                  print("done data");
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
-                },
-                child: Text("Done"))
+              onPressed: () {
+                final value = ModelClass(
+                  name: _nameController.text,
+                  age: _ageController.text,
+                );
+                Hive.box("boxName").putAt(widget.index, value);
+                print("done data");
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
+              },
+              child: Text("Done"),
+            ),
           ],
         ),
       ),

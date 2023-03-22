@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-
 part 'model_class.g.dart';
+
 @HiveType(typeId: 1)
 class ModelClass {
   @HiveField(0)
@@ -9,7 +9,7 @@ class ModelClass {
   final String age;
 
   ModelClass({
-     required this.name,
-     required this.age,
-     });
+    required this.name,
+    required this.age,
+  });
 }

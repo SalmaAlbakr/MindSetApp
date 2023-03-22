@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/home/first_screen.dart';
-import 'package:next_poject/home/splash_screen.dart';
-import 'package:next_poject/ourNote/model_class.dart';
-import 'package:next_poject/reminder/my_notificationes_list.dart';
-import 'package:next_poject/reminder/notification_controller.dart';
-import 'package:next_poject/reminder/remender_Screen.dart';
+import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';

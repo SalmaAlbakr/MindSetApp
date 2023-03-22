@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:next_poject/ourNote/home_screen.dart';
-import 'package:next_poject/ourNote/model_class.dart';
+import 'package:next_poject/note_app/model_class.dart';
+import 'package:next_poject/note_app/note_first_screen.dart';
 
 class CreateData extends StatefulWidget {
   CreateData({Key? key}) : super(key: key);
@@ -33,9 +33,7 @@ class _CreateDataState extends State<CreateData> {
         child: ListView(
           children: [
             TextFormField(
-              style: TextStyle(
-                  fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold),
               controller: _nameController,
               decoration: InputDecoration(
                 labelText: "title",
@@ -65,10 +63,13 @@ class _CreateDataState extends State<CreateData> {
             ElevatedButton(
               onPressed: () {
                 final value = ModelClass(
-                    name: _nameController.text,
-                    age: _ageController.text);
+                    name: _nameController.text, age: _ageController.text);
                 Hive.box("boxName").add(value);
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
               },
               child: Text("create"),
             ),
