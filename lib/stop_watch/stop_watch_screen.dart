@@ -8,10 +8,6 @@ class StopWatch extends StatefulWidget {
 
 class _StopWatchState extends State<StopWatch> {
   bool isVisible = true;
-  bool isNotVisible = false;
-  bool startIsPressed = true;
-  bool stopIsPressed = true;
-  bool resetIsPressed = true;
   String time = "00:00:00";
   var swatch = Stopwatch();
   final dur = const Duration(seconds: 1);
@@ -38,9 +34,6 @@ class _StopWatchState extends State<StopWatch> {
     setState(
       () {
         isVisible = !isVisible;
-        isNotVisible = !isNotVisible;
-        stopIsPressed = false;
-        startIsPressed = false;
       },
     );
     swatch.start();
@@ -50,10 +43,7 @@ class _StopWatchState extends State<StopWatch> {
   void stopwatch() {
     setState(
       () {
-        stopIsPressed = true;
-        resetIsPressed = false;
         isVisible = !isVisible;
-        isNotVisible = !isNotVisible;
       },
     );
     swatch.stop();
@@ -63,8 +53,7 @@ class _StopWatchState extends State<StopWatch> {
   void resetWatch() {
     setState(
       () {
-        startIsPressed = true;
-        resetIsPressed = true;
+
       },
     );
     swatch.reset();
@@ -77,13 +66,6 @@ class _StopWatchState extends State<StopWatch> {
     return Scaffold(
       body: Stack(
         children: [
-          // Container(
-          //   child: Image.asset(
-          //     "assets/stop.jpg",
-          //     height: double.infinity,
-          //     fit: BoxFit.cover,
-          //   ),
-          // ),
           Column(
             children: [
               SizedBox(
@@ -116,58 +98,55 @@ class _StopWatchState extends State<StopWatch> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Visibility(
-                    visible: true,
-                    maintainSize: true,
-                    maintainState: true,
-                    maintainAnimation: true,
-                    child: InkWell(
-                      onTap: startWatch,
-                      child: Container(
-                        height: 40,
-                        width: 90,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple,
-                        ),
-                        child: Text(
-                          StartButton,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+
+                  isVisible?
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:  MaterialStatePropertyAll(Colors.deepPurple),
                     ),
-                  ),
-                  Visibility(
-                    visible: true,
-                    maintainSize: true,
-                    maintainState: true,
-                    maintainAnimation: true,
-                    child: InkWell(
-                      onTap: stopwatch,
-                      child: Container(
-                        height: 40,
-                        width: 80,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple,
-                        ),
-                        child: Text(
-                          "Stop",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    onPressed: startWatch, child: Text(
+                    StartButton,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
                     ),
-                  ),
+                  ),)
+                      :
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:  MaterialStatePropertyAll(Colors.deepPurple),
+                    ),
+                    onPressed: stopwatch, child: Text(
+                    "Stop",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),),
+                  // InkWell(
+                  //   onTap: stopwatch,
+                  //   child: Container(
+                  //     height: 40,
+                  //     width: 80,
+                  //     alignment: Alignment.center,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.deepPurple,
+                  //     ),
+                  //     child: Text(
+                  //       "Stop",
+                  //       style: TextStyle(
+                  //         color: Colors.white,
+                  //         fontStyle: FontStyle.italic,
+                  //         fontSize: 25,
+                  //         fontWeight: FontWeight.w600,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   InkWell(
                     onTap: resetWatch,
                     child: Container(
@@ -192,7 +171,8 @@ class _StopWatchState extends State<StopWatch> {
                     ),
                   ),
                 ],
-              )
+              ),
+              
             ],
           ),
         ],
