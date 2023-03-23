@@ -77,13 +77,13 @@ class _StopWatchState extends State<StopWatch> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            child: Image.asset(
-              "assets/stop.jpg",
-              height: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
+          // Container(
+          //   child: Image.asset(
+          //     "assets/stop.jpg",
+          //     height: double.infinity,
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           Column(
             children: [
               SizedBox(
@@ -99,14 +99,14 @@ class _StopWatchState extends State<StopWatch> {
                   color: Colors.transparent,
                   border: Border.all(
                     width: 4,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 child: Text(
                   time,
                   style: TextStyle(
                     fontSize: 50,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -117,7 +117,7 @@ class _StopWatchState extends State<StopWatch> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Visibility(
-                    visible: isVisible,
+                    visible: true,
                     maintainSize: true,
                     maintainState: true,
                     maintainAnimation: true,
@@ -128,10 +128,7 @@ class _StopWatchState extends State<StopWatch> {
                         width: 90,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.cyanAccent,
-                          border: Border.all(
-                            color: Colors.blueAccent,
-                          ),
+                          color: Colors.deepPurple,
                         ),
                         child: Text(
                           StartButton,
@@ -146,7 +143,7 @@ class _StopWatchState extends State<StopWatch> {
                     ),
                   ),
                   Visibility(
-                    visible: isNotVisible,
+                    visible: true,
                     maintainSize: true,
                     maintainState: true,
                     maintainAnimation: true,
@@ -157,10 +154,7 @@ class _StopWatchState extends State<StopWatch> {
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.cyan,
-                          border: Border.all(
-                            color: Colors.blue,
-                          ),
+                          color: Colors.deepPurple,
                         ),
                         child: Text(
                           "Stop",
@@ -181,7 +175,7 @@ class _StopWatchState extends State<StopWatch> {
                       width: 80,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Colors.cyan,
+                        color: Colors.deepPurple,
                         border: Border.all(
                           color: Colors.blue,
                         ),
