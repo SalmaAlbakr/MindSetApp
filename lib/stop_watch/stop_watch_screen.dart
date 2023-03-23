@@ -75,11 +75,6 @@ class _StopWatchState extends State<StopWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Stop Watch",
-        ),
-      ),
       body: Stack(
         children: [
           Container(
