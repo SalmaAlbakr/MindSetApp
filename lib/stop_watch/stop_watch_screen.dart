@@ -35,32 +35,38 @@ class _StopWatchState extends State<StopWatch> {
   }
 
   void startWatch() {
-    setState(() {
-      isVisible = !isVisible;
-      isNotVisible = !isNotVisible;
-      stopIsPressed = false;
-      startIsPressed = false;
-    });
+    setState(
+      () {
+        isVisible = !isVisible;
+        isNotVisible = !isNotVisible;
+        stopIsPressed = false;
+        startIsPressed = false;
+      },
+    );
     swatch.start();
     startTimer();
   }
 
   void stopwatch() {
-    setState(() {
-      stopIsPressed = true;
-      resetIsPressed = false;
-      isVisible = !isVisible;
-      isNotVisible = !isNotVisible;
-    });
+    setState(
+      () {
+        stopIsPressed = true;
+        resetIsPressed = false;
+        isVisible = !isVisible;
+        isNotVisible = !isNotVisible;
+      },
+    );
     swatch.stop();
     StartButton = "Restart";
   }
 
   void resetWatch() {
-    setState(() {
-      startIsPressed = true;
-      resetIsPressed = true;
-    });
+    setState(
+      () {
+        startIsPressed = true;
+        resetIsPressed = true;
+      },
+    );
     swatch.reset();
     time = "00:00:00";
     StartButton = "Start";
@@ -124,7 +130,7 @@ class _StopWatchState extends State<StopWatch> {
                       onTap: startWatch,
                       child: Container(
                         height: 40,
-                        width: 80,
+                        width: 90,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: Colors.cyanAccent,
