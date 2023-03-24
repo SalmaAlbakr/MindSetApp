@@ -29,41 +29,41 @@ class _MyListState extends State<MyList> {
                   itemCount: hiveBox.length,
                   itemBuilder: (BuildContext context, int index) {
                     final helper = hiveBox.getAt(index) as ReminderModelClass;
-                    return Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            helper.title,
-                          ),
-                          Text(
-                            helper.disc,
-                          ),
-                          Text(
-                            helper.time,
-                          ),
-                          Text(
-                            helper.date,
-                          ),
-                          Text(
-                            helper.id.toString(),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              hiveBox.deleteAt(index);
-                              setState(
-                                () {
-                                  AwesomeNotifications().cancel(index);
-                                },
-                              );
-                            },
-                            child: Text(
-                              "Delete",
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              helper.title,
                             ),
-                          )
-                        ],
+                            Text(
+                              helper.disc,
+                            ),
+                            Text(
+                              helper.time,
+                            ),
+                            Text(
+                              helper.date,
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                hiveBox.deleteAt(index);
+                                setState(
+                                  () {
+                                    AwesomeNotifications().cancel(index);
+                                  },
+                                );
+                              },
+                              child: Text(
+                                "Delete",
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },

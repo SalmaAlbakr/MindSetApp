@@ -123,7 +123,6 @@ class _ResultScreenState extends State<ResultScreen> {
                             builder: (context) => Toss(
                               inputList: widget.inputList,
                               index: widget.index,
-                              selectedImage: '',
                             ),
                           ),
                         );

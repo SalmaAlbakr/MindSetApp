@@ -14,7 +14,6 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: FutureBuilder(
           builder: (context, snapshot) {

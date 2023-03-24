@@ -149,7 +149,6 @@ class _SplashScreenState extends State<SplashScreen>
               return Toss(
                 inputList: [],
                 index: 0,
-                selectedImage: '',
               );
             },
           ),

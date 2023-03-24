@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:next_poject/toss/TimerScreen.dart';
-import 'package:next_poject/toss/backgoundImage.dart';
 
 class Toss extends StatefulWidget {
   List<String> inputList = [""];
   int index = 0;
-  String selectedImage = "assets/Butterfly-PNG-3.png";
   Toss({
     Key? key,
     required this.inputList,
     required this.index,
-    required this.selectedImage,
   }) : super(key: key);
 
   @override
@@ -40,15 +37,6 @@ class _TossState extends State<Toss> {
             Text(
               "Toss",
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => BackgroundImage(),
-                    ),
-                  );
-                },
-                child: Text("change Background"))
           ],
         ),
       ),
@@ -72,15 +60,6 @@ class _TossState extends State<Toss> {
                 Container(
                   height: 400,
                   child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        scale: 10,
-                        image: AssetImage(
-                          widget.selectedImage,
-                        ),
-                      ),
-                    ),
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: widget.inputList.length,

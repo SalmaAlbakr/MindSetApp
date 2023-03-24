@@ -38,6 +38,7 @@ class _EditDataState extends State<EditData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFc793ce),
         title: Text(widget.name),
       ),
       body: Padding(
@@ -86,6 +87,9 @@ class _EditDataState extends State<EditData> {
                   ),
                 );
               },
+              style: ButtonStyle(
+                backgroundColor:  MaterialStatePropertyAll(Color(0xFF533f6a),)
+              ),
               child: Text("Done"),
             ),
           ],

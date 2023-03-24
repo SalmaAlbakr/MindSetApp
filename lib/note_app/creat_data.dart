@@ -12,7 +12,6 @@ class CreateData extends StatefulWidget {
 
 class _CreateDataState extends State<CreateData> {
   final TextEditingController _nameController = TextEditingController();
-
   final TextEditingController _ageController = TextEditingController();
 
   @override
@@ -26,7 +25,8 @@ class _CreateDataState extends State<CreateData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Data"),
+          backgroundColor: Color(0xFFc793ce),
+        title: Text("Notes"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -58,9 +58,12 @@ class _CreateDataState extends State<CreateData> {
               ),
             ),
             const SizedBox(
-              height: 15,
+              height: 120,
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 40),
+                backgroundColor: Color(0xFF533f6a),),
               onPressed: () {
                 final value = ModelClass(
                     name: _nameController.text, age: _ageController.text);

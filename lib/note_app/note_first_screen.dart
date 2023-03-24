@@ -23,8 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Notes"),
+        backgroundColor: Color(0xFFc793ce),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF533f6a),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(

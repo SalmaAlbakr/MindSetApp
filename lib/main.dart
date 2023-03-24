@@ -22,7 +22,9 @@ void main() async {
   Hive.init(directory.path);
   Hive.registerAdapter(ModelClassAdapter());
   Hive.registerAdapter(ReminderModelClassAdapter());
-  runApp(MyApp());
+  runApp(RootRestorationScope(
+      restorationId: 'not',
+      child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
