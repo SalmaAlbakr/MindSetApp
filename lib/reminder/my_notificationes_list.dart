@@ -65,10 +65,11 @@ class _MyListState extends State<MyList> {
                             ),
                             IconButton(
                               onPressed: () {
-                                hiveBox.deleteAt(index);
+                                // hiveBox.deleteAt(index);
                                 setState(
                                   () {
                                     AwesomeNotifications().cancel(index);
+                                    hiveBox.deleteAt(index);
                                   },
                                 );
                               },

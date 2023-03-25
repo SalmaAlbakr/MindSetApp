@@ -154,8 +154,9 @@ class _ReminderState extends State<Reminder> {
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              minimumSize: Size(double.infinity, 40),
-                              backgroundColor: Color(0xffab7ec1),),
+                            minimumSize: Size(double.infinity, 40),
+                            backgroundColor: Color(0xffab7ec1),
+                          ),
                           onPressed: () async {
                             final value = ReminderModelClass(
                                 title: _title.text,
@@ -166,20 +167,22 @@ class _ReminderState extends State<Reminder> {
                             Hive.box("reminderBox").add(value);
 
                             AwesomeNotifications().createNotification(
-                                content: NotificationContent(
-                                    id: _myID,
-                                    channelKey: 'reminder key',
-                                    title: _title.text,
-                                    body: _desc.text,
-                                    payload: {"navigate": "true"},),
-                                schedule: NotificationCalendar.fromDate(
-                                    date: dateTime),
-                                actionButtons: [
-                                  NotificationActionButton(
-                                    key: "key",
-                                    label: "label",
-                                  ),
-                                ],);
+                              content: NotificationContent(
+                                id: _myID,
+                                channelKey: 'reminder key',
+                                title: _title.text,
+                                body: _desc.text,
+                                payload: {"navigate": "true"},
+                              ),
+                              schedule:
+                                  NotificationCalendar.fromDate(date: dateTime),
+                              actionButtons: [
+                                NotificationActionButton(
+                                  key: "key",
+                                  label: "label",
+                                ),
+                              ],
+                            );
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
