@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:next_poject/note_app/creat_data.dart';
 import 'package:next_poject/note_app/edit_data.dart';
 import 'package:next_poject/note_app/model_class.dart';
+import 'package:next_poject/templets/thems.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -77,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            border: Border.all(),
+                            border: Border.all(
+                              color: AppColor().MainColor
+                            ),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

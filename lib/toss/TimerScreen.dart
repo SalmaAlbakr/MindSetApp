@@ -88,24 +88,24 @@ class _TimerScreenState extends State<TimerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple[400],
-        title: Row(
-          children: [
-            Image.asset(
-              "assets/T-web.gif",
-              height: 45,
-              width: 45,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              "Toss",
-            ),
-          ],
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.deepPurple[400],
+      //   title: Row(
+      //     children: [
+      //       Image.asset(
+      //         "assets/T-web.gif",
+      //         height: 45,
+      //         width: 45,
+      //       ),
+      //       SizedBox(
+      //         width: 10,
+      //       ),
+      //       Text(
+      //         "Toss",
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: Center(
         child: Container(
           child: CircleAvatar(
