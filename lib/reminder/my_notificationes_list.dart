@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:next_poject/templets/thems.dart';
 
 class MyList extends StatefulWidget {
   const MyList({Key? key}) : super(key: key);
@@ -17,7 +18,9 @@ class _MyListState extends State<MyList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: AppColor().MainColor,
+      ),
       body: FutureBuilder(
         builder: (context, snapshot) {
           final hiveBox = Hive.box("reminderBox");
@@ -32,24 +35,35 @@ class _MyListState extends State<MyList> {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
+                        padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           border: Border.all(),
                         ),
-                        child: Column(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              helper.title,
+                            Column(
+                              children: [
+                                Text(
+                                  helper.title,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  helper.disc,
+                                ),
+                              ],
                             ),
-                            Text(
-                              helper.disc,
+                            Column(
+                              children: [
+                                Text(
+                                  helper.time,
+                                ),
+                                Text(
+                                  helper.date,
+                                ),
+                              ],
                             ),
-                            Text(
-                              helper.time,
-                            ),
-                            Text(
-                              helper.date,
-                            ),
-                            ElevatedButton(
+                            IconButton(
                               onPressed: () {
                                 hiveBox.deleteAt(index);
                                 setState(
@@ -58,10 +72,11 @@ class _MyListState extends State<MyList> {
                                   },
                                 );
                               },
-                              child: Text(
-                                "Delete",
+                              icon: Icon(
+                                Icons.delete_forever,
                               ),
-                            )
+                              color: AppColor().ButtonColor,
+                            ),
                           ],
                         ),
                       ),

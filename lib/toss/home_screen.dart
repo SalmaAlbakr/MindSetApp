@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:next_poject/toss/TimerScreen.dart';
+import 'dart:math' as math;
 
 class Toss extends StatefulWidget {
   List<String> inputList = [""];
@@ -16,9 +17,13 @@ class Toss extends StatefulWidget {
   State<Toss> createState() => _TossState();
 }
 
-class _TossState extends State<Toss> {
+class _TossState extends State<Toss> with TickerProviderStateMixin {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 5),
+    vsync: this,
+  )..repeat();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,16 +31,61 @@ class _TossState extends State<Toss> {
         backgroundColor: Colors.deepPurple[400],
         title: Row(
           children: [
-            Image.asset(
-              "assets/T-web.gif",
-              height: 45,
-              width: 45,
-            ),
-            SizedBox(
-              width: 10,
+            Text(
+              "T",
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.white,
+              ),
             ),
             Text(
-              "Toss",
+              "O",
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.white,
+              ),
+            ),
+            AnimatedBuilder(
+              animation: _controller,
+              child: Text(
+                "\$",
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+              builder: (BuildContext context, Widget? child) {
+                return Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001)
+                    ..rotateY(
+                      _controller.value * (-math.pi),
+                    ),
+                  child: child,
+                );
+              },
+            ),
+            AnimatedBuilder(
+              animation: _controller,
+              child: Text(
+                "\$",
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+              builder: (BuildContext context, Widget? child) {
+                return Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001)
+                    ..rotateY(
+                      _controller.value * (-math.pi),
+                    ),
+                  child: child,
+                );
+              },
             ),
           ],
         ),
@@ -77,6 +127,7 @@ class _TossState extends State<Toss> {
                                     widget.inputList[index],
                                     style: TextStyle(
                                       fontSize: 15,
+                                      fontWeight: FontWeight.bold
                                     ),
                                   ),
                                   IconButton(
@@ -116,7 +167,7 @@ class _TossState extends State<Toss> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        Colors.white,
+                        Colors.deepPurple,
                       ),
                     ),
                     onPressed: () {
@@ -130,7 +181,7 @@ class _TossState extends State<Toss> {
                     child: Text(
                       "add",
                       style: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -140,7 +191,7 @@ class _TossState extends State<Toss> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        Colors.white,
+                        Colors.deepPurple,
                       ),
                     ),
                     onPressed: () {
@@ -172,7 +223,7 @@ class _TossState extends State<Toss> {
                     child: Text(
                       "Random",
                       style: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Colors.white,
                       ),
                     ),
                   ),
