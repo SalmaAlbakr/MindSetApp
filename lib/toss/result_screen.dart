@@ -7,8 +7,8 @@ import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 
 class ResultScreen extends StatefulWidget {
-  List<String> inputList;
-  int index;
+ final List<String> inputList;
+  final int index;
   ResultScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
