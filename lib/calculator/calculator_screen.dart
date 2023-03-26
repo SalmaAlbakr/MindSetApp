@@ -100,6 +100,11 @@ final iconB = Icons.ac_unit_sharp.toString();
                         buttonText: buttons[index],
                         backgroundColor: Color(0xFF070b33),
                         textColor: Color(0xFF9d0faa),
+                        buttonTapped: () {
+                          setState(() {
+                            userInput += buttons[index];
+                          });
+                        },
                       );
                     }
                     // ^ Button

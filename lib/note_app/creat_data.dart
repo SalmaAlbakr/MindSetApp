@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
+import 'package:next_poject/templets/thems.dart';
 
 class CreateData extends StatefulWidget {
   CreateData({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _CreateDataState extends State<CreateData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFFc793ce),
+        backgroundColor: Color(0xFFc793ce),
         title: Text("Notes"),
       ),
       body: Padding(
@@ -36,7 +37,13 @@ class _CreateDataState extends State<CreateData> {
               style: TextStyle(fontWeight: FontWeight.bold),
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: "title",
+                //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color:  AppColor().MainColor)),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor().MainColor,
+                  ),
+                ),
+                hintText: "title",
                 border: OutlineInputBorder(),
               ),
             ),
@@ -52,7 +59,13 @@ class _CreateDataState extends State<CreateData> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 decoration: InputDecoration(
-                  labelText: "note",
+                  //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color:  AppColor().MainColor)),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColor().MainColor,
+                    ),
+                  ),
+                  hintText: "note",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -63,7 +76,8 @@ class _CreateDataState extends State<CreateData> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 40),
-                backgroundColor: Color(0xFF533f6a),),
+                backgroundColor: Color(0xFF533f6a),
+              ),
               onPressed: () {
                 final value = ModelClass(
                     name: _nameController.text, age: _ageController.text);
