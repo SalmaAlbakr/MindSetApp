@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
+import 'package:next_poject/templets/thems.dart';
 
 
 class EditData extends StatefulWidget {
@@ -49,7 +50,12 @@ class _EditDataState extends State<EditData> {
               style: TextStyle(fontWeight: FontWeight.bold),
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: "title",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor().MainColor,
+                  ),
+                ),
+                hintText: "title",
                 border: OutlineInputBorder(),
               ),
             ),
@@ -65,13 +71,18 @@ class _EditDataState extends State<EditData> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 decoration: InputDecoration(
-                  labelText: "note",
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColor().MainColor,
+                    ),
+                  ),
+                  hintText: "note",
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
             const SizedBox(
-              height: 15,
+              height: 120,
             ),
             ElevatedButton(
               onPressed: () {

@@ -15,15 +15,21 @@ class ResultScreen extends StatefulWidget {
   State<ResultScreen> createState() => _ResultScreenState();
 }
 
-List<String> ChangeImageList = [
-  "assets/By2o.gif",
-  "assets/jhkj.gif",
-  "assets/load-icon-gif-28.jpg",
-  "assets/optical-matter-machine-nanoscale-machines-convert-light-into-work.gif",
+List<Widget> anotherWidget = [
+  CircleAvatar(
+    radius: 100,
+    backgroundColor: Colors.amber,
+  ),
+  Container(
+    height: 100,
+    width: 100,
+    color: Colors.lightBlue,
+  ),
+
 ];
 
 class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMixin{
-  String RandomImage = randomChoice(ChangeImageList);
+  Widget RandomWidget = randomChoice(anotherWidget);
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 5),
     vsync: this,
@@ -97,12 +103,6 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(RandomImage),
-            ),
-          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,16 +122,31 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 100,
-                      backgroundColor: Colors.white,
-                      child: Text(
-                        randomChoice(widget.inputList),
-                        style: TextStyle(
-                          color: Colors.deepPurple,
-                          fontSize: 25,
+                    Stack(
+
+                      children: [
+                        RandomWidget,
+                        Center(
+                          child: Text(
+                            randomChoice(widget.inputList),
+                            style: TextStyle(
+                              color: Colors.deepPurple,
+                              fontSize: 25,
+                            ),
+                          ),
                         ),
-                      ),
+                        // CircleAvatar(
+                        //   radius: 100,
+                        //   backgroundColor: Colors.white,
+                        //   child: Text(
+                        //     randomChoice(widget.inputList),
+                        //     style: TextStyle(
+                        //       color: Colors.deepPurple,
+                        //       fontSize: 25,
+                        //     ),
+                        //   ),
+                        // ),
+                      ],
                     ),
                   ],
                 ),
@@ -149,7 +164,7 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
                       onPressed: () {
                         setState(() {
                           randomChoice(widget.inputList);
-                          RandomImage = randomChoice(ChangeImageList);
+                          RandomWidget = randomChoice(anotherWidget);
                         });
                       },
                       child: Text(

@@ -51,6 +51,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Slidable(
                       key: ValueKey(index),
+                      // to make edit button
+                      startActionPane:
+                          ActionPane(motion: ScrollMotion(), children: [
+                        SlidableAction(
+                          onPressed: (context) {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => EditData(
+                                  index: index,
+                                  name: helper.name,
+                                ),
+                              ),
+                            );
+                          },
+                          icon: Icons.edit,
+                          label: "Edit",
+                          backgroundColor: Colors.greenAccent,
+                          foregroundColor: Colors.white,
+                        )
+                      ]),
                       endActionPane:
                           ActionPane(motion: ScrollMotion(), children: [
                         SlidableAction(
@@ -63,42 +83,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           foregroundColor: Colors.white,
                         )
                       ]),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => EditData(
-                                index: index,
-                                name: helper.name,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColor().MainColor),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              helper.name,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              helper.age,
+                              maxLines: 1,
+                              style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          );
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: AppColor().MainColor
-                            ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                helper.name,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                helper.age,
-                                maxLines: 1,
-                                style: TextStyle(
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),

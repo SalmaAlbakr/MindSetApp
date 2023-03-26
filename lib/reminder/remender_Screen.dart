@@ -43,165 +43,172 @@ class _ReminderState extends State<Reminder> {
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        TextField(
-                          controller: _title,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 500,
+                        child: ListView(
+                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox(
+                              height: 16,
                             ),
-                            label: Text(
-                              "Title",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        TextField(
-                          controller: _desc,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            label: Text(
-                              "Notes",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        DateTimePicker(
-                          decoration: InputDecoration(
-                            labelText: "Date",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                          ),
-                          calendarTitle: "Date",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                          ),
-                          firstDate: DateTime.now(),
-                          lastDate: DateTime(2095),
-                          controller: _date,
-                        ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        TextField(
-                          controller: _time,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            suffixIcon: InkWell(
-                              child: const Icon(
-                                Icons.timer_outlined,
-                              ),
-                              onTap: () async {
-                                final TimeOfDay? selectTime =
-                                    await showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.now());
-
-                                if (selectTime == null) {
-                                  return;
-                                }
-
-                                _time.text =
-                                    "${selectTime.hour}:${selectTime.minute}.${selectTime.period.name}";
-
-                                DateTime newDT = DateTime(
-                                  dateTime.year,
-                                  dateTime.month,
-                                  dateTime.day,
-                                  selectTime.hour,
-                                  selectTime.minute,
-                                );
-                                setState(() {
-                                  dateTime = newDT;
-                                });
-                              },
-                            ),
-                            label: Text(
-                              "Time",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 150,
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size(double.infinity, 40),
-                            backgroundColor: Color(0xffab7ec1),
-                          ),
-                          onPressed: () async {
-                            final value = ReminderModelClass(
-                                title: _title.text,
-                                disc: _desc.text,
-                                date: _date.text,
-                                time: _time.text,
-                                id: _myID);
-                            Hive.box("reminderBox").add(value);
-
-                            AwesomeNotifications().createNotification(
-                              content: NotificationContent(
-                                id: _myID,
-                                channelKey: 'reminder key',
-                                title: _title.text,
-                                body: _desc.text,
-                                payload: {"navigate": "true"},
-                              ),
-                              schedule:
-                                  NotificationCalendar.fromDate(date: dateTime),
-                              actionButtons: [
-                                NotificationActionButton(
-                                  key: "key",
-                                  label: "label",
+                            TextField(
+                              controller: _title,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
                                 ),
-                              ],
-                            );
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Create Reminder",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
+                                label: Text(
+                                  "Title",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
-                              Text(
-                                hiveBox.length.toString(),
-                              )
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            TextField(
+                              controller: _desc,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                label: Text(
+                                  "Notes",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            DateTimePicker(
+                              decoration: InputDecoration(
+                                labelText: "Date",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                              ),
+                              calendarTitle: "Date",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                              firstDate: DateTime.now(),
+                              lastDate: DateTime(2095),
+                              controller: _date,
+                            ),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            TextField(
+                              controller: _time,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                suffixIcon: InkWell(
+                                  child: const Icon(
+                                    Icons.timer_outlined,
+                                  ),
+                                  onTap: () async {
+                                    final TimeOfDay? selectTime =
+                                        await showTimePicker(
+                                            context: context,
+                                            initialTime: TimeOfDay.now());
+
+                                    if (selectTime == null) {
+                                      return;
+                                    }
+
+                                    _time.text =
+                                        "${selectTime.hour}:${selectTime.minute}.${selectTime.period.name}";
+
+                                    DateTime newDT = DateTime(
+                                      dateTime.year,
+                                      dateTime.month,
+                                      dateTime.day,
+                                      selectTime.hour,
+                                      selectTime.minute,
+                                    );
+                                    setState(() {
+                                      dateTime = newDT;
+                                    });
+                                  },
+                                ),
+                                label: Text(
+                                  "Time",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 150,
+                            ),
+
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 40),
+                          backgroundColor: Color(0xffab7ec1),
+                        ),
+                        onPressed: () async {
+                          final value = ReminderModelClass(
+                              title: _title.text,
+                              disc: _desc.text,
+                              date: _date.text,
+                              time: _time.text,
+                              id: _myID);
+                          Hive.box("reminderBox").add(value);
+
+                          AwesomeNotifications().createNotification(
+                            content: NotificationContent(
+                              id: _myID,
+                              channelKey: 'reminder key',
+                              title: _title.text,
+                              body: _desc.text,
+                              payload: {"navigate": "true"},
+                            ),
+                            schedule:
+                            NotificationCalendar.fromDate(date: dateTime),
+                            actionButtons: [
+                              NotificationActionButton(
+                                key: "key",
+                                label: "label",
+                              ),
                             ],
-                          ),
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Create Reminder",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                            Text(
+                              hiveBox.length.toString(),
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               );
