@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: MyApp.navigatorKey,
-      home: MainPage()
+      home: ResultScreen(index: 0, inputList: ["1" , "2" , " jdhfdsfvb"], )
     );
   }
 }

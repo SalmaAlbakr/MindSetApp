@@ -49,6 +49,7 @@ dependencies:
   flutter_slidable: ^2.0.0
   path_provider: ^2.0.12
   uuid: ^3.0.7
+  shape_of_view_null_safe: ^2.0.0
 
 
   flutter:
@@ -59,6 +60,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   awesome_notifications: ^0.7.4+1
+
 
 dev_dependencies:
   hive_generator: ^2.0.0
