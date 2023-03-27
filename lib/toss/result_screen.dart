@@ -19,62 +19,67 @@ class ResultScreen extends StatefulWidget {
 
 
 List<Widget> anotherWidget = [
-  ScaleAnimation(
-    child: CircleAvatar(
-      radius: 150,
-      backgroundColor: Colors.deepPurpleAccent,
-    ),
+  CircleAvatar(
+    radius: 150,
+    backgroundColor: Colors.white,
   ),
-  ScaleAnimation(
-    child: PhysicalShape(
-      elevation: 5.0,
-      clipper: ShapeBorderClipper(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      ),
-      color: Colors.deepPurpleAccent,
-      child: const SizedBox(
-        height: 200.0,
-        width: 200.0,
+  PhysicalShape(
+    elevation: 5.0,
+    clipper: ShapeBorderClipper(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
       ),
     ),
-  ),
-  ShapeOfView(
-    height: 200,
-    width: 200,
-    shape: TriangleShape(
-        percentBottom: 0.5,
-        percentLeft: 0,
-        percentRight: 0
-    ),
-    child: Container(
-      color: Colors.greenAccent,
+    color: Colors.white,
+    child: const SizedBox(
+      height: 300,
+      width: 300,
     ),
   ),
+  // ShapeOfView(
+  //   height: 300,
+  //   width: 300,
+  //   shape: TriangleShape(
+  //       percentBottom: 0.5,
+  //       percentLeft: 0,
+  //       percentRight: 0
+  //   ),
+  //   child: Container(
+  //     color: Colors.white,
+  //   ),
+  // ),
   ShapeOfView(
-    height: 200,
-    width: 200,
+    height: 350,
+    width: 350,
     shape: StarShape(
         noOfPoints: 5
     ),
     child: Container(
-      color: Colors.greenAccent,
+      color: Colors.white,
+    ),
+  ),ShapeOfView(
+    height: 350,
+    width: 350,
+    shape: StarShape(
+        noOfPoints: 9
+    ),
+    child: Container(
+      color: Colors.white,
     ),
   ),
   ShapeOfView(
-    height: 200,
-    width: 200,
+    height: 300,
+    width: 300,
     shape: PolygonShape(
         numberOfSides: 9
     ),
     child: Container(
-      color: Colors.greenAccent,
+      color: Colors.white,
     ),
   ),
   ShapeOfView(
-    height: 200,
-    width: 200,
+    height: 300,
+    width: 300,
     shape:BubbleShape(
         position: BubblePosition.Bottom,
         arrowPositionPercent: 0.5,
@@ -83,14 +88,12 @@ List<Widget> anotherWidget = [
         arrowWidth: 10
     ),
     child: Container(
-      color: Colors.greenAccent,
+      color: Colors.white,
     ),
   ),
 ];
 
 class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMixin{
-
-
 
   Widget RandomWidget = randomChoice(anotherWidget);
   late final AnimationController _controller = AnimationController(
@@ -101,7 +104,7 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+backgroundColor: Colors.deepPurpleAccent[100],
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[400],
         title: Row(
@@ -176,7 +179,7 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
                 child: Text(
                   "Your Result is :",
                   style: TextStyle(
-                    color: Colors.deepPurple[800],
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),
@@ -188,16 +191,33 @@ class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMix
                   children: [
                     RandomWidget,
                     Center(
-                      child: Column(
-                        children: [
-                          Text(
-                            randomChoice(widget.inputList),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 50,
+                      child: Container(
+                        height: 250,
+                        width: 250,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 250,
+                              width: 250,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    randomChoice(widget.inputList),
+                                    maxLines: 5,
+                                    style: TextStyle(
+
+                                      color: Colors.deepPurple,
+                                      fontSize: 50,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     // CircleAvatar(

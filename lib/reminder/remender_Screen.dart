@@ -1,4 +1,5 @@
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
@@ -43,8 +44,8 @@ class _ReminderState extends State<Reminder> {
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: ListView(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         height: 500,
@@ -160,6 +161,7 @@ class _ReminderState extends State<Reminder> {
                           ],
                         ),
                       ),
+                      SizedBox(height: 100,),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           minimumSize: Size(double.infinity, 40),

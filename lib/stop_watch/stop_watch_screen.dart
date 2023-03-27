@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 class StopWatch extends StatefulWidget {
   @override
@@ -60,32 +61,53 @@ class _StopWatchState extends State<StopWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
             height: 100,
           ),
-          Container(
-            alignment: Alignment.center,
-            height: MediaQuery.of(context).size.height / 2,
-            width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(left: 50, right: 50, top: 50),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.transparent,
-              border: Border.all(
-                width: 4,
-                color: Colors.black,
-              ),
+          ShapeOfView(
+            height: 300,
+            width: 300,
+            shape: PolygonShape(
+                numberOfSides: 9
             ),
-            child: Text(
-              time,
-              style: TextStyle(
-                fontSize: 50,
-                color: Colors.black,
+            child: Container(
+              color: Colors.white,
+              child: Center(
+                child: Text(
+                  time,
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
           ),
+          // Container(
+          //   alignment: Alignment.center,
+          //   height: MediaQuery.of(context).size.height / 2,
+          //   width: MediaQuery.of(context).size.width,
+          //   margin: EdgeInsets.only(left: 50, right: 50, top: 50),
+          //   decoration: BoxDecoration(
+          //     shape: BoxShape.circle,
+          //     color: Colors.transparent,
+          //     border: Border.all(
+          //       width: 4,
+          //       color: Colors.black,
+          //     ),
+          //   ),
+          //   child: Text(
+          //     time,
+          //     style: TextStyle(
+          //       fontSize: 50,
+          //       color: Colors.black,
+          //     ),
+          //   ),
+          // ),
           SizedBox(
             height: 50,
           ),
