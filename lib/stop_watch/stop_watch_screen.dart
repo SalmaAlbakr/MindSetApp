@@ -80,8 +80,9 @@ class _StopWatchState extends State<StopWatch> {
                 child: Text(
                   time,
                   style: TextStyle(
+                    fontWeight: FontWeight.bold,
                     fontSize: 50,
-                    color: Colors.black,
+                    color: Colors.deepPurple[900],
                   ),
                 ),
               ),
@@ -171,9 +172,6 @@ class _StopWatchState extends State<StopWatch> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
-                    border: Border.all(
-                      color: Colors.blue,
-                    ),
                   ),
                   child: Text(
                     "Reset",

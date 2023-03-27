@@ -1,5 +1,4 @@
 import 'package:date_time_picker/date_time_picker.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
@@ -229,7 +228,7 @@ class _ReminderState extends State<Reminder> {
   //     children: [
   //       Row(
   //         children: [
-  //           Text("$variable of notofication title"),
+  //           Text("$variable of notification title"),
   //         ],
   //       ),
   //
