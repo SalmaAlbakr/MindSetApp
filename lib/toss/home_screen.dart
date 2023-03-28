@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:next_poject/toss/TimerScreen.dart';
+import 'package:next_poject/toss/timer_screen.dart';
 import 'dart:math' as math;
 
 class Toss extends StatefulWidget {
-  List<String> inputList = [""];
+   List<String> inputList = [""];
   int index = 0;
   Toss({
     Key? key,

@@ -12,6 +12,7 @@ class ReminderFirstPage extends StatefulWidget {
 }
 
 class _ReminderFirstPageState extends State<ReminderFirstPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

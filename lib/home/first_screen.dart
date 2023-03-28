@@ -2,6 +2,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
+import 'package:next_poject/home/navigation_bar.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
 import 'package:next_poject/reminder/notification_controller.dart';
 import 'package:next_poject/reminder/repeat_or_rememberme_button.dart';
@@ -85,7 +86,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CalculatorScreen(),
+                                builder: (context) => NavigationScreen(num: 4,),
                               ),
                             );
                           },
@@ -97,11 +98,11 @@ class _MainPageState extends State<MainPage> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            await Hive.openBox("boxName");
+                            // await Hive.openBox("boxName");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
+                                builder: (context) => NavigationScreen(num: 2,),
                               ),
                             );
                           },
@@ -121,7 +122,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => StopWatch(),
+                                builder: (context) => NavigationScreen(num: 1,),
                               ),
                             );
                           },
@@ -141,9 +142,8 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Toss(
-                                  inputList: [],
-                                  index: 0,
+                                builder: (context) => NavigationScreen(
+                                  num: 0,
                                 ),
                               ),
                             );
@@ -156,11 +156,11 @@ class _MainPageState extends State<MainPage> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            await Hive.openBox("reminderBox");
+                            // await Hive.openBox("reminderBox");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ReminderFirstPage(),
+                                builder: (context) => NavigationScreen(num: 3,),
                               ),
                             );
                           },
