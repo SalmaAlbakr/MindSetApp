@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/home/first_screen.dart';
-import 'package:next_poject/home/navigation_bar.dart';
-import 'package:next_poject/home/splash_screen.dart';
 import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
-import 'package:next_poject/toss/toss_result_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 

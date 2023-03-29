@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:next_poject/toss/toss_result_screen.dart';
 
 class TossTimerScreen extends StatefulWidget {
-  List<String> inputList;
-  int index;
+ final List<String> inputList;
+ final int index;
   TossTimerScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 

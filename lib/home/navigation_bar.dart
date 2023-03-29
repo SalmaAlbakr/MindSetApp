@@ -8,7 +8,7 @@ import 'package:next_poject/toss/toss_home_screen.dart';
 
 
 class NavigationScreen extends StatefulWidget {
-  int num = 0;
+   int num = 0;
   NavigationScreen({Key? key , required this.num}) : super(key: key);
 
   @override
