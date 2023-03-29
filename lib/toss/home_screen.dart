@@ -108,7 +108,7 @@ class _TossState extends State<Toss> with TickerProviderStateMixin {
                 ),
                 SizedBox(height: 5),
                 Container(
-                  height: 400,
+                  height: 350,
                   child: Container(
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -221,7 +221,7 @@ class _TossState extends State<Toss> with TickerProviderStateMixin {
                       );
                     },
                     child: Text(
-                      "Random",
+                      "Pick",
                       style: TextStyle(
                         color: Colors.white,
                       ),

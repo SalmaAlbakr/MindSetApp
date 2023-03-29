@@ -46,7 +46,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-            primarySwatch: Colors.deepPurple
         ),
       navigatorKey: MyApp.navigatorKey,
       home: MainPage()

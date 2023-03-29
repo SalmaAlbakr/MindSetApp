@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
-import 'package:next_poject/toss/home_screen.dart';
+import 'package:next_poject/home/navigation_bar.dart';
 import 'dart:math' as math;
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
@@ -34,37 +34,6 @@ List<Widget> anotherWidget = [
     child: const SizedBox(
       height: 300,
       width: 300,
-    ),
-  ),
-  // ShapeOfView(
-  //   height: 300,
-  //   width: 300,
-  //   shape: TriangleShape(
-  //       percentBottom: 0.5,
-  //       percentLeft: 0,
-  //       percentRight: 0
-  //   ),
-  //   child: Container(
-  //     color: Colors.white,
-  //   ),
-  // ),
-  ShapeOfView(
-    height: 350,
-    width: 350,
-    shape: StarShape(
-        noOfPoints: 5
-    ),
-    child: Container(
-      color: Colors.white,
-    ),
-  ),ShapeOfView(
-    height: 350,
-    width: 350,
-    shape: StarShape(
-        noOfPoints: 9
-    ),
-    child: Container(
-      color: Colors.white,
     ),
   ),
   ShapeOfView(
@@ -220,17 +189,6 @@ backgroundColor: Colors.deepPurpleAccent[100],
                         ),
                       ),
                     ),
-                    // CircleAvatar(
-                    //   radius: 100,
-                    //   backgroundColor: Colors.white,
-                    //   child: Text(
-                    //     randomChoice(widget.inputList),
-                    //     style: TextStyle(
-                    //       color: Colors.deepPurple,
-                    //       fontSize: 25,
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -239,25 +197,6 @@ backgroundColor: Colors.deepPurpleAccent[100],
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          randomChoice(widget.inputList);
-                          RandomWidget = randomChoice(anotherWidget);
-                        });
-                      },
-                      child: Text(
-                        "Another choice",
-                        style: TextStyle(
-                          color: Colors.deepPurple,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
@@ -269,15 +208,33 @@ backgroundColor: Colors.deepPurpleAccent[100],
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Toss(
-                              inputList: widget.inputList,
-                              index: widget.index,
+                            builder: (context) => NavigationScreen(
+                              num: 0,
                             ),
                           ),
                         );
                       },
                       child: Text(
-                        "Try Again",
+                        "Try New One",
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all(Colors.white),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          randomChoice(widget.inputList);
+                          RandomWidget = randomChoice(anotherWidget);
+                        });
+                      },
+                      child: Text(
+                        "Another choice",
                         style: TextStyle(
                           color: Colors.deepPurple,
                           fontSize: 20,

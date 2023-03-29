@@ -24,9 +24,11 @@ class _MainPageState extends State<MainPage> {
         onActionReceivedMethod: NotificationController.onActionReceivedMethod);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFFFDFDFD),
       appBar: AppBar(
         backgroundColor: Color(0xffab7ec1),
         elevation: 0.0,
@@ -47,33 +49,18 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Plz Select an App",
-                      style: TextStyle(
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff7b19dd),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
                 Text(
-                  "provide you with a collection  daily apps in one place ",
+                  "provide you with a collection  daily apps in one place.. ",
                   maxLines: 20,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 20,
-                    color: Color(0xffab7ec1),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,30 +73,54 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NavigationScreen(num: 4,),
+                                builder: (context) => NavigationScreen(
+                                  num: 4,
+                                ),
                               ),
                             );
                           },
-                          child: card(
-                            backgroundColor: Color(0xffab7ec1),
-                            image: "assets/calclogo.jpg",
-                            text: "Calculator",
+                          child: Column(
+                            children: [
+                              Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.asset("assets/img_8.png")),
+                              Text(
+                                "Calculator",
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color(0xff5C2681),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                         GestureDetector(
                           onTap: () async {
-                            // await Hive.openBox("boxName");
+                            await Hive.openBox("boxName");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NavigationScreen(num: 2,),
+                                builder: (context) => NavigationScreen(
+                                  num: 2,
+                                ),
                               ),
                             );
                           },
-                          child: card(
-                            backgroundColor: Color(0xffab7ec1),
-                            image: 'assets/noteslogo.jpg',
-                            text: 'Notes',
+                          child: Column(
+                            children: [
+                              Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.asset("assets/img_7.png"),),
+                              Text(
+                                "Notes",
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color(0xff5C2681),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -122,14 +133,26 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NavigationScreen(num: 1,),
+                                builder: (context) => NavigationScreen(
+                                  num: 1,
+                                ),
                               ),
                             );
                           },
-                          child: card(
-                            backgroundColor: Color(0xffab7ec1),
-                            image: 'assets/img.png',
-                            text: 'StopWatch',
+                          child: Column(
+                            children: [
+                              Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.asset("assets/img_9.png")),
+                              Text(
+                                "StopWatch",
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color(0xff5C2681),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -148,26 +171,48 @@ class _MainPageState extends State<MainPage> {
                               ),
                             );
                           },
-                          child: card(
-                            backgroundColor: Color(0xffab7ec1),
-                            image: 'assets/toss22.PNG',
-                            text: 'Toss',
+                          child: Column(
+                            children: [
+                              Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.asset("assets/img_11.png")),
+                              Text(
+                                "Toss",
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color(0xff5C2681),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                         GestureDetector(
                           onTap: () async {
-                            // await Hive.openBox("reminderBox");
+                            await Hive.openBox("reminderBox");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NavigationScreen(num: 3,),
+                                builder: (context) => NavigationScreen(
+                                  num: 3,
+                                ),
                               ),
                             );
                           },
-                          child: card(
-                            backgroundColor: Color(0xffab7ec1),
-                            image: 'assets/rem22.PNG',
-                            text: 'Reminder',
+                          child: Column(
+                            children: [
+                              Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.asset("assets/img_12.png")),
+                              Text(
+                                "Reminder",
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color(0xff5C2681),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ],
