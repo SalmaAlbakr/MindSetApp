@@ -5,14 +5,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
-class Reminder extends StatefulWidget {
-  const Reminder({Key? key}) : super(key: key);
+class ReminderMeScreen extends StatefulWidget {
+  const ReminderMeScreen({Key? key}) : super(key: key);
 
   @override
-  State<Reminder> createState() => _ReminderState();
+  State<ReminderMeScreen> createState() => _ReminderMeScreenState();
 }
 
-class _ReminderState extends State<Reminder> {
+class _ReminderMeScreenState extends State<ReminderMeScreen> {
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
   final TextEditingController _date = TextEditingController();
@@ -27,7 +27,6 @@ class _ReminderState extends State<Reminder> {
     Hive.box("reminderBox").close();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +58,11 @@ class _ReminderState extends State<Reminder> {
                                 height: 16,
                               ),
                               TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty){
+                                    return 'Field is required.';}
+                                  return null;
+                                },
                                 controller: _title,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -77,6 +81,11 @@ class _ReminderState extends State<Reminder> {
                                 height: 16,
                               ),
                               TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty)
+                                    return 'Field is required.';
+                                  return null;
+                                },
                                 controller: _desc,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -95,6 +104,11 @@ class _ReminderState extends State<Reminder> {
                                 height: 16,
                               ),
                               DateTimePicker(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty)
+                                    return 'Field is required.';
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                   labelText: "Date",
                                   border: OutlineInputBorder(
@@ -114,6 +128,11 @@ class _ReminderState extends State<Reminder> {
                                 height: 16.0,
                               ),
                               TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty)
+                                    return 'Field is required.';
+                                  return null;
+                                },
                                 controller: _time,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -171,35 +190,42 @@ class _ReminderState extends State<Reminder> {
                             backgroundColor: Color(0xffab7ec1),
                           ),
                           onPressed: () async {
-                            final isValid =
-                                formKey.currentState?.validate() ?? false;
-                            if (isValid) {
-                              final value = ReminderModelClass(
-                                  title: _title.text,
-                                  disc: _desc.text,
-                                  date: _date.text,
-                                  time: _time.text,
-                                  id: _myID);
-                              Hive.box("reminderBox").add(value);
-                              
-                              AwesomeNotifications().createNotification(
-                                content: NotificationContent(
-                                  id: _myID,
-                                  channelKey: 'reminder key',
-                                  title: _title.text,
-                                  body: _desc.text,
-                                  payload: {"navigate": "true"},
-                                ),
-                                schedule:
-                                NotificationCalendar.fromDate(date: dateTime),
-                                actionButtons: [
-                                  NotificationActionButton(
-                                    key: "key",
-                                    label: "label",
+
+                              if (formKey.currentState!.validate()) {
+                                final value = ReminderModelClass(
+                                    title: _title.text,
+                                    disc: _desc.text,
+                                    date: _date.text,
+                                    time: _time.text,
+                                    id: _myID);
+                                Hive.box("reminderBox").add(value);
+
+                                AwesomeNotifications().createNotification(
+                                  content: NotificationContent(
+                                    id: _myID,
+                                    channelKey: 'reminder key',
+                                    title: _title.text,
+                                    body: _desc.text,
+                                    payload: {"navigate": "true"},
                                   ),
-                                ],
-                              );
-                            }
+                                  schedule:
+                                  NotificationCalendar.fromDate(date: dateTime),
+                                  actionButtons: [
+                                    NotificationActionButton(
+                                      key: "key",
+                                      label: "label",
+                                    ),
+                                  ],
+                                );
+                              }
+                              else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Colors.red,
+                                    content: Text("You should enter the field"),
+                                  ),
+                                );
+                              }
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

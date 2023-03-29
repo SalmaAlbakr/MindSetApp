@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:next_poject/note_app/creat_data.dart';
-import 'package:next_poject/note_app/edit_data.dart';
+import 'package:next_poject/note_app/note_creat_data.dart';
+import 'package:next_poject/note_app/note_edit_data.dart';
 import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/templets/thems.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NoteHomeScreen extends StatefulWidget {
+  const NoteHomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<NoteHomeScreen> createState() => _NoteHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NoteHomeScreenState extends State<NoteHomeScreen> {
   void dispose() {
     Hive.box("boxName").close();
     super.dispose();
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => CreateData(),
+              builder: (context) => NoteCreateData(),
             ),
           );
         },
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: (context) {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => EditData(
+                                builder: (context) => NoteEditData(
                                   index: index,
                                   name: helper.name,
                                 ),

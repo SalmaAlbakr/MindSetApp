@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
-import 'package:next_poject/toss/result_screen.dart';
+import 'package:next_poject/toss/toss_result_screen.dart';
 
-class TimerScreen extends StatefulWidget {
+class TossTimerScreen extends StatefulWidget {
   List<String> inputList;
   int index;
-  TimerScreen({required this.index, required this.inputList, Key? key})
+  TossTimerScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
   @override
-  State<TimerScreen> createState() => _TimerScreenState();
+  State<TossTimerScreen> createState() => _TossTimerScreenState();
 }
 
-class _TimerScreenState extends State<TimerScreen> {
+class _TossTimerScreenState extends State<TossTimerScreen> {
   Widget time = ScaleAnimation(
     duration: Duration(seconds: 1),
     child: Text(
@@ -74,7 +74,7 @@ class _TimerScreenState extends State<TimerScreen> {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return ResultScreen(
+              return TossResultScreen(
                 index: widget.index,
                 inputList: widget.inputList,
               );

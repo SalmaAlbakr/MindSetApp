@@ -4,14 +4,14 @@ import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
-class CreateData extends StatefulWidget {
-  CreateData({Key? key}) : super(key: key);
+class NoteCreateData extends StatefulWidget {
+  NoteCreateData({Key? key}) : super(key: key);
 
   @override
-  State<CreateData> createState() => _CreateDataState();
+  State<NoteCreateData> createState() => _NoteCreateDataState();
 }
 
-class _CreateDataState extends State<CreateData> {
+class _NoteCreateDataState extends State<NoteCreateData> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
 
@@ -84,7 +84,7 @@ class _CreateDataState extends State<CreateData> {
                 Hive.box("boxName").add(value);
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
+                    builder: (context) => NoteHomeScreen(),
                   ),
                 );
               },

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
-import 'package:next_poject/reminder/repeat_or_rememberme_button.dart';
+import 'package:next_poject/reminder/reminder_first_screen.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
-import 'package:next_poject/toss/home_screen.dart';
+import 'package:next_poject/toss/toss_home_screen.dart';
 
 
 class NavigationScreen extends StatefulWidget {
@@ -17,9 +17,9 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   List screen = [
-    Toss(inputList: [], index: 0,),
-    StopWatch(),
-    HomeScreen(),
+    TossHomeScreen(inputList: [], index: 0,),
+    StopWatchScreen(),
+    NoteHomeScreen(),
     ReminderFirstPage(),
     CalculatorScreen()
   ];

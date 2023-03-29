@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
-class StopWatch extends StatefulWidget {
+class StopWatchScreen extends StatefulWidget {
   @override
-  _StopWatchState createState() => _StopWatchState();
+  _StopWatchScreenState createState() => _StopWatchScreenState();
 }
 
-class _StopWatchState extends State<StopWatch> {
+class _StopWatchScreenState extends State<StopWatchScreen> {
   bool isVisible = true;
   String time = "00:00:00";
   var swatch = Stopwatch();

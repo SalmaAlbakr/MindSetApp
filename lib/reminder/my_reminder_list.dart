@@ -7,14 +7,14 @@ import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:next_poject/templets/thems.dart';
 
-class MyList extends StatefulWidget {
-  const MyList({Key? key}) : super(key: key);
+class MyReminderList extends StatefulWidget {
+  const MyReminderList({Key? key}) : super(key: key);
 
   @override
-  State<MyList> createState() => _MyListState();
+  State<MyReminderList> createState() => _MyReminderListState();
 }
 
-class _MyListState extends State<MyList> {
+class _MyReminderListState extends State<MyReminderList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

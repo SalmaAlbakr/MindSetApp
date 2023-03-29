@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/reminder/my_notificationes_list.dart';
-import 'package:next_poject/reminder/remender_Screen.dart';
+import 'package:next_poject/reminder/my_reminder_list.dart';
+import 'package:next_poject/reminder/reminder_Screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
 class ReminderFirstPage extends StatefulWidget {
@@ -44,7 +44,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => Reminder(),
+                                builder: (_) => ReminderMeScreen(),
                               ),
                             );
                           },
@@ -77,7 +77,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => MyList(),
+                                builder: (_) => MyReminderList(),
                               ),
                             );
                           },

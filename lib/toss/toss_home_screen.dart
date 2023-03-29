@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:next_poject/toss/timer_screen.dart';
+import 'package:next_poject/toss/toss_timer_screen.dart';
 import 'dart:math' as math;
 
-class Toss extends StatefulWidget {
+class TossHomeScreen extends StatefulWidget {
    List<String> inputList = [""];
   int index = 0;
-  Toss({
+  TossHomeScreen({
     Key? key,
     required this.inputList,
     required this.index,
   }) : super(key: key);
 
   @override
-  State<Toss> createState() => _TossState();
+  State<TossHomeScreen> createState() => _TossHomeScreenState();
 }
 
-class _TossState extends State<Toss> with TickerProviderStateMixin {
+class _TossHomeScreenState extends State<TossHomeScreen> with TickerProviderStateMixin {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
   late final AnimationController _controller = AnimationController(
@@ -210,7 +210,7 @@ class _TossState extends State<Toss> with TickerProviderStateMixin {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => TimerScreen(
+                                builder: (context) => TossTimerScreen(
                                   index: widget.index,
                                   inputList: widget.inputList,
                                 ),

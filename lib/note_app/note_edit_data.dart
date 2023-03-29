@@ -5,17 +5,17 @@ import 'package:next_poject/note_app/note_first_screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
 
-class EditData extends StatefulWidget {
+class NoteEditData extends StatefulWidget {
   int index;
   String name;
-  EditData({required this.name, required this.index, Key? key})
+  NoteEditData({required this.name, required this.index, Key? key})
       : super(key: key);
 
   @override
-  State<EditData> createState() => _EditDataState();
+  State<NoteEditData> createState() => _NoteEditDataState();
 }
 
-class _EditDataState extends State<EditData> {
+class _NoteEditDataState extends State<NoteEditData> {
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _ageController = TextEditingController();
@@ -94,7 +94,7 @@ class _EditDataState extends State<EditData> {
                 print("done data");
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
+                    builder: (context) => NoteHomeScreen(),
                   ),
                 );
               },

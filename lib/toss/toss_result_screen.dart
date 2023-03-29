@@ -6,14 +6,14 @@ import 'dart:math' as math;
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 
-class ResultScreen extends StatefulWidget {
+class TossResultScreen extends StatefulWidget {
  final List<String> inputList;
   final int index;
-  ResultScreen({required this.index, required this.inputList, Key? key})
+  TossResultScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
   @override
-  State<ResultScreen> createState() => _ResultScreenState();
+  State<TossResultScreen> createState() => _TossResultScreenState();
 }
 
 
@@ -62,7 +62,7 @@ List<Widget> anotherWidget = [
   ),
 ];
 
-class _ResultScreenState extends State<ResultScreen> with TickerProviderStateMixin{
+class _TossResultScreenState extends State<TossResultScreen> with TickerProviderStateMixin{
 
   Widget RandomWidget = randomChoice(anotherWidget);
   late final AnimationController _controller = AnimationController(
