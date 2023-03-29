@@ -50,7 +50,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                           },
                           child: Container(
                             height: 150,
-                            width: 150,
+                            width: 200,
                             color: Color(0xffab7ec1),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +83,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                           },
                           child: Container(
                             height: 150,
-                            width: 150,
+                            width: 200,
                             color: Color(0xffab7ec1),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
