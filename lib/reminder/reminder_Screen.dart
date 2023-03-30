@@ -31,7 +31,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xffab7ec1),
+          backgroundColor: Color(0xFF2C0746),
         title: Text("Reminder"),
       ),
       body: FutureBuilder(
@@ -80,11 +80,6 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                 height: 16,
                               ),
                               TextFormField(
-                                validator: (value) {
-                                  if (value == null || value.isEmpty)
-                                    return 'Field is required.';
-                                  return null;
-                                },
                                 controller: _desc,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -186,7 +181,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size(double.infinity, 40),
-                            backgroundColor: Color(0xffab7ec1),
+                            backgroundColor: Color(0xFFA56FCA),
                           ),
                           onPressed: () async {
 
@@ -220,8 +215,8 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                               else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    backgroundColor: Colors.red,
-                                    content: Text("You should enter the field"),
+                                    backgroundColor: Colors.grey,
+                                    content: Text(" enter your data"),
                                   ),
                                 );
                               }
@@ -253,52 +248,4 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
       ),
     );
   }
-
-  //reminder notification window>>
-
-  // Container(
-  //     child:
-  //   Column(
-  //     children: [
-  //       Row(
-  //         children: [
-  //           Text("$variable of notification title"),
-  //         ],
-  //       ),
-  //
-  //    Row(
-  //      children: [
-  //        ElevatedButton(onPressed: (){}, child: Text("ok")),
-  //        SizedBox(height: 20),
-  //        ElevatedButton(onPressed: (){rememberMeButton}, child: Text("Set Again")),
-  //      ],
-  //    )
-  // ],
-  //     ),
-  //
-  //
-  //     ),
-
-//set again window
-
-// Container(
-//     child:
-//   Column(
-//     children: [
-//       Row(
-//         children: [
-//           Text("use the same date "),
-//         ],
-//       ),
-//
-//    Row(
-//      children: [
-//        ElevatedButton(onPressed: (){}, child: Text("ok")),
-//        SizedBox(height: 20),
-//        ElevatedButton(onPressed: (){calender or create button}, child: Text("Modify")),
-//      ],
-//    )
-// ],
-//     ),
-
 }

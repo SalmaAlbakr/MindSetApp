@@ -37,83 +37,90 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
         },
         child: Icon(Icons.add),
       ),
-      body: FutureBuilder(
-        builder: (context, snapshot) {
-          final hiveBox = Hive.box("boxName");
-          return ValueListenableBuilder(
-            valueListenable: hiveBox.listenable(),
-            builder: (context, value, child) {
-              return ListView.builder(
-                itemCount: hiveBox.length,
-                itemBuilder: (context, index) {
-                  final helper = hiveBox.getAt(index) as ModelClass;
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Slidable(
-                      key: ValueKey(index),
-                      // to make edit button
-                      startActionPane:
-                          ActionPane(motion: ScrollMotion(), children: [
-                        SlidableAction(
-                          onPressed: (context) {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => NoteEditData(
-                                  index: index,
-                                  name: helper.name,
-                                ),
+      body: Column(
+        children: [
+          SizedBox(height: 10),
+          Container(
+            height: MediaQuery.of(context).size.height *0.7,
+            child: FutureBuilder(
+              builder: (context, snapshot) {
+                final hiveBox = Hive.box("boxName");
+                return ValueListenableBuilder(
+                  valueListenable: hiveBox.listenable(),
+                  builder: (context, value, child) {
+                    return ListView.builder(
+                      itemCount: hiveBox.length,
+                      itemBuilder: (context, index) {
+                        final helper = hiveBox.getAt(index) as ModelClass;
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Slidable(
+                            key: ValueKey(index),
+                            startActionPane:
+                                ActionPane(motion: ScrollMotion(), children: [
+                              SlidableAction(
+                                onPressed: (context) {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => NoteEditData(
+                                        index: index,
+                                        name: helper.name,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                icon: Icons.edit,
+                                label: "Edit",
+                                backgroundColor: Colors.greenAccent,
+                                foregroundColor: Colors.white,
+                              )
+                            ]),
+                            endActionPane:
+                                ActionPane(motion: ScrollMotion(), children: [
+                              SlidableAction(
+                                onPressed: (context) {
+                                  hiveBox.deleteAt(index);
+                                },
+                                icon: Icons.delete,
+                                label: "delete",
+                                backgroundColor: Colors.red,
+                                foregroundColor: Colors.white,
+                              )
+                            ]),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: AppColor().MainColor),
                               ),
-                            );
-                          },
-                          icon: Icons.edit,
-                          label: "Edit",
-                          backgroundColor: Colors.greenAccent,
-                          foregroundColor: Colors.white,
-                        )
-                      ]),
-                      endActionPane:
-                          ActionPane(motion: ScrollMotion(), children: [
-                        SlidableAction(
-                          onPressed: (context) {
-                            hiveBox.deleteAt(index);
-                          },
-                          icon: Icons.delete,
-                          label: "delete",
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                        )
-                      ]),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColor().MainColor),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              helper.name,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              helper.age,
-                              maxLines: 1,
-                              style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    helper.name,
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    helper.age,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-          );
-        },
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

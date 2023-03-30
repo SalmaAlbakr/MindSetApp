@@ -17,7 +17,8 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor().AppBBarColor,
+        title: Text("Reminder"),
+        backgroundColor: Color(0xFF2C0746),
       ),
       body: SafeArea(
         child: FutureBuilder(
@@ -51,7 +52,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                           child: Container(
                             height: 150,
                             width: 200,
-                            color: Color(0xffab7ec1),
+                            color: Color(0xFFA56FCA),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -84,7 +85,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                           child: Container(
                             height: 150,
                             width: 200,
-                            color: Color(0xffab7ec1),
+                            color: Color(0xFFA56FCA),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
