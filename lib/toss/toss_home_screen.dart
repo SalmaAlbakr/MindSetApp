@@ -5,7 +5,7 @@ import 'package:next_poject/toss/toss_timer_screen.dart';
 import 'dart:math' as math;
 
 class TossHomeScreen extends StatefulWidget {
-   List<String> inputList = [""];
+  List<String> inputList = [""];
   int index = 0;
   TossHomeScreen({
     Key? key,
@@ -17,7 +17,8 @@ class TossHomeScreen extends StatefulWidget {
   State<TossHomeScreen> createState() => _TossHomeScreenState();
 }
 
-class _TossHomeScreenState extends State<TossHomeScreen> with TickerProviderStateMixin {
+class _TossHomeScreenState extends State<TossHomeScreen>
+    with TickerProviderStateMixin {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
   late final AnimationController _controller = AnimationController(
@@ -106,7 +107,9 @@ class _TossHomeScreenState extends State<TossHomeScreen> with TickerProviderStat
                     ),
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(
+                  height: 5,
+                ),
                 Container(
                   height: 350,
                   child: Container(
@@ -126,9 +129,8 @@ class _TossHomeScreenState extends State<TossHomeScreen> with TickerProviderStat
                                   Text(
                                     widget.inputList[index],
                                     style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold
-                                    ),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   IconButton(
                                     onPressed: () {

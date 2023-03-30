@@ -52,7 +52,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   }
 
   void resetWatch() {
-    setState(() {},);
+    setState(
+      () {},
+    );
     swatch.reset();
     time = "00:00:00";
     StartButton = "Start";
@@ -63,21 +65,21 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: Text("Stop Watch"),
+        title: Text(
+          "Stop Watch",
+        ),
       ),
       backgroundColor: Colors.grey[300],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           ShapeOfView(
             height: 300,
             width: 300,
-            shape: PolygonShape(
-                numberOfSides: 9
-            ),
+            shape: PolygonShape(numberOfSides: 9),
             child: Container(
               color: Colors.white,
               child: Center(
@@ -92,41 +94,45 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-
-              isVisible?
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:  MaterialStatePropertyAll(Colors.deepPurple),
-                ),
-                onPressed: startWatch, child: Text(
-                StartButton,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),)
-                  :
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:  MaterialStatePropertyAll(Colors.deepPurple),
-                ),
-                onPressed: stopwatch, child: Text(
-                "Stop",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),),
+              isVisible
+                  ? ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.deepPurple),
+                      ),
+                      onPressed: startWatch,
+                      child: Text(
+                        StartButton,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    )
+                  : ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.deepPurple),
+                      ),
+                      onPressed: stopwatch,
+                      child: Text(
+                        "Stop",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
               InkWell(
                 onTap: resetWatch,
                 child: Container(
@@ -149,7 +155,6 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
               ),
             ],
           ),
-
         ],
       ),
     );

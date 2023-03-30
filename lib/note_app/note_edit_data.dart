@@ -4,7 +4,6 @@ import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
-
 class NoteEditData extends StatefulWidget {
   int index;
   String name;
@@ -51,8 +50,9 @@ class _NoteEditDataState extends State<NoteEditData> {
             children: [
               TextFormField(
                 validator: (value) {
-                  if (value == null || value.isEmpty){
-                    return '';}
+                  if (value == null || value.isEmpty) {
+                    return '';
+                  }
                   return null;
                 },
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -74,8 +74,9 @@ class _NoteEditDataState extends State<NoteEditData> {
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: TextFormField(
                   validator: (value) {
-                    if (value == null || value.isEmpty){
-                      return '';}
+                    if (value == null || value.isEmpty) {
+                      return '';
+                    }
                     return null;
                   },
                   maxLines: 9999,
@@ -114,7 +115,9 @@ class _NoteEditDataState extends State<NoteEditData> {
                   }
                 },
                 style: ButtonStyle(
-                  backgroundColor:  MaterialStatePropertyAll(Color(0xFF533f6a),)
+                  backgroundColor: MaterialStatePropertyAll(
+                    Color(0xFF533f6a),
+                  ),
                 ),
                 child: Text("Done"),
               ),

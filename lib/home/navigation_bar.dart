@@ -6,10 +6,9 @@ import 'package:next_poject/reminder/reminder_first_screen.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
 import 'package:next_poject/toss/toss_home_screen.dart';
 
-
 class NavigationScreen extends StatefulWidget {
-   int num = 0;
-  NavigationScreen({Key? key , required this.num}) : super(key: key);
+  int num = 0;
+  NavigationScreen({Key? key, required this.num}) : super(key: key);
 
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();
@@ -17,7 +16,10 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   List screen = [
-    TossHomeScreen(inputList: [], index: 0,),
+    TossHomeScreen(
+      inputList: [],
+      index: 0,
+    ),
     StopWatchScreen(),
     NoteHomeScreen(),
     ReminderFirstPage(),
@@ -44,41 +46,46 @@ class _NavigationScreenState extends State<NavigationScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Container(
-                height: 50,
-                width: 50,
-                child: Image.asset("assets/img_11.png")),
+              height: 50,
+              width: 50,
+              child: Image.asset("assets/img_11.png"),
+            ),
             activeIcon: Icon(Icons.flip_camera_android_outlined),
             label: "Toss",
           ),
           BottomNavigationBarItem(
             icon: Container(
-                height: 50,
-                width: 50,
-                child: Image.asset("assets/img_9.png")),
+              height: 50,
+              width: 50,
+              child: Image.asset("assets/img_9.png"),
+            ),
             activeIcon: Icon(Icons.watch_later_outlined),
             label: "Stopwatch",
           ),
           BottomNavigationBarItem(
             icon: Container(
-                height: 50,
-                width: 50,
-                child: Image.asset("assets/img_7.png")),
-            activeIcon:  Icon(Icons.note_alt_outlined),
+              height: 50,
+              width: 50,
+              child: Image.asset("assets/img_7.png"),
+            ),
+            activeIcon: Icon(Icons.note_alt_outlined),
             label: "note",
           ),
           BottomNavigationBarItem(
             icon: Container(
-                height: 50,
-                width: 50,
-                child: Image.asset("assets/img_12.png")),
+              height: 50,
+              width: 50,
+              child: Image.asset("assets/img_12.png"),
+            ),
             activeIcon: Icon(Icons.notification_add_outlined),
             label: "reminder",
           ),
           BottomNavigationBarItem(
             icon: Container(
-                height: 50,
-                width: 50,
-                child: Image.asset("assets/img_8.png")),
+              height: 50,
+              width: 50,
+              child: Image.asset("assets/img_8.png"),
+            ),
             activeIcon: Icon(Icons.calculate_outlined),
             label: "calculator",
           ),

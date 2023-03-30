@@ -26,12 +26,13 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
     Hive.box("reminderBox").close();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Color(0xFF2C0746),
+        backgroundColor: Color(0xFF2C0746),
         title: Text("Reminder"),
       ),
       body: FutureBuilder(
@@ -46,20 +47,19 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListView(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           height: 500,
                           child: ListView(
-                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const SizedBox(
                                 height: 16,
                               ),
                               TextFormField(
                                 validator: (value) {
-                                  if (value == null || value.isEmpty){
-                                    return 'Field is required.';}
+                                  if (value == null || value.isEmpty) {
+                                    return 'Field is required.';
+                                  }
                                   return null;
                                 },
                                 controller: _title,
@@ -139,8 +139,9 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                     onTap: () async {
                                       final TimeOfDay? selectTime =
                                           await showTimePicker(
-                                              context: context,
-                                              initialTime: TimeOfDay.now());
+                                        context: context,
+                                        initialTime: TimeOfDay.now(),
+                                      );
 
                                       if (selectTime == null) {
                                         return;
@@ -170,56 +171,58 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 150,
                               ),
-
                             ],
                           ),
                         ),
-                        SizedBox(height: 100,),
+                        const SizedBox(
+                          height: 100,
+                        ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            minimumSize: Size(double.infinity, 40),
+                            minimumSize: Size(
+                              double.infinity,
+                              40,
+                            ),
                             backgroundColor: Color(0xFFA56FCA),
                           ),
                           onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              final value = ReminderModelClass(
+                                  title: _title.text,
+                                  disc: _desc.text,
+                                  date: _date.text,
+                                  time: _time.text,
+                                  id: _myID);
+                              Hive.box("reminderBox").add(value);
 
-                              if (formKey.currentState!.validate()) {
-                                final value = ReminderModelClass(
-                                    title: _title.text,
-                                    disc: _desc.text,
-                                    date: _date.text,
-                                    time: _time.text,
-                                    id: _myID);
-                                Hive.box("reminderBox").add(value);
-
-                                AwesomeNotifications().createNotification(
-                                  content: NotificationContent(
-                                    id: _myID,
-                                    channelKey: 'reminder key',
-                                    title: _title.text,
-                                    body: _desc.text,
-                                    payload: {"navigate": "true"},
+                              AwesomeNotifications().createNotification(
+                                content: NotificationContent(
+                                  id: _myID,
+                                  channelKey: 'reminder key',
+                                  title: _title.text,
+                                  body: _desc.text,
+                                  payload: {"navigate": "true"},
+                                ),
+                                schedule: NotificationCalendar.fromDate(
+                                    date: dateTime),
+                                actionButtons: [
+                                  NotificationActionButton(
+                                    key: "key",
+                                    label: "label",
                                   ),
-                                  schedule:
-                                  NotificationCalendar.fromDate(date: dateTime),
-                                  actionButtons: [
-                                    NotificationActionButton(
-                                      key: "key",
-                                      label: "label",
-                                    ),
-                                  ],
-                                );
-                              }
-                              else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: Colors.grey,
-                                    content: Text(" enter your data"),
-                                  ),
-                                );
-                              }
+                                ],
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: Colors.grey,
+                                  content: Text(" enter your data"),
+                                ),
+                              );
+                            }
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,7 +236,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                               ),
                               Text(
                                 hiveBox.length.toString(),
-                              )
+                              ),
                             ],
                           ),
                         ),
