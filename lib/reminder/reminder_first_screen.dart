@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/reminder/my_notificationes_list.dart';
-import 'package:next_poject/reminder/remender_Screen.dart';
+import 'package:next_poject/reminder/my_reminder_list.dart';
+import 'package:next_poject/reminder/reminder_Screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
 class ReminderFirstPage extends StatefulWidget {
@@ -17,7 +17,8 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor().AppBBarColor,
+        title: Text("Reminder"),
+        backgroundColor: Color(0xFF2C0746),
       ),
       body: SafeArea(
         child: FutureBuilder(
@@ -44,14 +45,14 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => Reminder(),
+                                builder: (_) => ReminderMeScreen(),
                               ),
                             );
                           },
                           child: Container(
                             height: 150,
-                            width: 150,
-                            color: Color(0xffab7ec1),
+                            width: 200,
+                            color: Color(0xFFA56FCA),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -77,14 +78,14 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => MyList(),
+                                builder: (_) => MyReminderList(),
                               ),
                             );
                           },
                           child: Container(
                             height: 150,
-                            width: 150,
-                            color: Color(0xffab7ec1),
+                            width: 200,
+                            color: Color(0xFFA56FCA),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(

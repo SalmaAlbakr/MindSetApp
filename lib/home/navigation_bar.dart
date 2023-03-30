@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:next_poject/calculator/calculator_screen.dart';
 import 'package:next_poject/note_app/note_first_screen.dart';
-import 'package:next_poject/reminder/repeat_or_rememberme_button.dart';
+import 'package:next_poject/reminder/reminder_first_screen.dart';
 import 'package:next_poject/stop_watch/stop_watch_screen.dart';
-import 'package:next_poject/toss/home_screen.dart';
+import 'package:next_poject/toss/toss_home_screen.dart';
 
 
 class NavigationScreen extends StatefulWidget {
-  int num = 0;
+   int num = 0;
   NavigationScreen({Key? key , required this.num}) : super(key: key);
 
   @override
@@ -17,10 +17,10 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   List screen = [
-    Toss(inputList: [], index: 0,),
-    StopWatch(),
+    TossHomeScreen(inputList: [], index: 0,),
+    StopWatchScreen(),
+    NoteHomeScreen(),
     ReminderFirstPage(),
-    HomeScreen(),
     CalculatorScreen()
   ];
 
@@ -40,26 +40,46 @@ class _NavigationScreenState extends State<NavigationScreen> {
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.deepPurple,
-        unselectedItemColor: Colors.purple[100],
+        unselectedItemColor: Colors.purple,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Container(
+                height: 50,
+                width: 50,
+                child: Image.asset("assets/img_11.png")),
+            activeIcon: Icon(Icons.flip_camera_android_outlined),
             label: "Toss",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Container(
+                height: 50,
+                width: 50,
+                child: Image.asset("assets/img_9.png")),
+            activeIcon: Icon(Icons.watch_later_outlined),
             label: "Stopwatch",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Container(
+                height: 50,
+                width: 50,
+                child: Image.asset("assets/img_7.png")),
+            activeIcon:  Icon(Icons.note_alt_outlined),
             label: "note",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_offer_rounded),
+            icon: Container(
+                height: 50,
+                width: 50,
+                child: Image.asset("assets/img_12.png")),
+            activeIcon: Icon(Icons.notification_add_outlined),
             label: "reminder",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Container(
+                height: 50,
+                width: 50,
+                child: Image.asset("assets/img_8.png")),
+            activeIcon: Icon(Icons.calculate_outlined),
             label: "calculator",
           ),
         ],

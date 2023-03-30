@@ -1,25 +1,24 @@
-//my list
-//icon files put navigation to this list
-//every single notification have 2 slidable for delete and edit
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:next_poject/templets/thems.dart';
 
-class MyList extends StatefulWidget {
-  const MyList({Key? key}) : super(key: key);
+
+class MyReminderList extends StatefulWidget {
+  const MyReminderList({Key? key}) : super(key: key);
 
   @override
-  State<MyList> createState() => _MyListState();
+  State<MyReminderList> createState() => _MyReminderListState();
 }
 
-class _MyListState extends State<MyList> {
+class _MyReminderListState extends State<MyReminderList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor().MainColor,
+        backgroundColor: Color(0xFF2C0746),
+        title: Text("My List",style: TextStyle(fontSize: 25),),
       ),
       body: FutureBuilder(
         builder: (context, snapshot) {
@@ -28,6 +27,7 @@ class _MyListState extends State<MyList> {
             valueListenable: hiveBox.listenable(),
             builder: (context, value, child) {
               return Container(
+
                 child: ListView.builder(
                   itemCount: hiveBox.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -37,6 +37,7 @@ class _MyListState extends State<MyList> {
                       child: Container(
                         padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
+                          color: Color(0xFFA56FCA),
                           border: Border.all(),
                         ),
                         child: Row(
@@ -46,20 +47,20 @@ class _MyListState extends State<MyList> {
                               children: [
                                 Text(
                                   helper.title,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),
                                 ),
                                 Text(
-                                  helper.disc,
+                                  helper.disc,style: TextStyle(fontSize: 25),
                                 ),
                               ],
                             ),
                             Column(
                               children: [
                                 Text(
-                                  helper.time,
+                                  helper.time,style: TextStyle(fontSize: 23),
                                 ),
                                 Text(
-                                  helper.date,
+                                  helper.date,style: TextStyle(fontSize: 16),
                                 ),
                               ],
                             ),
@@ -74,9 +75,10 @@ class _MyListState extends State<MyList> {
                                 );
                               },
                               icon: Icon(
-                                Icons.delete_forever,
+                                Icons.delete_outline,
+                                size: 30,
                               ),
-                              color: AppColor().ButtonColor,
+                              color: Colors.black,
                             ),
                           ],
                         ),
