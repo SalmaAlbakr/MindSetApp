@@ -39,9 +39,11 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(
+            height: 10,
+          ),
           Container(
-            height: MediaQuery.of(context).size.height *0.7,
+            height: MediaQuery.of(context).size.height * 0.7,
             child: FutureBuilder(
               builder: (context, snapshot) {
                 final hiveBox = Hive.box("boxName");
@@ -56,51 +58,61 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Slidable(
                             key: ValueKey(index),
-                            startActionPane:
-                                ActionPane(motion: ScrollMotion(), children: [
-                              SlidableAction(
-                                onPressed: (context) {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => NoteEditData(
-                                        index: index,
-                                        name: helper.name,
+                            startActionPane: ActionPane(
+                              motion: ScrollMotion(),
+                              children: [
+                                SlidableAction(
+                                  onPressed: (context) {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => NoteEditData(
+                                          index: index,
+                                          name: helper.name,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
-                                icon: Icons.edit,
-                                label: "Edit",
-                                backgroundColor: Colors.greenAccent,
-                                foregroundColor: Colors.white,
-                              )
-                            ]),
-                            endActionPane:
-                                ActionPane(motion: ScrollMotion(), children: [
-                              SlidableAction(
-                                onPressed: (context) {
-                                  hiveBox.deleteAt(index);
-                                },
-                                icon: Icons.delete,
-                                label: "delete",
-                                backgroundColor: Colors.red,
-                                foregroundColor: Colors.white,
-                              )
-                            ]),
+                                    );
+                                  },
+                                  icon: Icons.edit,
+                                  label: "Edit",
+                                  backgroundColor: Colors.greenAccent,
+                                  foregroundColor: Colors.white,
+                                ),
+                              ],
+                            ),
+                            endActionPane: ActionPane(
+                              motion: ScrollMotion(),
+                              children: [
+                                SlidableAction(
+                                  onPressed: (context) {
+                                    hiveBox.deleteAt(index);
+                                  },
+                                  icon: Icons.delete,
+                                  label: "delete",
+                                  backgroundColor: Colors.red,
+                                  foregroundColor: Colors.white,
+                                ),
+                              ],
+                            ),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                border: Border.all(color: AppColor().MainColor),
+                                border: Border.all(
+                                  color: AppColor().MainColor,
+                                ),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     helper.name,
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
                                   Text(
                                     helper.age,
                                     maxLines: 1,

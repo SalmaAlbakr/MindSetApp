@@ -22,13 +22,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFFDFDFD),
+      backgroundColor: const Color(0XFFFDFDFD),
       appBar: AppBar(
-        backgroundColor: Color(0xffab7ec1),
+        backgroundColor: const Color(0xffab7ec1),
         elevation: 0.0,
-        title: Text(
+        title: const Text(
           "MindSet",
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "provide you with a collection  daily apps in one place.. ",
                   maxLines: 20,
                   overflow: TextOverflow.ellipsis,
@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Column(
@@ -76,15 +76,17 @@ class _MainPageState extends State<MainPage> {
                           child: Column(
                             children: [
                               Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset("assets/img_8.png")),
-                              Text(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset("assets/img_8.png"),
+                              ),
+                              const Text(
                                 "Calculator",
                                 style: TextStyle(
-                                    fontSize: 23,
-                                    color: Color(0xff5C2681),
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 23,
+                                  color: Color(0xff5C2681),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -104,15 +106,17 @@ class _MainPageState extends State<MainPage> {
                           child: Column(
                             children: [
                               Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset("assets/img_7.png"),),
-                              Text(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset("assets/img_7.png"),
+                              ),
+                              const Text(
                                 "Notes",
                                 style: TextStyle(
-                                    fontSize: 23,
-                                    color: Color(0xff5C2681),
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 23,
+                                  color: Color(0xff5C2681),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -136,10 +140,11 @@ class _MainPageState extends State<MainPage> {
                           child: Column(
                             children: [
                               Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset("assets/img_9.png")),
-                              Text(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset("assets/img_9.png"),
+                              ),
+                              const Text(
                                 "StopWatch",
                                 style: TextStyle(
                                     fontSize: 23,
@@ -168,15 +173,17 @@ class _MainPageState extends State<MainPage> {
                           child: Column(
                             children: [
                               Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset("assets/img_11.png")),
-                              Text(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset("assets/img_11.png"),
+                              ),
+                              const Text(
                                 "Toss",
                                 style: TextStyle(
-                                    fontSize: 23,
-                                    color: Color(0xff5C2681),
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 23,
+                                  color: Color(0xff5C2681),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -196,15 +203,19 @@ class _MainPageState extends State<MainPage> {
                           child: Column(
                             children: [
                               Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset("assets/img_12.png")),
-                              Text(
+                                height: 150,
+                                width: 150,
+                                child: Image.asset(
+                                  "assets/img_12.png",
+                                ),
+                              ),
+                              const Text(
                                 "Reminder",
                                 style: TextStyle(
-                                    fontSize: 23,
-                                    color: Color(0xff5C2681),
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 23,
+                                  color: Color(0xff5C2681),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),

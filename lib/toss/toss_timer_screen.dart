@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:next_poject/toss/toss_result_screen.dart';
 
 class TossTimerScreen extends StatefulWidget {
- final List<String> inputList;
- final int index;
+  final List<String> inputList;
+  final int index;
   TossTimerScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
@@ -88,24 +88,6 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.deepPurple[400],
-      //   title: Row(
-      //     children: [
-      //       Image.asset(
-      //         "assets/T-web.gif",
-      //         height: 45,
-      //         width: 45,
-      //       ),
-      //       SizedBox(
-      //         width: 10,
-      //       ),
-      //       Text(
-      //         "Toss",
-      //       ),
-      //     ],
-      //   ),
-      // ),
       body: Center(
         child: Container(
           child: CircleAvatar(

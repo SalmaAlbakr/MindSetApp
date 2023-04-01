@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:next_poject/reminder/my_reminder_list.dart';
 import 'package:next_poject/reminder/reminder_Screen.dart';
-import 'package:next_poject/templets/thems.dart';
 
 class ReminderFirstPage extends StatefulWidget {
   ReminderFirstPage({Key? key}) : super(key: key);
@@ -12,12 +11,13 @@ class ReminderFirstPage extends StatefulWidget {
 }
 
 class _ReminderFirstPageState extends State<ReminderFirstPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reminder"),
+        title: Text(
+          "Reminder",
+        ),
         backgroundColor: Color(0xFF2C0746),
       ),
       body: SafeArea(
@@ -36,10 +36,17 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text("hello..Let's get started   " , style: TextStyle(fontSize: 25),),
+                            Text(
+                              "hello..Let's get started   ",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
                           ],
                         ),
-                        SizedBox(height: 100,),
+                        const SizedBox(
+                          height: 100,
+                        ),
                         GestureDetector(
                           onTap: () async {
                             await Hive.openBox("reminderBox");
@@ -70,7 +77,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         GestureDetector(
@@ -106,13 +113,17 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(width: 25),
-                                  hiveBox.length == 0 ? Container() : Text(
-                                    hiveBox.length.toString(),
-                                    style: TextStyle(
-                                      fontSize: 40,
-                                    ),
+                                  const SizedBox(
+                                    width: 25,
                                   ),
+                                  hiveBox.length == 0
+                                      ? Container()
+                                      : Text(
+                                          hiveBox.length.toString(),
+                                          style: TextStyle(
+                                            fontSize: 40,
+                                          ),
+                                        ),
                                 ],
                               ),
                             ),

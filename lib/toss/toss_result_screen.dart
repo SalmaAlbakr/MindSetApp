@@ -5,9 +5,8 @@ import 'package:next_poject/home/navigation_bar.dart';
 import 'dart:math' as math;
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
-
 class TossResultScreen extends StatefulWidget {
- final List<String> inputList;
+  final List<String> inputList;
   final int index;
   TossResultScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
@@ -15,8 +14,6 @@ class TossResultScreen extends StatefulWidget {
   @override
   State<TossResultScreen> createState() => _TossResultScreenState();
 }
-
-
 
 List<Widget> anotherWidget = [
   CircleAvatar(
@@ -39,9 +36,7 @@ List<Widget> anotherWidget = [
   ShapeOfView(
     height: 300,
     width: 300,
-    shape: PolygonShape(
-        numberOfSides: 9
-    ),
+    shape: PolygonShape(numberOfSides: 9),
     child: Container(
       color: Colors.white,
     ),
@@ -49,21 +44,20 @@ List<Widget> anotherWidget = [
   ShapeOfView(
     height: 300,
     width: 300,
-    shape:BubbleShape(
+    shape: BubbleShape(
         position: BubblePosition.Bottom,
         arrowPositionPercent: 0.5,
         borderRadius: 20,
         arrowHeight: 10,
-        arrowWidth: 10
-    ),
+        arrowWidth: 10),
     child: Container(
       color: Colors.white,
     ),
   ),
 ];
 
-class _TossResultScreenState extends State<TossResultScreen> with TickerProviderStateMixin{
-
+class _TossResultScreenState extends State<TossResultScreen>
+    with TickerProviderStateMixin {
   Widget RandomWidget = randomChoice(anotherWidget);
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 5),
@@ -73,7 +67,7 @@ class _TossResultScreenState extends State<TossResultScreen> with TickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.deepPurpleAccent[100],
+      backgroundColor: Colors.deepPurpleAccent[100],
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[400],
         title: Row(
@@ -176,7 +170,6 @@ backgroundColor: Colors.deepPurpleAccent[100],
                                     randomChoice(widget.inputList),
                                     maxLines: 5,
                                     style: TextStyle(
-
                                       color: Colors.deepPurple,
                                       fontSize: 50,
                                       overflow: TextOverflow.ellipsis,
@@ -225,13 +218,15 @@ backgroundColor: Colors.deepPurpleAccent[100],
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                        MaterialStateProperty.all(Colors.white),
+                            MaterialStateProperty.all(Colors.white),
                       ),
                       onPressed: () {
-                        setState(() {
-                          randomChoice(widget.inputList);
-                          RandomWidget = randomChoice(anotherWidget);
-                        });
+                        setState(
+                          () {
+                            randomChoice(widget.inputList);
+                            RandomWidget = randomChoice(anotherWidget);
+                          },
+                        );
                       },
                       child: Text(
                         "Another choice",

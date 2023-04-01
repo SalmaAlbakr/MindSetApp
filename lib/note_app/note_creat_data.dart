@@ -36,13 +36,14 @@ class _NoteCreateDataState extends State<NoteCreateData> {
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextFormField(
                 validator: (value) {
-                  if (value == null || value.isEmpty){
-                    return '';}
+                  if (value == null || value.isEmpty) {
+                    return '';
+                  }
                   return null;
                 },
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -64,8 +65,9 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: TextFormField(
                   validator: (value) {
-                    if (value == null || value.isEmpty){
-                      return '';}
+                    if (value == null || value.isEmpty) {
+                      return '';
+                    }
                     return null;
                   },
                   maxLines: 9999,
@@ -74,7 +76,6 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   decoration: InputDecoration(
-                    //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color:  AppColor().MainColor)),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: AppColor().MainColor,
