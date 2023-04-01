@@ -211,7 +211,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                 actionButtons: [
                                   NotificationActionButton(
                                     key: "key",
-                                    label: "label",
+                                    label: "Ok",
                                   ),
                                 ],
                               );
