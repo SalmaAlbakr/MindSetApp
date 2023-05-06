@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class AppColor {
-  Color MainColor = Color(0xffab7ec1);
-  Color ButtonColor = Color(0xFF533f6a);
-  Color AppBBarColor = Color(0xFFc793ce);
+  Color mainColor = const Color(0xffab7ec1);
+  Color buttonColor = const Color(0xFF533f6a);
+  Color appBarColor = const Color(0xFFc793ce);
 }

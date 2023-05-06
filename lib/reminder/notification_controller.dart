@@ -10,7 +10,7 @@ class NotificationController {
     await Hive.openBox("reminderBox");
     MyApp.navigatorKey.currentState?.push(
       MaterialPageRoute(
-        builder: (_) => MyReminderList(),
+        builder: (_) => const MyReminderList(),
       ),
     );
   }

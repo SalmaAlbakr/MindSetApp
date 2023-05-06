@@ -8,7 +8,7 @@ import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 class TossResultScreen extends StatefulWidget {
   final List<String> inputList;
   final int index;
-  TossResultScreen({required this.index, required this.inputList, Key? key})
+  const TossResultScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
   @override
@@ -16,7 +16,7 @@ class TossResultScreen extends StatefulWidget {
 }
 
 List<Widget> anotherWidget = [
-  CircleAvatar(
+  const CircleAvatar(
     radius: 150,
     backgroundColor: Colors.white,
   ),
@@ -58,7 +58,7 @@ List<Widget> anotherWidget = [
 
 class _TossResultScreenState extends State<TossResultScreen>
     with TickerProviderStateMixin {
-  Widget RandomWidget = randomChoice(anotherWidget);
+  Widget randomWidget = randomChoice(anotherWidget);
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 5),
     vsync: this,
@@ -72,14 +72,14 @@ class _TossResultScreenState extends State<TossResultScreen>
         backgroundColor: Colors.deepPurple[400],
         title: Row(
           children: [
-            Text(
+            const Text(
               "T",
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white,
               ),
             ),
-            Text(
+            const Text(
               "O",
               style: TextStyle(
                 fontSize: 40,
@@ -88,7 +88,7 @@ class _TossResultScreenState extends State<TossResultScreen>
             ),
             AnimatedBuilder(
               animation: _controller,
-              child: Text(
+              child: const Text(
                 "\$",
                 style: TextStyle(
                   fontSize: 40,
@@ -109,7 +109,7 @@ class _TossResultScreenState extends State<TossResultScreen>
             ),
             AnimatedBuilder(
               animation: _controller,
-              child: Text(
+              child: const Text(
                 "\$",
                 style: TextStyle(
                   fontSize: 40,
@@ -132,115 +132,113 @@ class _TossResultScreenState extends State<TossResultScreen>
         ),
       ),
       body: SafeArea(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Your Result is :",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Your Result is :",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
                 ),
               ),
-              ScaleAnimation(
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    RandomWidget,
-                    Center(
-                      child: Container(
-                        height: 250,
-                        width: 250,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 250,
-                              width: 250,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    randomChoice(widget.inputList),
-                                    maxLines: 5,
-                                    style: TextStyle(
-                                      color: Colors.deepPurple,
-                                      fontSize: 50,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
+            ),
+            ScaleAnimation(
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  randomWidget,
+                  Center(
+                    child: SizedBox(
+                      height: 250,
+                      width: 250,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 250,
+                            width: 250,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  randomChoice(widget.inputList),
+                                  maxLines: 5,
+                                  style: const TextStyle(
+                                    color: Colors.deepPurple,
+                                    fontSize: 50,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.white,
-                        ),
-                      ),
-                      onPressed: () {
-                        widget.inputList.clear();
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => NavigationScreen(
-                              num: 0,
+                                ),
+                              ],
                             ),
                           ),
-                        );
-                      },
-                      child: Text(
-                        "Try New One",
-                        style: TextStyle(
-                          color: Colors.deepPurple,
-                          fontSize: 20,
-                        ),
+                        ],
                       ),
                     ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                      ),
-                      onPressed: () {
-                        setState(
-                          () {
-                            randomChoice(widget.inputList);
-                            RandomWidget = randomChoice(anotherWidget);
-                          },
-                        );
-                      },
-                      child: Text(
-                        "Another choice",
-                        style: TextStyle(
-                          color: Colors.deepPurple,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      widget.inputList.clear();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 0,
+                          ),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Try New One",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.white),
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          randomChoice(widget.inputList);
+                          randomWidget = randomChoice(anotherWidget);
+                        },
+                      );
+                    },
+                    child: const Text(
+                      "Another choice",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

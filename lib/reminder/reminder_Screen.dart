@@ -17,7 +17,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
   final TextEditingController _date = TextEditingController();
   final TextEditingController _time = TextEditingController();
 
-  int _myID = UniqueKey().hashCode;
+  final int _myID = UniqueKey().hashCode;
   DateTime dateTime = DateTime.now();
   GlobalKey<FormState> formKey = GlobalKey();
 
@@ -32,8 +32,8 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFF2C0746),
-        title: Text("Reminder"),
+        backgroundColor: const Color(0xFF2C0746),
+        title: const Text("Reminder"),
       ),
       body: FutureBuilder(
         builder: (context, snapshot) {
@@ -48,7 +48,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: ListView(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 500,
                           child: ListView(
                             children: [
@@ -67,7 +67,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
-                                  label: Text(
+                                  label: const Text(
                                     "Title",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
-                                  label: Text(
+                                  label: const Text(
                                     "Notes",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -99,8 +99,9 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                               ),
                               DateTimePicker(
                                 validator: (value) {
-                                  if (value == null || value.isEmpty)
+                                  if (value == null || value.isEmpty) {
                                     return 'Field is required.';
+                                  }
                                   return null;
                                 },
                                 decoration: InputDecoration(
@@ -110,7 +111,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                   ),
                                 ),
                                 calendarTitle: "Date",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),
@@ -123,8 +124,9 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                               ),
                               TextFormField(
                                 validator: (value) {
-                                  if (value == null || value.isEmpty)
+                                  if (value == null || value.isEmpty) {
                                     return 'Field is required.';
+                                  }
                                   return null;
                                 },
                                 controller: _time,
@@ -162,7 +164,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                       });
                                     },
                                   ),
-                                  label: Text(
+                                  label: const Text(
                                     "Time",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -182,11 +184,11 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            minimumSize: Size(
+                            minimumSize: const Size(
                               double.infinity,
                               40,
                             ),
-                            backgroundColor: Color(0xFFA56FCA),
+                            backgroundColor: const Color(0xFFA56FCA),
                           ),
                           onPressed: () async {
                             if (formKey.currentState!.validate()) {
@@ -217,7 +219,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                               );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   backgroundColor: Colors.grey,
                                   content: Text(" enter your data"),
                                 ),
@@ -227,7 +229,7 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 "Create Reminder",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,

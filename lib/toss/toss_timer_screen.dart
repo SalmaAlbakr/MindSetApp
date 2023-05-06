@@ -6,7 +6,7 @@ import 'package:next_poject/toss/toss_result_screen.dart';
 class TossTimerScreen extends StatefulWidget {
   final List<String> inputList;
   final int index;
-  TossTimerScreen({required this.index, required this.inputList, Key? key})
+  const TossTimerScreen({required this.index, required this.inputList, Key? key})
       : super(key: key);
 
   @override
@@ -15,8 +15,8 @@ class TossTimerScreen extends StatefulWidget {
 
 class _TossTimerScreenState extends State<TossTimerScreen> {
   Widget time = ScaleAnimation(
-    duration: Duration(seconds: 1),
-    child: Text(
+    duration: const Duration(seconds: 1),
+    child: const Text(
       "3",
       style: TextStyle(
         fontSize: 100,
@@ -34,8 +34,8 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
         setState(
           () {
             time = FadedScaleAnimation(
-              scaleDuration: Duration(seconds: 1),
-              child: Text(
+              scaleDuration: const Duration(seconds: 1),
+              child: const Text(
                 "2",
                 style: TextStyle(
                   fontSize: 100,
@@ -54,8 +54,8 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
         setState(
           () {
             time = ScaleAnimation(
-              duration: Duration(seconds: 1),
-              child: Text(
+              duration: const Duration(seconds: 1),
+              child: const Text(
                 "1",
                 style: TextStyle(
                   fontSize: 100,
@@ -69,7 +69,7 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
       },
     );
     Timer(
-      Duration(seconds: 5),
+      const Duration(seconds: 5),
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
@@ -89,12 +89,10 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          child: CircleAvatar(
-            child: time,
-            backgroundColor: Colors.deepPurple[400],
-            radius: 100,
-          ),
+        child: CircleAvatar(
+          backgroundColor: Colors.deepPurple[400],
+          radius: 100,
+          child: time,
         ),
       ),
     );

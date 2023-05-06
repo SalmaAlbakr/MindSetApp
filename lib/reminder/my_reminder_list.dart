@@ -15,8 +15,8 @@ class _MyReminderListState extends State<MyReminderList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF2C0746),
-        title: Text(
+        backgroundColor: const Color(0xFF2C0746),
+        title: const Text(
           "My List",
           style: TextStyle(fontSize: 25),
         ),
@@ -27,76 +27,74 @@ class _MyReminderListState extends State<MyReminderList> {
           return ValueListenableBuilder(
             valueListenable: hiveBox.listenable(),
             builder: (context, value, child) {
-              return Container(
-                child: ListView.builder(
-                  itemCount: hiveBox.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final helper = hiveBox.getAt(index) as ReminderModelClass;
-                    return Padding(
+              return ListView.builder(
+                itemCount: hiveBox.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final helper = hiveBox.getAt(index) as ReminderModelClass;
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFA56FCA),
-                          border: Border.all(),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  helper.title,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25,
-                                  ),
-                                ),
-                                Text(
-                                  helper.disc,
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  helper.time,
-                                  style: TextStyle(
-                                    fontSize: 23,
-                                  ),
-                                ),
-                                Text(
-                                  helper.date,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    AwesomeNotifications().cancel(index);
-                                    hiveBox.deleteAt(index);
-                                  },
-                                );
-                              },
-                              icon: Icon(
-                                Icons.delete_outline,
-                                size: 30,
-                              ),
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFA56FCA),
+                        border: Border.all(),
                       ),
-                    );
-                  },
-                ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                helper.title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                ),
+                              ),
+                              Text(
+                                helper.disc,
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                helper.time,
+                                style: const TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
+                              Text(
+                                helper.date,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setState(
+                                () {
+                                  AwesomeNotifications().cancel(index);
+                                  hiveBox.deleteAt(index);
+                                },
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.delete_outline,
+                              size: 30,
+                            ),
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               );
             },
           );

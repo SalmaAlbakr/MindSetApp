@@ -28,7 +28,7 @@ class _MainPageState extends State<MainPage> {
         elevation: 0.0,
         title: const Text(
           "MindSet",
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -75,7 +75,7 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 150,
                                 width: 150,
                                 child: Image.asset("assets/img_8.png"),
@@ -105,7 +105,7 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 150,
                                 width: 150,
                                 child: Image.asset("assets/img_7.png"),
@@ -139,7 +139,7 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 150,
                                 width: 150,
                                 child: Image.asset("assets/img_9.png"),
@@ -172,7 +172,7 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 150,
                                 width: 150,
                                 child: Image.asset("assets/img_11.png"),
@@ -202,7 +202,7 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 150,
                                 width: 150,
                                 child: Image.asset(

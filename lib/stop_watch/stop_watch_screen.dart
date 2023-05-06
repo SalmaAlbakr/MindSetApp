@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 class StopWatchScreen extends StatefulWidget {
+  const StopWatchScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _StopWatchScreenState createState() => _StopWatchScreenState();
 }
 
@@ -12,7 +15,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   String time = "00:00:00";
   var swatch = Stopwatch();
   final dur = const Duration(seconds: 1);
-  String StartButton = "Start";
+  String startButton = "Start";
 
   void startTimer() {
     Timer(dur, keepRunning);
@@ -23,11 +26,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
       startTimer();
     }
     setState(() {
-      time = swatch.elapsed.inHours.toString().padLeft(2, '0') +
-          ":" +
-          (swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
-          ":" +
-          (swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
+      time = "${swatch.elapsed.inHours.toString().padLeft(2, '0')}:${(swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0')}:${(swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0')}";
     });
   }
 
@@ -48,7 +47,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
       },
     );
     swatch.stop();
-    StartButton = "Restart";
+    startButton = "Restart";
   }
 
   void resetWatch() {
@@ -57,7 +56,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     );
     swatch.reset();
     time = "00:00:00";
-    StartButton = "Start";
+    startButton = "Start";
   }
 
   @override
@@ -65,7 +64,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: Text(
+        title: const Text(
           "Stop Watch",
         ),
       ),
@@ -102,14 +101,14 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
             children: [
               isVisible
                   ? ElevatedButton(
-                      style: ButtonStyle(
+                      style: const ButtonStyle(
                         backgroundColor:
                             MaterialStatePropertyAll(Colors.deepPurple),
                       ),
                       onPressed: startWatch,
                       child: Text(
-                        StartButton,
-                        style: TextStyle(
+                        startButton,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontStyle: FontStyle.italic,
                           fontSize: 25,
@@ -118,12 +117,12 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                       ),
                     )
                   : ElevatedButton(
-                      style: ButtonStyle(
+                      style: const ButtonStyle(
                         backgroundColor:
                             MaterialStatePropertyAll(Colors.deepPurple),
                       ),
                       onPressed: stopwatch,
-                      child: Text(
+                      child: const Text(
                         "Stop",
                         style: TextStyle(
                           color: Colors.white,
@@ -139,10 +138,10 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                   height: 40,
                   width: 90,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.deepPurple,
                   ),
-                  child: Text(
+                  child: const Text(
                     "Reset",
                     style: TextStyle(
                       color: Colors.white,

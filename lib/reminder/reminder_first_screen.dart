@@ -4,7 +4,7 @@ import 'package:next_poject/reminder/my_reminder_list.dart';
 import 'package:next_poject/reminder/reminder_Screen.dart';
 
 class ReminderFirstPage extends StatefulWidget {
-  ReminderFirstPage({Key? key}) : super(key: key);
+  const ReminderFirstPage({Key? key}) : super(key: key);
 
   @override
   State<ReminderFirstPage> createState() => _ReminderFirstPageState();
@@ -15,10 +15,10 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Reminder",
         ),
-        backgroundColor: Color(0xFF2C0746),
+        backgroundColor: const Color(0xFF2C0746),
       ),
       body: SafeArea(
         child: FutureBuilder(
@@ -35,7 +35,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               "hello..Let's get started   ",
                               style: TextStyle(
@@ -52,17 +52,17 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => ReminderMeScreen(),
+                                builder: (_) => const ReminderMeScreen(),
                               ),
                             );
                           },
                           child: Container(
                             height: 150,
                             width: 200,
-                            color: Color(0xFFA56FCA),
+                            color: const Color(0xFFA56FCA),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.add,
                                   size: 50,
@@ -85,14 +85,14 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                             await Hive.openBox("reminderBox");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => MyReminderList(),
+                                builder: (_) => const MyReminderList(),
                               ),
                             );
                           },
                           child: Container(
                             height: 150,
                             width: 200,
-                            color: Color(0xFFA56FCA),
+                            color: const Color(0xFFA56FCA),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -100,7 +100,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                                 children: [
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.file_copy_outlined,
                                         size: 55,
@@ -120,7 +120,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                                       ? Container()
                                       : Text(
                                           hiveBox.length.toString(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 40,
                                           ),
                                         ),

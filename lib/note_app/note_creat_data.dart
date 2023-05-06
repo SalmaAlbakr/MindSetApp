@@ -5,7 +5,7 @@ import 'package:next_poject/note_app/note_first_screen.dart';
 import 'package:next_poject/templets/thems.dart';
 
 class NoteCreateData extends StatefulWidget {
-  NoteCreateData({Key? key}) : super(key: key);
+  const NoteCreateData({Key? key}) : super(key: key);
 
   @override
   State<NoteCreateData> createState() => _NoteCreateDataState();
@@ -27,8 +27,8 @@ class _NoteCreateDataState extends State<NoteCreateData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFc793ce),
-        title: Text("Notes"),
+        backgroundColor: const Color(0xFFc793ce),
+        title: const Text("Notes"),
       ),
       body: Form(
         key: formKey,
@@ -46,22 +46,22 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                   }
                   return null;
                 },
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
                 controller: _nameController,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: AppColor().MainColor,
+                      color: AppColor().mainColor,
                     ),
                   ),
                   hintText: "title",
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: TextFormField(
                   validator: (value) {
@@ -72,17 +72,17 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                   },
                   maxLines: 9999,
                   controller: _ageController,
-                  style: TextStyle(
+                  style: const TextStyle(
                     overflow: TextOverflow.ellipsis,
                   ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: AppColor().MainColor,
+                        color: AppColor().mainColor,
                       ),
                     ),
                     hintText: "note",
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                   ),
                 ),
               ),
@@ -91,8 +91,8 @@ class _NoteCreateDataState extends State<NoteCreateData> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 40),
-                  backgroundColor: Color(0xFF533f6a),
+                  minimumSize: const Size(double.infinity, 40),
+                  backgroundColor: const Color(0xFF533f6a),
                 ),
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -101,12 +101,12 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                     Hive.box("boxName").add(value);
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => NoteHomeScreen(),
+                        builder: (context) => const NoteHomeScreen(),
                       ),
                     );
                   }
                 },
-                child: Text("create"),
+                child: const Text("create"),
               ),
             ],
           ),

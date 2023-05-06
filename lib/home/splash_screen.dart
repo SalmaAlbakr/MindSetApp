@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:next_poject/home/first_screen.dart';
 import 'package:next_poject/main.dart';
 
@@ -13,11 +12,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   var timer = Timer(
-    Duration(seconds: 4),
+    const Duration(seconds: 4),
     () {
       MyApp.navigatorKey.currentState?.pushReplacement(
         MaterialPageRoute(
-          builder: (_) => MainPage(),
+          builder: (_) => const MainPage(),
         ),
       );
     },
@@ -43,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           children: [
             Image.asset("assets/textSplash3.gif"),
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             Image.asset("assets/download.png"),
           ],
         ),
