@@ -27,7 +27,8 @@ class _TossHomeScreenState extends State<TossHomeScreen>
   )..repeat();
   @override
   void dispose() {
-    _controller;
+    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
   @override
