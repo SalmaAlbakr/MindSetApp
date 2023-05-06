@@ -26,20 +26,25 @@ class _TossHomeScreenState extends State<TossHomeScreen>
     vsync: this,
   )..repeat();
   @override
+  void dispose() {
+    _controller;
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[400],
         title: Row(
           children: [
-            Text(
+            const Text(
               "T",
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white,
               ),
             ),
-            Text(
+            const Text(
               "O",
               style: TextStyle(
                 fontSize: 40,
@@ -48,7 +53,7 @@ class _TossHomeScreenState extends State<TossHomeScreen>
             ),
             AnimatedBuilder(
               animation: _controller,
-              child: Text(
+              child: const Text(
                 "\$",
                 style: TextStyle(
                   fontSize: 40,
@@ -69,7 +74,7 @@ class _TossHomeScreenState extends State<TossHomeScreen>
             ),
             AnimatedBuilder(
               animation: _controller,
-              child: Text(
+              child: const Text(
                 "\$",
                 style: TextStyle(
                   fontSize: 40,
@@ -94,144 +99,140 @@ class _TossHomeScreenState extends State<TossHomeScreen>
       body: SafeArea(
         child: Form(
           key: formKey,
-          child: Container(
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Hello, Let's Get Started",
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 25,
-                    ),
+          child: ListView(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Hello, Let's Get Started",
+                  style: TextStyle(
+                    color: Colors.deepPurple,
+                    fontSize: 25,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  height: 350,
-                  child: Container(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: widget.inputList.length,
-                      itemBuilder: (context, index) {
-                        return ScaleAnimation(
-                          child: Card(
-                            elevation: 5,
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    widget.inputList[index],
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(
-                                        () {
-                                          widget.inputList.removeAt(index);
-                                        },
-                                      );
-                                    },
-                                    icon: Icon(
-                                      Icons.delete,
-                                      color: Colors.deepPurple,
-                                    ),
-                                  ),
-                                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 350,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: widget.inputList.length,
+                  itemBuilder: (context, index) {
+                    return ScaleAnimation(
+                      child: Card(
+                        elevation: 5,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                widget.inputList[index],
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
                               ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                      hintText: "Enter your Options here",
-                    ),
-                    controller: controller,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Colors.deepPurple,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(
-                        () {
-                          widget.inputList.add(controller.text);
-                          controller.clear();
-                        },
-                      );
-                    },
-                    child: Text(
-                      "add",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Colors.deepPurple,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(
-                        () {
-                          if (widget.inputList.isEmpty) {
-                            Fluttertoast.showToast(
-                              msg: "plz enter an options",
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 5,
-                              backgroundColor: Colors.grey,
-                              textColor: Colors.white,
-                              fontSize: 16.0,
-                            );
-                          } else {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TossTimerScreen(
-                                  index: widget.index,
-                                  inputList: widget.inputList,
+                              IconButton(
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      widget.inputList.removeAt(index);
+                                    },
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: Colors.deepPurple,
                                 ),
                               ),
-                            );
-                          }
-                        },
-                      );
-                    },
-                    child: Text(
-                      "Pick",
-                      style: TextStyle(
-                        color: Colors.white,
+                            ],
+                          ),
+                        ),
                       ),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  decoration: const InputDecoration(
+                    hintText: "Enter your Options here",
+                  ),
+                  controller: controller,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.deepPurple,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(
+                      () {
+                        widget.inputList.add(controller.text);
+                        controller.clear();
+                      },
+                    );
+                  },
+                  child: const Text(
+                    "add",
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.deepPurple,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(
+                      () {
+                        if (widget.inputList.isEmpty) {
+                          Fluttertoast.showToast(
+                            msg: "plz enter an options",
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 5,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 16.0,
+                          );
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TossTimerScreen(
+                                index: widget.index,
+                                inputList: widget.inputList,
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  },
+                  child: const Text(
+                    "Pick",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

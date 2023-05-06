@@ -39,7 +39,7 @@ class _NoteEditDataState extends State<NoteEditData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFc793ce),
+        backgroundColor: const Color(0xFFc793ce),
         title: Text(widget.name),
       ),
       body: Form(
@@ -55,22 +55,22 @@ class _NoteEditDataState extends State<NoteEditData> {
                   }
                   return null;
                 },
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
                 controller: _nameController,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: AppColor().MainColor,
+                      color: AppColor().mainColor,
                     ),
                   ),
                   hintText: "title",
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: TextFormField(
                   validator: (value) {
@@ -81,17 +81,17 @@ class _NoteEditDataState extends State<NoteEditData> {
                   },
                   maxLines: 9999,
                   controller: _ageController,
-                  style: TextStyle(
+                  style: const TextStyle(
                     overflow: TextOverflow.ellipsis,
                   ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: AppColor().MainColor,
+                        color: AppColor().mainColor,
                       ),
                     ),
                     hintText: "note",
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                   ),
                 ),
               ),
@@ -106,20 +106,19 @@ class _NoteEditDataState extends State<NoteEditData> {
                       age: _ageController.text,
                     );
                     Hive.box("boxName").putAt(widget.index, value);
-                    print("done data");
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => NoteHomeScreen(),
+                        builder: (context) => const NoteHomeScreen(),
                       ),
                     );
                   }
                 },
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(
                     Color(0xFF533f6a),
                   ),
                 ),
-                child: Text("Done"),
+                child: const Text("Done"),
               ),
             ],
           ),

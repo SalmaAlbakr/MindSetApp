@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/home/first_screen.dart';
 import 'package:next_poject/home/splash_screen.dart';
 import 'package:next_poject/note_app/model_class.dart';
 import 'package:next_poject/reminder/reminder_model_class.dart';
@@ -24,7 +23,7 @@ void main() async {
   Hive.registerAdapter(ModelClassAdapter());
   Hive.registerAdapter(ReminderModelClassAdapter());
   runApp(
-    RootRestorationScope(
+    const RootRestorationScope(
       restorationId: 'not',
       child: MyApp(),
     ),
@@ -32,7 +31,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
   @override
@@ -44,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: MyApp.navigatorKey,
-      home: SplashScreen()
+      home: const SplashScreen()
     );
   }
 }

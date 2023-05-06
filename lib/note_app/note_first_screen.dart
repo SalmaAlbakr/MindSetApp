@@ -14,6 +14,7 @@ class NoteHomeScreen extends StatefulWidget {
 }
 
 class _NoteHomeScreenState extends State<NoteHomeScreen> {
+  @override
   void dispose() {
     Hive.box("boxName").close();
     super.dispose();
@@ -23,26 +24,26 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Notes"),
-        backgroundColor: Color(0xFFc793ce),
+        title: const Text("Notes"),
+        backgroundColor: const Color(0xFFc793ce),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF533f6a),
+        backgroundColor: const Color(0xFF533f6a),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => NoteCreateData(),
+              builder: (context) => const NoteCreateData(),
             ),
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: Column(
         children: [
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.7,
             child: FutureBuilder(
               builder: (context, snapshot) {
@@ -59,7 +60,7 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                           child: Slidable(
                             key: ValueKey(index),
                             startActionPane: ActionPane(
-                              motion: ScrollMotion(),
+                              motion: const ScrollMotion(),
                               children: [
                                 SlidableAction(
                                   onPressed: (context) {
@@ -80,7 +81,7 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                               ],
                             ),
                             endActionPane: ActionPane(
-                              motion: ScrollMotion(),
+                              motion: const ScrollMotion(),
                               children: [
                                 SlidableAction(
                                   onPressed: (context) {
@@ -95,10 +96,10 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                             ),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: AppColor().MainColor,
+                                  color: AppColor().mainColor,
                                 ),
                               ),
                               child: Column(
@@ -106,7 +107,7 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                                 children: [
                                   Text(
                                     helper.name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -116,7 +117,7 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                                   Text(
                                     helper.age,
                                     maxLines: 1,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
