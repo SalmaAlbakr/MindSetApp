@@ -26,7 +26,8 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
       startTimer();
     }
     setState(() {
-      time = "${swatch.elapsed.inHours.toString().padLeft(2, '0')}:${(swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0')}:${(swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0')}";
+      time =
+          "${swatch.elapsed.inHours.toString().padLeft(2, '0')}:${(swatch.elapsed.inMinutes % 60).toString().padLeft(2, '0')}:${(swatch.elapsed.inSeconds % 60).toString().padLeft(2, '0')}";
     });
   }
 

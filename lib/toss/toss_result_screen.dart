@@ -14,58 +14,106 @@ class TossResultScreen extends StatefulWidget {
   @override
   State<TossResultScreen> createState() => _TossResultScreenState();
 }
-
-List<Widget> anotherWidget = [
-  const CircleAvatar(
-    radius: 150,
-    backgroundColor: Colors.white,
-  ),
-  PhysicalShape(
-    elevation: 5.0,
-    clipper: ShapeBorderClipper(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-    ),
-    color: Colors.white,
-    child: const SizedBox(
-      height: 300,
-      width: 300,
-    ),
-  ),
-  ShapeOfView(
-    height: 300,
-    width: 300,
-    shape: PolygonShape(numberOfSides: 9),
-    child: Container(
-      color: Colors.white,
-    ),
-  ),
-  ShapeOfView(
-    height: 300,
-    width: 300,
-    shape: BubbleShape(
-        position: BubblePosition.Bottom,
-        arrowPositionPercent: 0.5,
-        borderRadius: 20,
-        arrowHeight: 10,
-        arrowWidth: 10),
-    child: Container(
-      color: Colors.white,
-    ),
-  ),
-];
+//
+// List<Widget> anotherWidget = [
+//   const CircleAvatar(
+//     radius: 150,
+//     backgroundColor: Colors.white,
+//   ),
+//   PhysicalShape(
+//     elevation: 5.0,
+//     clipper: ShapeBorderClipper(
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(10.0),
+//       ),
+//     ),
+//     color: Colors.white,
+//     child: const SizedBox(
+//       height: 300,
+//       width: 300,
+//     ),
+//   ),
+//   ShapeOfView(
+//     height: 300,
+//     width: 300,
+//     shape: PolygonShape(numberOfSides: 9),
+//     child: Container(
+//       color: Colors.white,
+//     ),
+//   ),
+//   ShapeOfView(
+//     height: 300,
+//     width: 300,
+//     shape: BubbleShape(
+//         position: BubblePosition.Bottom,
+//         arrowPositionPercent: 0.5,
+//         borderRadius: 20,
+//         arrowHeight: 10,
+//         arrowWidth: 10),
+//     child: Container(
+//       color: Colors.white,
+//     ),
+//   ),
+// ];
 
 class _TossResultScreenState extends State<TossResultScreen>
     with TickerProviderStateMixin {
-  Widget randomWidget = randomChoice(anotherWidget);
+
+  List<Widget> anotherWidget = [
+    const CircleAvatar(
+      radius: 150,
+      backgroundColor: Colors.white,
+    ),
+    PhysicalShape(
+      elevation: 5.0,
+      clipper: ShapeBorderClipper(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+      color: Colors.white,
+      child: const SizedBox(
+        height: 300,
+        width: 300,
+      ),
+    ),
+    ShapeOfView(
+      height: 300,
+      width: 300,
+      shape: PolygonShape(numberOfSides: 9),
+      child: Container(
+        color: Colors.white,
+      ),
+    ),
+    ShapeOfView(
+      height: 300,
+      width: 300,
+      shape: BubbleShape(
+          position: BubblePosition.Bottom,
+          arrowPositionPercent: 0.5,
+          borderRadius: 20,
+          arrowHeight: 10,
+          arrowWidth: 10),
+      child: Container(
+        color: Colors.white,
+      ),
+    ),
+  ];
+
+
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 5),
     vsync: this,
   )..repeat();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
+    Widget randomWidget = randomChoice(anotherWidget);
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent[100],
       appBar: AppBar(
@@ -147,6 +195,7 @@ class _TossResultScreenState extends State<TossResultScreen>
                 ),
               ),
             ),
+
             ScaleAnimation(
               child: Stack(
                 alignment: AlignmentDirectional.center,

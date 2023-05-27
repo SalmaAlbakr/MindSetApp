@@ -217,7 +217,8 @@ class _ReminderMeScreenState extends State<ReminderMeScreen> {
                                   ),
                                 ],
                               );
-                            } else {
+                            }
+                            else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   backgroundColor: Colors.grey,
