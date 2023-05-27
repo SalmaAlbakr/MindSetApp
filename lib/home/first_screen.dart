@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:next_poject/home/main_widget/main_widget.dart';
 import 'package:next_poject/home/navigation_bar.dart';
 import 'package:next_poject/reminder/notification_controller.dart';
 
@@ -39,196 +40,112 @@ class _MainPageState extends State<MainPage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "provide you with a collection  daily apps in one place.. ",
-                  maxLines: 20,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "provide you with a collection  daily apps in one place.. ",
+                maxLines: 20,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MainButoon(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 4,
+                          ),
+                        ),
+                      );
+                    },
+                    imageName: 'assets/img_8.png',
+                    appName: 'Calculator',
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => NavigationScreen(
-                                  num: 4,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Image.asset("assets/img_8.png"),
-                              ),
-                              const Text(
-                                "Calculator",
-                                style: TextStyle(
-                                  fontSize: 23,
-                                  color: Color(0xff5C2681),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                  MainButoon(
+                    onTap: () async {
+                      await Hive.openBox("boxName");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 2,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () async {
-                            await Hive.openBox("boxName");
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => NavigationScreen(
-                                  num: 2,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Image.asset("assets/img_7.png"),
-                              ),
-                              const Text(
-                                "Notes",
-                                style: TextStyle(
-                                  fontSize: 23,
-                                  color: Color(0xff5C2681),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                      );
+                    },
+                    imageName: "assets/img_7.png",
+                    appName: "Notes",
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MainButoon(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 1,
                           ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => NavigationScreen(
-                                  num: 1,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Image.asset("assets/img_9.png"),
-                              ),
-                              const Text(
-                                "StopWatch",
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    color: Color(0xff5C2681),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                      );
+                    },
+                    imageName: "assets/img_9.png",
+                    appName: "StopWatch",
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MainButoon(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 0,
                           ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => NavigationScreen(
-                                  num: 0,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Image.asset("assets/img_11.png"),
-                              ),
-                              const Text(
-                                "Toss",
-                                style: TextStyle(
-                                  fontSize: 23,
-                                  color: Color(0xff5C2681),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                      );
+                    },
+                    imageName: "assets/img_11.png",
+                    appName: "Toss",
+                  ),
+                  MainButoon(
+                    onTap: () async {
+                      await Hive.openBox("reminderBox");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavigationScreen(
+                            num: 3,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () async {
-                            await Hive.openBox("reminderBox");
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => NavigationScreen(
-                                  num: 3,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Image.asset(
-                                  "assets/img_12.png",
-                                ),
-                              ),
-                              const Text(
-                                "Reminder",
-                                style: TextStyle(
-                                  fontSize: 23,
-                                  color: Color(0xff5C2681),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                      );
+                    },
+                    imageName: "assets/img_12.png",
+                    appName: "Reminder",
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 }
+
+
