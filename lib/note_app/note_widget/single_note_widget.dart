@@ -1,9 +1,9 @@
+import 'package:MindSet/note_app/model_class.dart';
+import 'package:MindSet/note_app/note_edit_data.dart';
+import 'package:MindSet/templets/thems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/note_app/model_class.dart';
-import 'package:next_poject/note_app/note_edit_data.dart';
-import 'package:next_poject/templets/thems.dart';
 
 class SingleNote extends StatelessWidget {
   const SingleNote({

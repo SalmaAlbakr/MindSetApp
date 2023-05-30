@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:next_poject/calculator/calculator_screen.dart';
-import 'package:next_poject/note_app/note_first_screen.dart';
-import 'package:next_poject/reminder/reminder_first_screen.dart';
-import 'package:next_poject/stop_watch/stop_watch_screen.dart';
-import 'package:next_poject/toss/toss_home_screen.dart';
+import 'package:MindSet/calculator/calculator_screen.dart';
+import 'package:MindSet/note_app/note_first_screen.dart';
+import 'package:MindSet/reminder/reminder_first_screen.dart';
+import 'package:MindSet/stop_watch/stop_watch_screen.dart';
+import 'package:MindSet/toss/toss_home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
    int num = 0;
@@ -31,7 +31,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+      BottomNavigationBar(
         currentIndex: widget.num,
         onTap: (index) async {
           await Hive.openBox("reminderBox");

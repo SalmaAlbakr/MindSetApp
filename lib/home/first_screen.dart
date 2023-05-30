@@ -1,9 +1,9 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/home/main_widget/main_widget.dart';
-import 'package:next_poject/home/navigation_bar.dart';
-import 'package:next_poject/reminder/notification_controller.dart';
+import 'package:MindSet/home/main_widget/main_widget.dart';
+import 'package:MindSet/home/navigation_bar.dart';
+import 'package:MindSet/reminder/notification_controller.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: const Color(0XFFFDFDFD),
       appBar: AppBar(
-        backgroundColor: const Color(0xffab7ec1),
+        backgroundColor: Colors.blue[900],
         elevation: 0.0,
         title: const Text(
           "MindSet",

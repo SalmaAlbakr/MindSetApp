@@ -1,7 +1,7 @@
+import 'package:MindSet/reminder/reminder_model_class.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/reminder/reminder_model_class.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
 class ReminderMeScreen extends StatefulWidget {

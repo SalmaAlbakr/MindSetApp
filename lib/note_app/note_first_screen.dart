@@ -1,8 +1,8 @@
+import 'package:MindSet/note_app/model_class.dart';
+import 'package:MindSet/note_app/note_creat_data.dart';
+import 'package:MindSet/note_app/note_widget/single_note_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/note_app/note_creat_data.dart';
-import 'package:next_poject/note_app/model_class.dart';
-import 'package:next_poject/note_app/note_widget/single_note_widget.dart';
 
 class NoteHomeScreen extends StatefulWidget {
   const NoteHomeScreen({Key? key}) : super(key: key);

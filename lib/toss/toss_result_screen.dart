@@ -1,7 +1,7 @@
+import 'package:MindSet/home/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
-import 'package:next_poject/home/navigation_bar.dart';
 import 'dart:math' as math;
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:MindSet/toss/toss_result_screen.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
-import 'package:next_poject/toss/toss_result_screen.dart';
 
 class TossTimerScreen extends StatefulWidget {
   final List<String> inputList;

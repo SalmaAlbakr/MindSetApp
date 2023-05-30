@@ -1,8 +1,8 @@
+import 'package:MindSet/note_app/model_class.dart';
+import 'package:MindSet/note_app/note_first_screen.dart';
+import 'package:MindSet/templets/thems.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:next_poject/note_app/model_class.dart';
-import 'package:next_poject/note_app/note_first_screen.dart';
-import 'package:next_poject/templets/thems.dart';
 
 class NoteCreateData extends StatefulWidget {
   const NoteCreateData({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
+import 'package:MindSet/main.dart';
+import 'package:MindSet/reminder/my_reminder_list.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:next_poject/main.dart';
-import 'package:next_poject/reminder/my_reminder_list.dart';
 
 class NotificationController {
   static Future<void> onActionReceivedMethod(

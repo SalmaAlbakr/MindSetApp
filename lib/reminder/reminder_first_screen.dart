@@ -1,7 +1,7 @@
+import 'package:MindSet/reminder/my_reminder_list.dart';
+import 'package:MindSet/reminder/reminder_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:next_poject/reminder/my_reminder_list.dart';
-import 'package:next_poject/reminder/reminder_Screen.dart';
 
 class ReminderFirstPage extends StatefulWidget {
   const ReminderFirstPage({Key? key}) : super(key: key);
