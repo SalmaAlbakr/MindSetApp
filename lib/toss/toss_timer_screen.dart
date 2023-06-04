@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class TossTimerScreen extends StatefulWidget {
   final List<String> inputList;
-  final int index;
-  const TossTimerScreen({required this.index, required this.inputList, Key? key})
+  const TossTimerScreen({
+    required this.inputList, Key? key})
       : super(key: key);
 
   @override
@@ -75,7 +75,7 @@ class _TossTimerScreenState extends State<TossTimerScreen> {
           MaterialPageRoute(
             builder: (BuildContext context) {
               return TossResultScreen(
-                index: widget.index,
+                //index: widget.index,
                 inputList: widget.inputList,
               );
             },

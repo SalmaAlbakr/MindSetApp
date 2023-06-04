@@ -13,7 +13,6 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   var userInput = '';
   var answer = '';
-final iconB = Icons.ac_unit_sharp.toString();
 
   final List<String> buttons = [
     'C',

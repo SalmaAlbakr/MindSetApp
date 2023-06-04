@@ -7,9 +7,9 @@ import 'package:MindSet/stop_watch/stop_watch_screen.dart';
 import 'package:MindSet/toss/toss_home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
-   int num = 0;
-  NavigationScreen({Key? key, required this.num}) : super(key: key);
 
+  NavigationScreen({Key? key, required this.num}) : super(key: key);
+  int num = 0;
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();
 }
@@ -18,7 +18,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
   List screen = [
     TossHomeScreen(
       inputList:  [],
-      index: 0,
     ),
     const StopWatchScreen(),
     const NoteHomeScreen(),
@@ -26,13 +25,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
     const CalculatorScreen()
   ];
 
-  //int num = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:
-      BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: widget.num,
         onTap: (index) async {
           await Hive.openBox("reminderBox");
@@ -41,7 +37,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             widget.num = index;
           });
         },
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
         selectedItemColor: Colors.deepPurple,
         unselectedItemColor: Colors.purple,
         items: [

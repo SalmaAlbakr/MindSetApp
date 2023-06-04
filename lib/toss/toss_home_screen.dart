@@ -6,11 +6,9 @@ import 'dart:math' as math;
 
 class TossHomeScreen extends StatefulWidget {
   List<String> inputList = [""];
-  int index = 0;
   TossHomeScreen({
     Key? key,
     required this.inputList,
-    required this.index,
   }) : super(key: key);
 
   @override
@@ -216,7 +214,7 @@ class _TossHomeScreenState extends State<TossHomeScreen>
                             context,
                             MaterialPageRoute(
                               builder: (context) => TossTimerScreen(
-                                index: widget.index,
+                               // index: widget.index,
                                 inputList: widget.inputList,
                               ),
                             ),

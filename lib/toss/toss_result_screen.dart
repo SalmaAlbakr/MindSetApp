@@ -7,54 +7,14 @@ import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 class TossResultScreen extends StatefulWidget {
   final List<String> inputList;
-  final int index;
-  const TossResultScreen({required this.index, required this.inputList, Key? key})
+  const TossResultScreen({
+    required this.inputList, Key? key})
       : super(key: key);
 
   @override
   State<TossResultScreen> createState() => _TossResultScreenState();
 }
-//
-// List<Widget> anotherWidget = [
-//   const CircleAvatar(
-//     radius: 150,
-//     backgroundColor: Colors.white,
-//   ),
-//   PhysicalShape(
-//     elevation: 5.0,
-//     clipper: ShapeBorderClipper(
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(10.0),
-//       ),
-//     ),
-//     color: Colors.white,
-//     child: const SizedBox(
-//       height: 300,
-//       width: 300,
-//     ),
-//   ),
-//   ShapeOfView(
-//     height: 300,
-//     width: 300,
-//     shape: PolygonShape(numberOfSides: 9),
-//     child: Container(
-//       color: Colors.white,
-//     ),
-//   ),
-//   ShapeOfView(
-//     height: 300,
-//     width: 300,
-//     shape: BubbleShape(
-//         position: BubblePosition.Bottom,
-//         arrowPositionPercent: 0.5,
-//         borderRadius: 20,
-//         arrowHeight: 10,
-//         arrowWidth: 10),
-//     child: Container(
-//       color: Colors.white,
-//     ),
-//   ),
-// ];
+
 
 class _TossResultScreenState extends State<TossResultScreen>
     with TickerProviderStateMixin {

@@ -48,10 +48,10 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
       },
     );
     swatch.stop();
-    startButton = "Restart";
+    startButton = "Continue";
   }
 
-  void resetWatch() {
+  void restartWatch() {
     setState(
       () {},
     );
@@ -134,7 +134,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                       ),
                     ),
               InkWell(
-                onTap: resetWatch,
+                onTap: restartWatch,
                 child: Container(
                   height: 40,
                   width: 90,
@@ -143,7 +143,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                     color: Colors.deepPurple,
                   ),
                   child: const Text(
-                    "Reset",
+                    "Restart",
                     style: TextStyle(
                       color: Colors.white,
                       fontStyle: FontStyle.italic,
