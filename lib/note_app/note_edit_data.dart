@@ -79,7 +79,7 @@ class _NoteEditDataState extends State<NoteEditData> {
                     }
                     return null;
                   },
-                  maxLines: 9999,
+                  maxLines: null,
                   controller: _ageController,
                   style: const TextStyle(
                     overflow: TextOverflow.ellipsis,

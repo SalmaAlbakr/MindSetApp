@@ -15,7 +15,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: const  Text(
           "Reminder",
         ),
         backgroundColor: const Color(0xFF2C0746),
@@ -47,6 +47,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                         const SizedBox(
                           height: 100,
                         ),
+                        //addButton
                         GestureDetector(
                           onTap: () async {
                             await Hive.openBox("reminderBox");
@@ -80,6 +81,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
                         const SizedBox(
                           height: 15,
                         ),
+                        //myListButton
                         GestureDetector(
                           onTap: () async {
                             await Hive.openBox("reminderBox");
