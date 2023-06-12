@@ -14,6 +14,7 @@ class _ReminderFirstPageState extends State<ReminderFirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: const  Text(
           "Reminder",

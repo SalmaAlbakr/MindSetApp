@@ -1,3 +1,4 @@
+import 'package:MindSet/home/navigation_bar.dart';
 import 'package:MindSet/note_app/model_class.dart';
 import 'package:MindSet/note_app/note_first_screen.dart';
 import 'package:MindSet/templets/thems.dart';
@@ -94,14 +95,18 @@ class _NoteCreateDataState extends State<NoteCreateData> {
                   minimumSize: const Size(double.infinity, 40),
                   backgroundColor: const Color(0xFF533f6a),
                 ),
-                onPressed: () {
+                onPressed: () async {
                   if (formKey.currentState!.validate()) {
                     final value = ModelClass(
                         name: _nameController.text, age: _ageController.text);
                     Hive.box("boxName").add(value);
-                    Navigator.of(context).push(
+                    await Hive.openBox("boxName");
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => const NoteHomeScreen(),
+                        builder: (context) => NavigationScreen(
+                          num: 2,
+                        ),
                       ),
                     );
                   }
